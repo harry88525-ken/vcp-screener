@@ -17,8 +17,10 @@ TRADING_DAYS_PER_YEAR = 252
 
 # FinMind
 FINMIND_BASE_URL = "https://api.finmindtrade.com/api/v4/data"
-FINMIND_SLEEP_SEC = 0.12        # 每次請求間隔，避開免費版 600 req/hr
+FINMIND_SLEEP_SEC = 0.12        # 每次請求間隔（小範圍快跑）；全市場掃描由 env FINMIND_SLEEP_SEC=6 節流到 <600/hr
 FINMIND_MAX_RETRY = 4
+FINMIND_RATE_BACKOFF_SEC = 90   # 遇限流(402/429)每次等候秒數
+FINMIND_RATE_MAX_WAITS = 80     # 限流等候次數上限（保護：80×90s=2hr）
 
 # ─────────────────────────────────────────────────────────────
 # 排除清單（產業 / 標的類型）

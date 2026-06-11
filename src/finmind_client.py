@@ -25,11 +25,12 @@ class FinMindError(RuntimeError):
 
 
 class FinMindClient:
-    def __init__(self, token: str | None = None, sleep: float = C.FINMIND_SLEEP_SEC):
+    def __init__(self, token: str | None = None, sleep: float | None = None):
         self.token = (token or os.environ.get("FINMIND_TOKEN", "")).strip()
         if not self.token:
             raise FinMindError("缺 FINMIND_TOKEN（環境變數或 .env）")
-        self.sleep = sleep
+        # 節流：env FINMIND_SLEEP_SEC 可覆寫（全市場掃描設 ~6s 以守住免費版 600/hr）
+        self.sleep = float(os.environ.get("FINMIND_SLEEP_SEC", sleep if sleep is not None else C.FINMIND_SLEEP_SEC))
         self.s = requests.Session()
         self.s.headers.update({"Authorization": f"Bearer {self.token}"})
 
@@ -37,27 +38,46 @@ class FinMindClient:
     def _get(self, dataset: str, **params) -> list[dict]:
         params["dataset"] = dataset
         last_err = None
-        for attempt in range(C.FINMIND_MAX_RETRY):
+        attempt = 0
+        rate_waits = 0
+        while True:
             try:
                 r = self.s.get(C.FINMIND_BASE_URL, params=params, timeout=60)
             except requests.RequestException as e:
+                attempt += 1
                 last_err = e
-                time.sleep(1.5 * (attempt + 1))
+                if attempt >= C.FINMIND_MAX_RETRY:
+                    raise FinMindError(f"{dataset} 連線重試耗盡：{last_err}")
+                time.sleep(1.5 * attempt)
                 continue
-            if r.status_code == 402:  # 額度上限
-                raise FinMindError(f"FinMind 額度上限(402)：{dataset} {params}")
+
             try:
                 j = r.json()
             except ValueError:
-                last_err = FinMindError(f"非 JSON 回應 http={r.status_code}")
-                time.sleep(1.0)
+                j = {}
+
+            # 限流（402/429 或 body 訊息含 limit）→ 等候後重試，不中斷整體掃描
+            msg = str(j.get("msg", ""))
+            if r.status_code in (402, 429) or "limit" in msg.lower():
+                rate_waits += 1
+                if rate_waits > C.FINMIND_RATE_MAX_WAITS:
+                    raise FinMindError(f"FinMind 限流持續未解：{dataset}")
+                time.sleep(C.FINMIND_RATE_BACKOFF_SEC)
                 continue
+
             if r.status_code == 200 and j.get("status") == 200:
                 time.sleep(self.sleep)
                 return j.get("data") or []
-            # 400 等級錯誤（如付費限定）直接拋，不重試
+
+            if not j:  # 非 JSON 暫時性錯誤 → 重試
+                attempt += 1
+                if attempt >= C.FINMIND_MAX_RETRY:
+                    raise FinMindError(f"{dataset} 非 JSON 重試耗盡 http={r.status_code}")
+                time.sleep(1.0)
+                continue
+
+            # 其餘（如付費限定 400）直接拋
             raise FinMindError(f"{dataset} http={r.status_code} status={j.get('status')} msg={j.get('msg')!r}")
-        raise FinMindError(f"{dataset} 重試耗盡：{last_err}")
 
     # ── 資料集 ──
     def universe(self) -> pd.DataFrame:
