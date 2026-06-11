@@ -17,6 +17,7 @@ import argparse
 import datetime as dt
 import json
 import os
+import subprocess
 
 import numpy as np
 import pandas as pd
@@ -48,9 +49,9 @@ def _recent(end: str, days: int) -> str:
     return (dt.date.fromisoformat(end) - dt.timedelta(days=days)).isoformat()
 
 
-def analyze_stock(client, sid, name, industry, start, end, index_df) -> dict | None:
+def analyze_stock(client, sid, name, industry, start, end, index_df, offline: bool = False) -> dict | None:
     """Stage 1：只用價格（趨勢/RS/VCP/流動性）。便宜，掃全市場用。"""
-    df = cache.get_price(client, sid, start, end)
+    df = cache.get_price(client, sid, start, end, offline=offline)
     if df.empty or len(df) < C.MA_SLOW + C.MA200_RISING_LOOKBACK:
         return None
     m = indicators.trend_metrics(df)
@@ -88,18 +89,39 @@ def enrich_candidate(client, r: dict, end: str) -> None:
         r["fundamental"] = None
 
 
+def _make_commit_cb():
+    """增量 commit：每 flush 一批就 commit+push 快取，逾時也不蒸發。
+    只在 Actions（env VCP_INCREMENTAL_COMMIT=1）啟用；本地/測試不推。"""
+    if os.environ.get("VCP_INCREMENTAL_COMMIT") != "1":
+        return None
+
+    def cb(upto: str):
+        for args in (["git", "add", "data/"],
+                     ["git", "commit", "-q", "-m", f"data: price cache synced through {upto}"],
+                     ["git", "push", "-q"]):
+            subprocess.run(args, check=False)
+    return cb
+
+
 def run(sample: bool = True, as_of: str | None = None, limit: int | None = None) -> dict:
     client = FinMindClient()
     end = as_of or dt.date.today().isoformat()
     start = (dt.date.fromisoformat(end) - dt.timedelta(days=int(C.HISTORY_DAYS * 1.6))).isoformat()
     index_df = client.index_price(C.MARKET_INDEX_ID, start, end)
+    if not index_df.empty:
+        end = index_df["date"].max().date().isoformat()   # 鎖到最新交易日，避免快取「未覆蓋 end」誤判
 
     uni = build_universe(client, sample, limit)
+    use_bulk = not sample                                  # 全市場掃：by-date bulk 預載快取，Stage 1 全程 offline
+    if use_bulk and not index_df.empty:
+        trading_days = [d.date().isoformat() for d in index_df["date"]]
+        cache.sync_bulk(client, trading_days, list(uni["stock_id"]), commit_cb=_make_commit_cb())
+
     rows = []
     for _, u in uni.iterrows():
         try:
             r = analyze_stock(client, u["stock_id"], u["stock_name"], u["industry_category"],
-                              start, end, index_df)
+                              start, end, index_df, offline=use_bulk)
         except Exception:
             r = None                                  # 單檔失敗不中斷全市場掃描
         if r:

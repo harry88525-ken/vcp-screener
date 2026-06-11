@@ -103,6 +103,25 @@ class FinMindClient:
         df = df.sort_values("date").reset_index(drop=True)
         return df[["date", "open", "high", "low", "close", "volume", "turnover"]]
 
+    def price_by_date(self, date: str) -> pd.DataFrame:
+        """單一交易日「全市場」日線（by-date bulk，Backer 付費功能）。
+
+        欄位同 price() 但多一欄 stock_id。一次回整個市場（含 ETF/權證等），
+        由呼叫端用 universe 過濾。非交易日回空表。
+        """
+        rows = self._get("TaiwanStockPrice", start_date=date, end_date=date)
+        cols = ["date", "stock_id", "open", "high", "low", "close", "volume", "turnover"]
+        if not rows:
+            return pd.DataFrame(columns=cols)
+        df = pd.DataFrame(rows).rename(columns={
+            "max": "high", "min": "low",
+            "Trading_Volume": "volume", "Trading_money": "turnover",
+        })
+        df["date"] = pd.to_datetime(df["date"])
+        for col in ("open", "high", "low", "close", "volume", "turnover"):
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+        return df[cols]
+
     def institutional(self, stock_id: str, start: str, end: str) -> pd.DataFrame:
         """三大法人買賣超（長格式 → 寬格式：每日各法人淨買超 + 合計）。"""
         rows = self._get("TaiwanStockInstitutionalInvestorsBuySell",

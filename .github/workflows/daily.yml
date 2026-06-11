@@ -37,10 +37,16 @@ jobs:
           PYTHONUTF8: "1"
         run: python -m pytest tests/ -q
 
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Run screener
         env:
           FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
-          FINMIND_SLEEP_SEC: "6"        # 節流到 <600/hr（免費版）；有帳密(1500/hr)可降到 2.4
+          FINMIND_SLEEP_SEC: "2.4"       # Backer 1600/hr → 2.4s/req 安全
+          VCP_INCREMENTAL_COMMIT: "1"    # 每 120 交易日 commit+push 快取（逾時不蒸發、可續跑）
           PYTHONUTF8: "1"
         run: |
           ARGS="--full"
@@ -50,8 +56,7 @@ jobs:
 
       - name: Commit results
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash || true   # 增量 commit 已推遠端，先同步再推
           git add docs/ data/
           if git diff --staged --quiet; then
             echo "No changes."
