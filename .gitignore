@@ -1,0 +1,16 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 密鑰 — 絕不進 repo（FinMind token 走 GitHub Actions Secret）
+.env
+*.secret
+secrets.*
+
+# 暫存
+tmp/
+*.local
+
+# 註：data/ 快取「要」進 repo（雲端增量更新的基礎），故不忽略
