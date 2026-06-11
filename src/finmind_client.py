@@ -113,6 +113,24 @@ class FinMindClient:
             df["value"] = pd.to_numeric(df["value"], errors="coerce")
         return df
 
+    def balance_sheet(self, stock_id: str, start: str, end: str) -> pd.DataFrame:
+        rows = self._get("TaiwanStockBalanceSheet", data_id=stock_id, start_date=start, end_date=end)
+        df = pd.DataFrame(rows)
+        if not df.empty:
+            df["date"] = pd.to_datetime(df["date"])
+            df["value"] = pd.to_numeric(df["value"], errors="coerce")
+        return df
+
+    def margin(self, stock_id: str, start: str, end: str) -> pd.DataFrame:
+        rows = self._get("TaiwanStockMarginPurchaseShortSale", data_id=stock_id, start_date=start, end_date=end)
+        df = pd.DataFrame(rows)
+        if not df.empty:
+            df["date"] = pd.to_datetime(df["date"])
+            for col in ("MarginPurchaseTodayBalance", "MarginPurchaseLimit"):
+                if col in df.columns:
+                    df[col] = pd.to_numeric(df[col], errors="coerce")
+        return df
+
     def index_price(self, index_id: str, start: str, end: str) -> pd.DataFrame:
         """加權報酬指數（RS 分母 / A-1 大盤）。欄位 date/close。"""
         rows = self._get("TaiwanStockTotalReturnIndex", data_id=index_id, start_date=start, end_date=end)

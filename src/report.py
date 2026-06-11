@@ -39,10 +39,18 @@ tr:last-child td{border-bottom:none}
 .chgrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.chgk{color:var(--mut);font-size:12px;min-width:80px}
 .ent{background:rgba(63,185,80,.16);color:var(--a);border-radius:4px;padding:2px 8px;font-size:12px}
 .lft{background:rgba(248,81,73,.16);color:var(--red);border-radius:4px;padding:2px 8px;font-size:12px}
+.mkt{display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:18px;font-size:13px}
+.mkt b{font-size:15px}.tag{font-size:11px;border-radius:4px;padding:1px 6px;margin-right:4px}
+.tg{background:rgba(63,185,80,.16);color:var(--a)}.to{background:rgba(210,153,34,.18);color:var(--c)}
 .foot{color:var(--mut);font-size:11px;margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
 </style></head><body><div class="wrap">
 <h1>📈 VCP 選股大腦 · L1</h1>
 <div class="sub">as-of {{ d.as_of }}　|　掃描 {{ d.universe_scanned }} 檔　|　產生 {{ d.generated_at }}　|　緊度派</div>
+{% if d.market %}{% set lt = {'green':['🟢','綠燈','var(--a)'],'yellow':['🟡','黃燈','var(--c)'],'red':['🔴','紅燈','var(--red)']}[d.market.light] %}
+<div class="mkt"><b style="color:{{ lt[2] }}">{{ lt[0] }} 市場{{ lt[1] }}</b>
+<span>廣度 {{ '%.0f%%'|format(d.market.breadth_pct*100) }}</span>
+<span>倉位係數 ×{{ d.market.position_factor }}</span>
+<span class="muted">A-1 合成 {{ d.market.score }}（②Follow-through ④派發日 待補；廣度需全市場才準）</span></div>{% endif %}
 <div class="cards">
   <div class="kpi"><b style="color:var(--a)">{{ d.counts.LEADERS }}</b><span>LEADERS 主攻</span></div>
   <div class="kpi"><b style="color:var(--b)">{{ d.counts.READY }}</b><span>READY 觀察</span></div>
@@ -66,14 +74,19 @@ tr:last-child td{border-bottom:none}
 {% macro trade_table(rows) %}
 <table><thead><tr>
 <th>代號</th><th>名稱</th><th>產業</th><th>RS</th><th>評分</th><th>收盤</th><th>距52高</th>
-<th>樞紐(買點)</th><th>停損</th><th>風險%</th><th>狀態</th><th>旗標</th></tr></thead><tbody>
+<th>樞紐(買點)</th><th>停損</th><th>風險%</th><th>R:R</th><th>狀態</th><th>加分</th></tr></thead><tbody>
 {% for x in rows %}<tr>
 <td>{{ x.stock_id }}</td><td>{{ x.name }}</td><td class="l muted">{{ x.industry }}</td>
 <td>{{ x.rs_rating }}</td><td><span class="g g{{ x.grade }}">{{ x.grade }}</span></td>
 <td>{{ x.close }}</td><td>{{ '%+.1f%%'|format(x.dist_52w_high*100) }}</td>
 <td>{{ x.pivot_high }}</td><td>{{ x.stop }}</td><td>{{ '%.1f%%'|format(x.risk_pct*100) }}</td>
+<td>{{ '%.1f'|format(x.reward_risk or 0) }}</td>
 <td>{{ x.breakout_status }}</td>
-<td class="l flag">{% if x.rs_line_new_high %}RS線新高 {% endif %}{% if x.vol_contraction %}量縮{% endif %}</td>
+<td class="l">{% if x.inst_net_buy %}<span class="tag tg">法人買</span>{% endif %}
+{% if x.trust_streak and x.trust_streak >= 3 %}<span class="tag tg">投信連{{ x.trust_streak }}</span>{% endif %}
+{% if x.fundamental_ok %}<span class="tag tg">基本面</span>{% endif %}
+{% if x.rs_line_new_high %}<span class="tag tg">RS新高</span>{% endif %}
+{% if x.group_top %}<span class="tag to">族群#{{ x.group_rank }}</span>{% endif %}</td>
 </tr>{% endfor %}</tbody></table>
 {% endmacro %}
 

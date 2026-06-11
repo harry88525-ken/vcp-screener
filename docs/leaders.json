@@ -1,7 +1,24 @@
 {
   "as_of": "2026-06-11",
-  "generated_at": "2026-06-11T14:55:08",
+  "generated_at": "2026-06-11T15:09:38",
   "universe_scanned": 22,
+  "market": {
+    "light": "green",
+    "score": 0.75,
+    "position_factor": 1.0,
+    "index_close": 98639.28,
+    "breadth_pct": 0.955,
+    "trend_signal": 1,
+    "signals": {
+      "trend": 1,
+      "breadth": 2
+    },
+    "veto_breadth": false,
+    "todo": [
+      "follow_through(②)",
+      "distribution_days(④需指數量能)"
+    ]
+  },
   "counts": {
     "LEADERS": 0,
     "READY": 5,
@@ -22,13 +39,24 @@
       "pivot_high": 1100.0,
       "stop": 811.0,
       "risk_pct": 0.2627,
+      "reward_risk": 0.1,
       "pivot_width": 0.2627,
       "seq_clean": false,
       "vol_contraction": false,
       "breakout_status": "待突破",
       "contractions": [],
       "avg_turnover_50": 21104615916.0,
-      "trend_price_ok": true
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 2,
+      "margin_overheat": false,
+      "eps_yoy": 4.4667,
+      "roe": 0.1059,
+      "rev_3m_yoy": 0.2776,
+      "fundamental_ok": false,
+      "group_rank": 1,
+      "group_real": false,
+      "group_top": true
     },
     {
       "stock_id": "2308",
@@ -43,6 +71,7 @@
       "pivot_high": 2525.0,
       "stop": 2090.0,
       "risk_pct": 0.1723,
+      "reward_risk": 0.14,
       "pivot_width": 0.1762,
       "seq_clean": false,
       "vol_contraction": false,
@@ -51,7 +80,17 @@
         0.1915
       ],
       "avg_turnover_50": 26110406829.0,
-      "trend_price_ok": true
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": 1.0076,
+      "roe": 0.2662,
+      "rev_3m_yoy": 0.4164,
+      "fundamental_ok": true,
+      "group_rank": 1,
+      "group_real": false,
+      "group_top": true
     },
     {
       "stock_id": "2454",
@@ -66,13 +105,24 @@
       "pivot_high": 4970.0,
       "stop": 3880.0,
       "risk_pct": 0.2193,
+      "reward_risk": 0.0,
       "pivot_width": 0.2193,
       "seq_clean": false,
       "vol_contraction": false,
       "breakout_status": "待突破",
       "contractions": [],
       "avg_turnover_50": 44576558899.0,
-      "trend_price_ok": true
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 3,
+      "margin_overheat": false,
+      "eps_yoy": -0.1769,
+      "roe": 0.2587,
+      "rev_3m_yoy": 0.0497,
+      "fundamental_ok": false,
+      "group_rank": 4,
+      "group_real": false,
+      "group_top": false
     },
     {
       "stock_id": "3711",
@@ -87,13 +137,24 @@
       "pivot_high": 644.0,
       "stop": 520.0,
       "risk_pct": 0.1925,
+      "reward_risk": 0.2,
       "pivot_width": 0.1925,
       "seq_clean": false,
       "vol_contraction": false,
       "breakout_status": "待突破",
       "contractions": [],
       "avg_turnover_50": 13102089070.0,
-      "trend_price_ok": true
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 1,
+      "margin_overheat": false,
+      "eps_yoy": 0.8514,
+      "roe": 0.1387,
+      "rev_3m_yoy": 0.2056,
+      "fundamental_ok": false,
+      "group_rank": 2,
+      "group_real": false,
+      "group_top": true
     },
     {
       "stock_id": "2303",
@@ -108,18 +169,103 @@
       "pivot_high": 155.5,
       "stop": 116.5,
       "risk_pct": 0.2508,
+      "reward_risk": 0.0,
       "pivot_width": 0.2508,
       "seq_clean": false,
       "vol_contraction": false,
       "breakout_status": "待突破",
       "contractions": [],
       "avg_turnover_50": 26923887338.0,
-      "trend_price_ok": true
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": 1.0806,
+      "roe": 0.1227,
+      "rev_3m_yoy": 0.1111,
+      "fundamental_ok": false,
+      "group_rank": 2,
+      "group_real": false,
+      "group_top": true
     }
   ],
   "BREAKOUT": [],
+  "groups_top": [
+    {
+      "industry": "電子零組件業",
+      "members": 2,
+      "median_rs": 97.0,
+      "breadth": 1.0,
+      "vcp_count": 0,
+      "score": 107.0,
+      "rank": 1
+    },
+    {
+      "industry": "半導體業",
+      "members": 3,
+      "median_rs": 81.0,
+      "breadth": 1.0,
+      "vcp_count": 1,
+      "score": 91.0,
+      "rank": 2
+    },
+    {
+      "industry": "電腦及週邊設備業",
+      "members": 5,
+      "median_rs": 54.0,
+      "breadth": 1.0,
+      "vcp_count": 0,
+      "score": 64.0,
+      "rank": 3
+    },
+    {
+      "industry": "電子工業",
+      "members": 8,
+      "median_rs": 39.0,
+      "breadth": 1.0,
+      "vcp_count": 1,
+      "score": 49.0,
+      "rank": 4
+    },
+    {
+      "industry": "航運業",
+      "members": 1,
+      "median_rs": 23.0,
+      "breadth": 1.0,
+      "vcp_count": 0,
+      "score": 33.0,
+      "rank": 5
+    },
+    {
+      "industry": "塑膠工業",
+      "members": 1,
+      "median_rs": 14.0,
+      "breadth": 1.0,
+      "vcp_count": 0,
+      "score": 24.0,
+      "rank": 6
+    },
+    {
+      "industry": "食品工業",
+      "members": 1,
+      "median_rs": 10.0,
+      "breadth": 1.0,
+      "vcp_count": 1,
+      "score": 20.0,
+      "rank": 7
+    },
+    {
+      "industry": "汽車工業",
+      "members": 1,
+      "median_rs": 5.0,
+      "breadth": 0.0,
+      "vcp_count": 1,
+      "score": 5.0,
+      "rank": 8
+    }
+  ],
   "changes": {
-    "vs": "2026-06-10",
+    "vs": "2026-06-11",
     "LEADERS": {
       "entered": [],
       "left": []

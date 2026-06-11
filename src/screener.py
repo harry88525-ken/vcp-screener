@@ -18,10 +18,11 @@ import datetime as dt
 import json
 import os
 
+import numpy as np
 import pandas as pd
 
 import config as C
-from src import cache, indicators, rs, trend_template, vcp
+from src import cache, chips, fundamentals, groups, indicators, market_light, rs, trend_template, vcp
 from src.finmind_client import FinMindClient
 
 # 示範用流動性權值股清單（正式版改掃全 universe）
@@ -39,18 +40,37 @@ def build_universe(client: FinMindClient, sample: bool) -> pd.DataFrame:
     return uni.reset_index(drop=True)
 
 
-def analyze_stock(client, sid, name, industry, start, end, index_df) -> dict | None:
+def _recent(end: str, days: int) -> str:
+    return (dt.date.fromisoformat(end) - dt.timedelta(days=days)).isoformat()
+
+
+def analyze_stock(client, sid, name, industry, start, end, index_df, enrich=True) -> dict | None:
     df = cache.get_price(client, sid, start, end)
     if df.empty or len(df) < C.MA_SLOW + C.MA200_RISING_LOOKBACK:
         return None
     m = indicators.trend_metrics(df)
     if m["close"] < C.MIN_PRICE:
         return None
-    vres = vcp.analyze(df, dist_52w_high=m["dist_52w_high"])
     rsl = rs.rs_line_metrics(df, index_df)
-    # RS 線新高旗標回填 VCP 評分（影響 grade）
-    if rsl["rs_line_new_high"]:
-        vres = vcp.analyze(df, rs_line_new_high=True, dist_52w_high=m["dist_52w_high"])
+    vres = vcp.analyze(df, rs_line_new_high=rsl["rs_line_new_high"],
+                       dist_52w_high=m["dist_52w_high"], next_target=m["high_52w"])
+
+    # A-6 基本面 / A-7 籌碼（加分欄位；單檔失敗不影響整體）
+    fund_res, chips_res = None, None
+    if enrich:
+        fin_start = _recent(end, 1100)
+        try:
+            chips_res = chips.evaluate(client.institutional(sid, _recent(end, 40), end),
+                                       client.margin(sid, _recent(end, 40), end))
+        except Exception:
+            chips_res = None
+        try:
+            fund_res = fundamentals.evaluate(client.financials(sid, fin_start, end),
+                                             client.balance_sheet(sid, fin_start, end),
+                                             client.month_revenue(sid, fin_start, end))
+        except Exception:
+            fund_res = None
+
     return {
         "stock_id": sid, "name": name, "industry": industry,
         "close": round(m["close"], 2),
@@ -59,8 +79,7 @@ def analyze_stock(client, sid, name, industry, start, end, index_df) -> dict | N
         "raw_rs": rs.raw_rs(df, index_df),
         "rs_line_rising": rsl["rs_line_rising"], "rs_line_new_high": rsl["rs_line_new_high"],
         "trend_metrics": m, "vcp": vres.to_dict(),
-        # A-6/A-7/A-8 加分欄位（後續接上）
-        "fundamental": None, "chips": None, "group_rank": None,
+        "fundamental": fund_res, "chips": chips_res,
     }
 
 
@@ -84,6 +103,13 @@ def run(sample: bool = True, as_of: str | None = None) -> dict:
     for r, rt in zip(rows, ratings):
         r["rs_rating"] = int(rt) if pd.notna(rt) else None
 
+    # A-8 族群熱點（跨個股）+ A-1 市場紅綠燈
+    group_summary = groups.annotate(rows)
+    above200 = [1 for r in rows
+                if np.isfinite(r["trend_metrics"]["ma200"]) and r["close"] > r["trend_metrics"]["ma200"]]
+    breadth_pct = len(above200) / len(rows) if rows else 0.0
+    market = market_light.evaluate(index_df, breadth_pct)
+
     leaders, ready, breakout = [], [], []
     for r in rows:
         tt = trend_template.evaluate_metrics(r["trend_metrics"], r["rs_rating"])
@@ -106,23 +132,42 @@ def run(sample: bool = True, as_of: str | None = None) -> dict:
         "as_of": end,
         "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
         "universe_scanned": len(rows),
+        "market": market,
         "counts": {"LEADERS": len(leaders), "READY": len(ready), "BREAKOUT": len(breakout)},
         "LEADERS": leaders, "READY": ready, "BREAKOUT": breakout,
+        "groups_top": group_summary[:8],
     }
+
+
+def _bump_grade(grade: str, group_top: bool) -> str:
+    """A-8：屬前段班族群 → VCP 評分 +1 級。"""
+    if not group_top or grade not in ("B", "C"):
+        return grade
+    return {"C": "B", "B": "A"}[grade]
 
 
 def _record(r, price_ok) -> dict:
     v = r["vcp"]
+    f = r.get("fundamental") or {}
+    ch = r.get("chips") or {}
+    grade = _bump_grade(v["grade"], r.get("group_top", False))
     return {
         "stock_id": r["stock_id"], "name": r["name"], "industry": r["industry"],
         "close": r["close"], "rs_rating": r["rs_rating"],
         "dist_52w_high": r["dist_52w_high"], "rs_line_new_high": r["rs_line_new_high"],
-        "grade": v["grade"], "is_vcp": v["is_vcp"], "pivot_high": round(v["pivot_high"], 2),
+        "grade": grade, "is_vcp": v["is_vcp"], "pivot_high": round(v["pivot_high"], 2),
         "stop": round(v["stop"], 2), "risk_pct": round(v["risk_pct"], 4),
-        "pivot_width": v["pivot_width"], "seq_clean": v["seq_clean"],
-        "vol_contraction": v["vol_contraction"], "breakout_status": v["breakout_status"],
-        "contractions": v["contractions"],
+        "reward_risk": v.get("reward_risk", 0), "pivot_width": v["pivot_width"],
+        "seq_clean": v["seq_clean"], "vol_contraction": v["vol_contraction"],
+        "breakout_status": v["breakout_status"], "contractions": v["contractions"],
         "avg_turnover_50": r["avg_turnover_50"], "trend_price_ok": price_ok,
+        # A-6/A-7/A-8 加分欄位
+        "inst_net_buy": ch.get("inst_net_buy"), "trust_streak": ch.get("trust_streak"),
+        "margin_overheat": ch.get("margin_overheat"),
+        "eps_yoy": f.get("eps_yoy"), "roe": f.get("roe"), "rev_3m_yoy": f.get("rev_3m_yoy"),
+        "fundamental_ok": f.get("fundamental_ok"),
+        "group_rank": r.get("group_rank"), "group_real": r.get("group_real"),
+        "group_top": r.get("group_top"),
     }
 
 
