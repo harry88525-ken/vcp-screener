@@ -1,0 +1,94 @@
+# -*- coding: utf-8 -*-
+"""
+報告產生器：docs/leaders.json → docs/index.html
+固定樣式，只換內容（KEN 偏好）。運算與呈現分離——本檔只讀 JSON，不算任何指標。
+"""
+from __future__ import annotations
+
+import json
+import sys
+
+from jinja2 import Template
+
+import config as C
+
+TEMPLATE = Template("""<!doctype html>
+<html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VCP 選股 · {{ d.as_of }}</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--line:#30363d;--fg:#e6edf3;--mut:#8b949e;
+--a:#3fb950;--b:#58a6ff;--c:#d29922;--red:#f85149}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
+font:15px/1.5 -apple-system,"Segoe UI","PingFang TC","Microsoft JhengHei",sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:20px}
+h1{font-size:20px;margin:0 0 4px}.sub{color:var(--mut);font-size:13px;margin-bottom:18px}
+.cards{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:120px}
+.kpi b{font-size:26px;display:block}.kpi span{color:var(--mut);font-size:12px}
+section{margin-bottom:28px}h2{font-size:16px;border-left:3px solid var(--b);padding-left:8px}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:10px;overflow:hidden;font-size:13px}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child,th:nth-child(2),td:nth-child(2),td.l{text-align:left}
+th{color:var(--mut);font-weight:600;background:#11161d}
+tr:last-child td{border-bottom:none}
+.g{font-weight:700;border-radius:4px;padding:1px 7px}.gA{background:var(--a);color:#04260f}
+.gB{background:var(--b);color:#04203f}.gC{background:var(--c);color:#241a00}
+.flag{color:var(--a);font-size:11px}.muted{color:var(--mut)}.empty{color:var(--mut);padding:14px;background:var(--card);border-radius:10px}
+.foot{color:var(--mut);font-size:11px;margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
+</style></head><body><div class="wrap">
+<h1>📈 VCP 選股大腦 · L1</h1>
+<div class="sub">as-of {{ d.as_of }}　|　掃描 {{ d.universe_scanned }} 檔　|　產生 {{ d.generated_at }}　|　緊度派</div>
+<div class="cards">
+  <div class="kpi"><b style="color:var(--a)">{{ d.counts.LEADERS }}</b><span>LEADERS 主攻</span></div>
+  <div class="kpi"><b style="color:var(--b)">{{ d.counts.READY }}</b><span>READY 觀察</span></div>
+  <div class="kpi"><b style="color:var(--c)">{{ d.counts.BREAKOUT }}</b><span>BREAKOUT 突破</span></div>
+</div>
+
+{% macro trade_table(rows) %}
+<table><thead><tr>
+<th>代號</th><th>名稱</th><th>產業</th><th>RS</th><th>評分</th><th>收盤</th><th>距52高</th>
+<th>樞紐(買點)</th><th>停損</th><th>風險%</th><th>狀態</th><th>旗標</th></tr></thead><tbody>
+{% for x in rows %}<tr>
+<td>{{ x.stock_id }}</td><td>{{ x.name }}</td><td class="l muted">{{ x.industry }}</td>
+<td>{{ x.rs_rating }}</td><td><span class="g g{{ x.grade }}">{{ x.grade }}</span></td>
+<td>{{ x.close }}</td><td>{{ '%+.1f%%'|format(x.dist_52w_high*100) }}</td>
+<td>{{ x.pivot_high }}</td><td>{{ x.stop }}</td><td>{{ '%.1f%%'|format(x.risk_pct*100) }}</td>
+<td>{{ x.breakout_status }}</td>
+<td class="l flag">{% if x.rs_line_new_high %}RS線新高 {% endif %}{% if x.vol_contraction %}量縮{% endif %}</td>
+</tr>{% endfor %}</tbody></table>
+{% endmacro %}
+
+<section><h2>🟢 LEADERS · 主攻（全門檻通過）</h2>
+{% if d.LEADERS %}{{ trade_table(d.LEADERS) }}{% else %}<div class="empty">今日無 LEADERS（紅盤常見，系統不勉強選股）。</div>{% endif %}</section>
+
+<section><h2>🟡 READY · 觀察（趨勢+RS 強，樞紐未夠緊）</h2>
+{% if d.READY %}<table><thead><tr>
+<th>代號</th><th>名稱</th><th>產業</th><th>RS</th><th>收盤</th><th>距52高</th><th>樞紐寬</th><th>旗標</th></tr></thead><tbody>
+{% for x in d.READY %}<tr>
+<td>{{ x.stock_id }}</td><td>{{ x.name }}</td><td class="l muted">{{ x.industry }}</td>
+<td>{{ x.rs_rating }}</td><td>{{ x.close }}</td><td>{{ '%+.1f%%'|format(x.dist_52w_high*100) }}</td>
+<td>{{ '%.1f%%'|format(x.pivot_width*100) }}</td>
+<td class="l flag">{% if x.rs_line_new_high %}RS線新高{% endif %}</td>
+</tr>{% endfor %}</tbody></table>
+{% else %}<div class="empty">今日無 READY。</div>{% endif %}</section>
+
+<section><h2>🚀 BREAKOUT · 當日突破</h2>
+{% if d.BREAKOUT %}{{ trade_table(d.BREAKOUT) }}{% else %}<div class="empty">今日無突破。</div>{% endif %}</section>
+
+<div class="foot">VCP 選股大腦 L1｜緊度派 gate（近52週高≤25% + 10日樞紐&lt;10%）｜資料 FinMind｜
+進場=樞紐高、停損=樞紐低/末段低、風報比≥3:1、單筆≤總資金10%（A-1 紅燈降倉）。本頁為研究輔助，非投資建議。</div>
+</div></body></html>""")
+
+
+def build(json_path: str = C.OUTPUT_JSON, html_path: str = C.OUTPUT_HTML) -> None:
+    with open(json_path, encoding="utf-8") as f:
+        d = json.load(f)
+    html = TEMPLATE.render(d=d)
+    with open(html_path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"→ {html_path}")
+
+
+if __name__ == "__main__":
+    build(*(sys.argv[1:3] if len(sys.argv) > 1 else []))
