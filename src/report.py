@@ -35,6 +35,10 @@ tr:last-child td{border-bottom:none}
 .g{font-weight:700;border-radius:4px;padding:1px 7px}.gA{background:var(--a);color:#04260f}
 .gB{background:var(--b);color:#04203f}.gC{background:var(--c);color:#241a00}
 .flag{color:var(--a);font-size:11px}.muted{color:var(--mut)}.empty{color:var(--mut);padding:14px;background:var(--card);border-radius:10px}
+.chg{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chgrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.chgk{color:var(--mut);font-size:12px;min-width:80px}
+.ent{background:rgba(63,185,80,.16);color:var(--a);border-radius:4px;padding:2px 8px;font-size:12px}
+.lft{background:rgba(248,81,73,.16);color:var(--red);border-radius:4px;padding:2px 8px;font-size:12px}
 .foot{color:var(--mut);font-size:11px;margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
 </style></head><body><div class="wrap">
 <h1>📈 VCP 選股大腦 · L1</h1>
@@ -44,6 +48,20 @@ tr:last-child td{border-bottom:none}
   <div class="kpi"><b style="color:var(--b)">{{ d.counts.READY }}</b><span>READY 觀察</span></div>
   <div class="kpi"><b style="color:var(--c)">{{ d.counts.BREAKOUT }}</b><span>BREAKOUT 突破</span></div>
 </div>
+
+<section><h2>📋 與昨日變化{% if d.changes and d.changes.vs %}（vs {{ d.changes.vs }}）{% endif %}</h2>
+{% if not d.changes or not d.changes.vs %}<div class="empty">首次執行，無比較基準。</div>
+{% else %}
+{% set anychg = d.changes.LEADERS.entered or d.changes.LEADERS.left or d.changes.READY.entered or d.changes.READY.left or d.changes.BREAKOUT.entered or d.changes.BREAKOUT.left %}
+<div class="chg">
+{% if not anychg %}<span class="muted">與昨日相同，無進出。</span>{% endif %}
+{% for key in ['LEADERS','READY','BREAKOUT'] %}{% set c = d.changes[key] %}{% if c.entered or c.left %}
+<div class="chgrow"><span class="chgk">{{ key }}</span>
+{% for x in c.entered %}<span class="ent">+ {{ x.stock_id }} {{ x.name }}{% if x.grade %} {{ x.grade }}{% endif %}</span>{% endfor %}
+{% for x in c.left %}<span class="lft">− {{ x.stock_id }} {{ x.name }}</span>{% endfor %}
+</div>{% endif %}{% endfor %}
+</div>
+{% endif %}</section>
 
 {% macro trade_table(rows) %}
 <table><thead><tr>

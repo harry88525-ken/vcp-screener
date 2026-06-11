@@ -130,18 +130,56 @@ def _grade_rank(g: str) -> int:
     return {"A": 3, "B": 2, "C": 1}.get(g, 0)
 
 
+def _load_prev(path: str) -> dict | None:
+    """覆寫前讀上一次（昨日）結果，作為 CHANGES 比較基準。"""
+    if os.path.exists(path):
+        try:
+            with open(path, encoding="utf-8") as f:
+                return json.load(f)
+        except (OSError, json.JSONDecodeError):
+            return None
+    return None
+
+
+def compute_changes(current: dict, prev: dict | None) -> dict:
+    """逐清單 diff：新進(今有昨無) / 離開(昨有今無)。"""
+    out = {"vs": prev.get("as_of") if prev else None}
+    for key in ("LEADERS", "READY", "BREAKOUT"):
+        cur = {x["stock_id"]: x for x in current.get(key, [])}
+        old = {x["stock_id"]: x for x in (prev.get(key, []) if prev else [])}
+        out[key] = {
+            "entered": [{"stock_id": s, "name": cur[s]["name"],
+                         "grade": cur[s].get("grade", "")} for s in cur if s not in old],
+            "left": [{"stock_id": s, "name": old[s]["name"]} for s in old if s not in cur],
+        }
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--full", action="store_true", help="掃全 universe（預設只跑樣本）")
     ap.add_argument("--as-of", default=None, help="YYYY-MM-DD（回測用）")
     ap.add_argument("--out", default=C.OUTPUT_JSON)
     args = ap.parse_args()
+    prev = _load_prev(args.out)                       # 覆寫前先讀昨日結果
     result = run(sample=not args.full, as_of=args.as_of)
-    os.makedirs(os.path.dirname(args.out), exist_ok=True)
+    result["changes"] = compute_changes(result, prev)
+    out_dir = os.path.dirname(args.out)
+    os.makedirs(out_dir, exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as f:
+        json.dump(result, f, ensure_ascii=False, indent=2)
+    # 歷史快照（供日後任意日比較）
+    hist_dir = os.path.join(out_dir, "history")
+    os.makedirs(hist_dir, exist_ok=True)
+    with open(os.path.join(hist_dir, f"{result['as_of']}.json"), "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
     from src import report
     report.build(args.out, C.OUTPUT_HTML)
+    ch = result["changes"]
+    if ch["vs"]:
+        print(f"CHANGES vs {ch['vs']}: "
+              + " / ".join(f"{k} +{len(ch[k]['entered'])} -{len(ch[k]['left'])}"
+                           for k in ("LEADERS", "READY", "BREAKOUT")))
     c = result["counts"]
     print(f"as_of={result['as_of']} 掃描 {result['universe_scanned']} 檔 → "
           f"LEADERS {c['LEADERS']} / READY {c['READY']} / BREAKOUT {c['BREAKOUT']}")
