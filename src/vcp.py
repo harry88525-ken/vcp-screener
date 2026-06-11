@@ -214,19 +214,20 @@ def risk_metrics(pivot_high: float, pivot_low: float, last_contraction_low: floa
 # ─────────────────────────────────────────────────────────────
 # 評分（A/B/C）
 # ─────────────────────────────────────────────────────────────
-def score_vcp(n: int, last_depth: float, vol_contraction: bool,
-              rs_line_new_high: bool, pivot_width: float) -> str:
+def score_vcp(seq_valid: bool, n: int, vol_contraction: bool,
+              rs_line_new_high: bool, pivot_width: float, high_at_start: bool) -> str:
     """
-    A = 3-4 段 + 末段≤5% + 量縮 + RS線新高 + 樞紐<6%
-    B = 大致符合稍差；C = 勉強（觀察）
+    緊度派評分（gate 已過才呼叫）。收縮序列＝加分，非門檻。
+    A（最佳）= 乾淨收斂序列(3-4段) + 量縮 + RS線新高 + 樞紐<6% + 高在區間起點
+    B = 大致符合；C = 僅守住「近高 + 樞紐緊」最低標
     """
     ideal_n = C.CONTRACTION_IDEAL_LOW <= n <= C.CONTRACTION_IDEAL_HIGH
     pts = 0
-    pts += 1 if ideal_n else 0
-    pts += 1 if last_depth <= C.LAST_CONTRACTION_IDEAL else 0
+    pts += 2 if (seq_valid and ideal_n) else (1 if seq_valid else 0)   # 乾淨序列最多 +2
     pts += 1 if vol_contraction else 0
     pts += 1 if rs_line_new_high else 0
     pts += 1 if pivot_width < C.PIVOT_WIDTH_IDEAL else 0
+    pts += 1 if high_at_start else 0
     if pts >= 5:
         return "A"
     if pts >= 3:
@@ -250,6 +251,7 @@ class VCPResult:
     risk_pct: float = 0.0
     reward_risk: float = 0.0
     vol_contraction: bool = False
+    seq_clean: bool = False
     pivot_width: float = 0.0
     breakout_status: str = ""
     today_breakout: bool = False
@@ -280,7 +282,8 @@ def analyze(df: pd.DataFrame, rs_line_new_high: bool = False,
     close = df["close"].to_numpy(dtype=float)
     atr = wilder_atr(high, low, close, C.ATR_PERIOD)
 
-    pivots = zigzag_pivots(high, low, atr, C.SWING_K)
+    # 收縮序列＝品質訊號（細尺度 CONTRACTION_K），非 gate
+    pivots = zigzag_pivots(high, low, atr, C.CONTRACTION_K)
     lookback_start = max(0, len(df) - C.BASE_LOOKBACK)
     contractions = extract_contractions(pivots, lookback_start)
     v = validate_contractions(contractions)
@@ -295,11 +298,12 @@ def analyze(df: pd.DataFrame, rs_line_new_high: bool = False,
         reward = (next_target - rk["entry"]) / rk["entry"]
         reward_risk = reward / rk["risk_pct"]
 
-    is_vcp = bool(v["valid"] and piv["tight"])
-    grade = score_vcp(v["n"], v["depths"][-1] if v["depths"] else 1.0,
-                      piv["vol_contraction"], rs_line_new_high, piv["width"]) if is_vcp else ""
+    # 緊度派 gate：近高(上方已過) + 樞紐緊。收縮序列不擋。
+    is_vcp = bool(piv["tight"])
+    grade = score_vcp(v["valid"], v["n"], piv["vol_contraction"],
+                      rs_line_new_high, piv["width"], piv["high_at_start"]) if is_vcp else ""
 
-    reasons = list(v["reasons"])
+    reasons: list[str] = []
     if not piv["tight"]:
         reasons.append(f"樞紐寬 {piv['width']:.1%} ≥ {C.PIVOT_WIDTH_MAX:.0%}")
 
@@ -310,7 +314,8 @@ def analyze(df: pd.DataFrame, rs_line_new_high: bool = False,
         pivot_high=piv["pivot_high"], pivot_low=piv["pivot_low"],
         entry=rk["entry"], stop=rk["stop"], risk_pct=rk["risk_pct"],
         reward_risk=round(reward_risk, 2),
-        vol_contraction=piv["vol_contraction"], pivot_width=round(piv["width"], 4),
+        vol_contraction=piv["vol_contraction"], seq_clean=bool(v["valid"]),
+        pivot_width=round(piv["width"], 4),
         breakout_status=brk["status"], today_breakout=brk["today_breakout"],
         rs_line_new_high=bool(rs_line_new_high), reasons=reasons,
     )

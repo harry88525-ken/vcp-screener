@@ -143,14 +143,14 @@ def test_detect_breakout_states():
 
 # ── 評分 ──
 def test_score_vcp_grade_A():
-    g = vcp.score_vcp(n=3, last_depth=0.03, vol_contraction=True,
-                      rs_line_new_high=True, pivot_width=0.05)
+    g = vcp.score_vcp(seq_valid=True, n=3, vol_contraction=True,
+                      rs_line_new_high=True, pivot_width=0.05, high_at_start=True)
     assert g == "A"
 
 
 def test_score_vcp_grade_C():
-    g = vcp.score_vcp(n=2, last_depth=0.075, vol_contraction=False,
-                      rs_line_new_high=False, pivot_width=0.09)
+    g = vcp.score_vcp(seq_valid=False, n=2, vol_contraction=False,
+                      rs_line_new_high=False, pivot_width=0.09, high_at_start=False)
     assert g == "C"
 
 
@@ -177,3 +177,27 @@ def test_analyze_near_high_gate_blocks_far_from_high():
     res = vcp.analyze(df, dist_52w_high=-0.40)   # 距高 40% > 25% 門檻
     assert res.is_vcp is False
     assert any("距52週高" in r for r in res.reasons)
+
+
+def test_analyze_tightness_gate_passes_without_clean_sequence():
+    """緊度派核心：近高 + 樞紐緊 → is_vcp True，即使沒有乾淨收斂序列。"""
+    df = _make_df(n=120)              # 末 10 日緊（~2%）
+    res = vcp.analyze(df, rs_line_new_high=False, dist_52w_high=-0.05)
+    assert res.is_vcp is True
+    assert res.pivot_width < C.PIVOT_WIDTH_MAX
+
+
+def test_analyze_loose_pivot_gate_blocks():
+    """樞紐鬆（末 10 日寬幅震盪）→ is_vcp False。"""
+    rng = np.random.default_rng(1)
+    n = 120
+    mid = 190 + np.concatenate([np.zeros(n - C.PIVOT_WINDOW),
+                                (rng.random(C.PIVOT_WINDOW) - 0.5) * 60])  # 末段 ±30 寬
+    df = pd.DataFrame({
+        "date": pd.date_range("2026-01-01", periods=n, freq="B"),
+        "open": mid, "high": mid + 2, "low": mid - 2, "close": mid,
+        "volume": np.linspace(5000, 3000, n),
+    })
+    res = vcp.analyze(df, dist_52w_high=-0.05)
+    assert res.is_vcp is False
+    assert any("樞紐寬" in r for r in res.reasons)

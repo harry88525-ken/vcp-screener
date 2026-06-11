@@ -54,8 +54,11 @@ RS_LINE_NEW_HIGH_WINDOW = 252          # RS 線創 52 週新高（加分旗標·
 # ─────────────────────────────────────────────────────────────
 # A-4 VCP 形態（雙尺度：粗 swing 抓基底 + 細窗抓樞紐）
 # ─────────────────────────────────────────────────────────────
+# 「緊度派」定義（2026-06-11 KEN 拍板）：
+#   硬門檻 = 近 52 週高 ≤25% + 近 10 日樞紐緊(<10%)。收縮序列＝品質評分，不是 gate。
 ATR_PERIOD = 14
-SWING_K = 3.5                          # POC 校準：ATR-ZigZag 門檻 = k×ATR，826 根→~35 轉折
+SWING_K = 3.5                          # 粗結構參考（POC k≈3.5）；緊度派下不作 gate
+CONTRACTION_K = 2.0                    # 收縮序列「品質訊號」用的細尺度（抓 5-14% 的 VCP 級波段）
 BASE_LOOKBACK = 252                    # 從近一年內找基底
 CONTRACTION_MIN, CONTRACTION_MAX = 2, 6      # 段數 2-6（理想 3-4）
 CONTRACTION_IDEAL_LOW, CONTRACTION_IDEAL_HIGH = 3, 4
