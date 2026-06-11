@@ -29,7 +29,7 @@ def raw_rs(stock_df: pd.DataFrame, index_df: pd.DataFrame) -> float:
     s, i = m["s"].to_numpy(float), m["i"].to_numpy(float)
     total = 0.0
     for days, w in C.RS_WEIGHTS.items():
-        if len(m) <= days:
+        if len(m) <= days or s[-1 - days] == 0 or i[-1 - days] == 0:
             return float("nan")
         s_ret = s[-1] / s[-1 - days] - 1
         i_ret = i[-1] / i[-1 - days] - 1

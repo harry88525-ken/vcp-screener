@@ -1,0 +1,80 @@
+name: VCP daily screen
+
+on:
+  schedule:
+    - cron: "0 7 * * 1-5"        # 07:00 UTC = 15:00 台北，週一至週五（台股收盤後）
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "限制 universe 檔數（留空＝全市場）"
+        required: false
+        default: ""
+
+permissions:
+  contents: write                # 把選股結果 commit 回 repo
+
+concurrency:
+  group: vcp-daily
+  cancel-in-progress: false
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Unit tests
+        env:
+          PYTHONUTF8: "1"
+        run: python -m pytest tests/ -q
+
+      - name: Run screener
+        env:
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+          PYTHONUTF8: "1"
+        run: |
+          ARGS="--full"
+          if [ -n "${{ github.event.inputs.limit }}" ]; then ARGS="$ARGS --limit ${{ github.event.inputs.limit }}"; fi
+          echo "Running: python -m src.screener $ARGS"
+          python -m src.screener $ARGS
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/ data/
+          if git diff --staged --quiet; then
+            echo "No changes."
+          else
+            git commit -m "data: VCP screen $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+  deploy-pages:
+    needs: screen
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4

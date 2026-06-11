@@ -31,12 +31,16 @@ SAMPLE = ["2330", "2317", "2454", "2382", "2308", "2303", "3711", "2891",
           "4938", "2395", "2603", "3017", "3037", "6669", "3231", "2376", "1216"]
 
 
-def build_universe(client: FinMindClient, sample: bool) -> pd.DataFrame:
+def build_universe(client: FinMindClient, sample: bool, limit: int | None = None) -> pd.DataFrame:
     uni = client.universe()
     uni = uni[uni["type"].isin(["twse", "tpex"])]
     uni = uni[~uni["industry_category"].isin(C.EXCLUDE_INDUSTRIES)]
+    uni = uni[uni["stock_id"].str.match(r"^\d{4}$")]          # 只留 4 位數普通股代號（濾掉權證/特別股）
     if sample:
         uni = uni[uni["stock_id"].isin(SAMPLE)]
+    uni = uni.sort_values("stock_id").reset_index(drop=True)
+    if limit:
+        uni = uni.head(limit)
     return uni.reset_index(drop=True)
 
 
@@ -44,7 +48,8 @@ def _recent(end: str, days: int) -> str:
     return (dt.date.fromisoformat(end) - dt.timedelta(days=days)).isoformat()
 
 
-def analyze_stock(client, sid, name, industry, start, end, index_df, enrich=True) -> dict | None:
+def analyze_stock(client, sid, name, industry, start, end, index_df) -> dict | None:
+    """Stage 1：只用價格（趨勢/RS/VCP/流動性）。便宜，掃全市場用。"""
     df = cache.get_price(client, sid, start, end)
     if df.empty or len(df) < C.MA_SLOW + C.MA200_RISING_LOOKBACK:
         return None
@@ -54,23 +59,6 @@ def analyze_stock(client, sid, name, industry, start, end, index_df, enrich=True
     rsl = rs.rs_line_metrics(df, index_df)
     vres = vcp.analyze(df, rs_line_new_high=rsl["rs_line_new_high"],
                        dist_52w_high=m["dist_52w_high"], next_target=m["high_52w"])
-
-    # A-6 基本面 / A-7 籌碼（加分欄位；單檔失敗不影響整體）
-    fund_res, chips_res = None, None
-    if enrich:
-        fin_start = _recent(end, 1100)
-        try:
-            chips_res = chips.evaluate(client.institutional(sid, _recent(end, 40), end),
-                                       client.margin(sid, _recent(end, 40), end))
-        except Exception:
-            chips_res = None
-        try:
-            fund_res = fundamentals.evaluate(client.financials(sid, fin_start, end),
-                                             client.balance_sheet(sid, fin_start, end),
-                                             client.month_revenue(sid, fin_start, end))
-        except Exception:
-            fund_res = None
-
     return {
         "stock_id": sid, "name": name, "industry": industry,
         "close": round(m["close"], 2),
@@ -79,21 +67,41 @@ def analyze_stock(client, sid, name, industry, start, end, index_df, enrich=True
         "raw_rs": rs.raw_rs(df, index_df),
         "rs_line_rising": rsl["rs_line_rising"], "rs_line_new_high": rsl["rs_line_new_high"],
         "trend_metrics": m, "vcp": vres.to_dict(),
-        "fundamental": fund_res, "chips": chips_res,
+        "fundamental": None, "chips": None,
     }
 
 
-def run(sample: bool = True, as_of: str | None = None) -> dict:
+def enrich_candidate(client, r: dict, end: str) -> None:
+    """Stage 2：只對入選候選（通過核心門檻者）抓 A-6/A-7 資料。就地寫回。"""
+    sid = r["stock_id"]
+    fin_start = _recent(end, 1100)
+    try:
+        r["chips"] = chips.evaluate(client.institutional(sid, _recent(end, 40), end),
+                                    client.margin(sid, _recent(end, 40), end))
+    except Exception:
+        r["chips"] = None
+    try:
+        r["fundamental"] = fundamentals.evaluate(client.financials(sid, fin_start, end),
+                                                 client.balance_sheet(sid, fin_start, end),
+                                                 client.month_revenue(sid, fin_start, end))
+    except Exception:
+        r["fundamental"] = None
+
+
+def run(sample: bool = True, as_of: str | None = None, limit: int | None = None) -> dict:
     client = FinMindClient()
     end = as_of or dt.date.today().isoformat()
     start = (dt.date.fromisoformat(end) - dt.timedelta(days=int(C.HISTORY_DAYS * 1.6))).isoformat()
     index_df = client.index_price(C.MARKET_INDEX_ID, start, end)
 
-    uni = build_universe(client, sample)
+    uni = build_universe(client, sample, limit)
     rows = []
     for _, u in uni.iterrows():
-        r = analyze_stock(client, u["stock_id"], u["stock_name"], u["industry_category"],
-                          start, end, index_df)
+        try:
+            r = analyze_stock(client, u["stock_id"], u["stock_name"], u["industry_category"],
+                              start, end, index_df)
+        except Exception:
+            r = None                                  # 單檔失敗不中斷全市場掃描
         if r:
             rows.append(r)
 
@@ -116,13 +124,19 @@ def run(sample: bool = True, as_of: str | None = None) -> dict:
         price_ok = tt["price_template_ok"]
         rs_ok = tt["conditions"]["8_rs_rating_80"]
         v = r["vcp"]
+        near_high = r["dist_52w_high"] is not None and r["dist_52w_high"] >= C.DIST_52W_HIGH_MIN
+        in_breakout = v["today_breakout"] and price_ok and r["liquid"]
+        in_core = price_ok and rs_ok and r["liquid"] and (v["is_vcp"] or near_high)
+        if not (in_breakout or in_core):
+            continue
+        enrich_candidate(client, r, end)             # Stage 2：只對候選抓加分資料
         rec = _record(r, price_ok)
-        if v["today_breakout"] and price_ok and r["liquid"]:
+        if in_breakout:
             breakout.append(rec)
-        if price_ok and rs_ok and r["liquid"]:
+        if in_core:
             if v["is_vcp"]:
                 leaders.append(rec)
-            elif r["dist_52w_high"] is not None and r["dist_52w_high"] >= C.DIST_52W_HIGH_MIN:
+            elif near_high:
                 ready.append(rec)
 
     leaders.sort(key=lambda x: (-_grade_rank(x["grade"]), -(x["rs_rating"] or 0)))
@@ -204,10 +218,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--full", action="store_true", help="掃全 universe（預設只跑樣本）")
     ap.add_argument("--as-of", default=None, help="YYYY-MM-DD（回測用）")
+    ap.add_argument("--limit", type=int, default=None, help="限制 universe 檔數（測試用）")
     ap.add_argument("--out", default=C.OUTPUT_JSON)
     args = ap.parse_args()
     prev = _load_prev(args.out)                       # 覆寫前先讀昨日結果
-    result = run(sample=not args.full, as_of=args.as_of)
+    result = run(sample=not args.full, as_of=args.as_of, limit=args.limit)
     result["changes"] = compute_changes(result, prev)
     out_dir = os.path.dirname(args.out)
     os.makedirs(out_dir, exist_ok=True)
