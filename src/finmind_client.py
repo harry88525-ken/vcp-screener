@@ -42,7 +42,7 @@ class FinMindClient:
         rate_waits = 0
         while True:
             try:
-                r = self.s.get(C.FINMIND_BASE_URL, params=params, timeout=60)
+                r = self.s.get(C.FINMIND_BASE_URL, params=params, timeout=C.FINMIND_TIMEOUT_SEC)
             except requests.RequestException as e:
                 attempt += 1
                 last_err = e

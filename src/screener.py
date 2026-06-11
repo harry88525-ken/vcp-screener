@@ -140,7 +140,8 @@ def run(sample: bool = True, as_of: str | None = None, limit: int | None = None)
     breadth_pct = len(above200) / len(rows) if rows else 0.0
     market = market_light.evaluate(index_df, breadth_pct)
 
-    leaders, ready, breakout = [], [], []
+    # Pass 1：判定候選（不抓資料）
+    cands = []
     for r in rows:
         tt = trend_template.evaluate_metrics(r["trend_metrics"], r["rs_rating"])
         price_ok = tt["price_template_ok"]
@@ -151,14 +152,23 @@ def run(sample: bool = True, as_of: str | None = None, limit: int | None = None)
         in_core = price_ok and rs_ok and r["liquid"] and (v["is_vcp"] or near_high)
         if not (in_breakout or in_core):
             continue
-        enrich_candidate(client, r, end)             # Stage 2：只對候選抓加分資料
-        rec = _record(r, price_ok)
-        if in_breakout:
+        r["_price_ok"], r["_in_breakout"], r["_in_core"], r["_near_high"] = price_ok, in_breakout, in_core, near_high
+        cands.append(r)
+
+    # Stage 2：enrich 只對 RS 最強的前 N 檔（加分欄位、不影響入選；防全市場逐檔拖死）
+    cands.sort(key=lambda r: -(r["rs_rating"] or 0))
+    for r in cands[:C.ENRICH_MAX_CANDIDATES]:
+        enrich_candidate(client, r, end)
+
+    leaders, ready, breakout = [], [], []
+    for r in cands:
+        rec = _record(r, r["_price_ok"])
+        if r["_in_breakout"]:
             breakout.append(rec)
-        if in_core:
-            if v["is_vcp"]:
+        if r["_in_core"]:
+            if r["vcp"]["is_vcp"]:
                 leaders.append(rec)
-            elif near_high:
+            elif r["_near_high"]:
                 ready.append(rec)
 
     leaders.sort(key=lambda x: (-_grade_rank(x["grade"]), -(x["rs_rating"] or 0)))
