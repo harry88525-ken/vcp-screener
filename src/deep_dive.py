@@ -153,12 +153,13 @@ def render_html(stock_id: str, report_md: str, digest: dict) -> str:
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>L3 深挖 · {stock_id} {name}</title>
 <style>:root{{--bg:#0d1117;--card:#161b22;--line:#30363d;--fg:#e6edf3;--mut:#8b949e;--b:#58a6ff}}
 body{{margin:0;background:var(--bg);color:var(--fg);font:15px/1.7 -apple-system,"PingFang TC","Microsoft JhengHei",sans-serif}}
-.wrap{{max-width:780px;margin:0 auto;padding:24px}}h1{{font-size:20px}}a{{color:var(--b)}}
+.wrap{{max-width:780px;margin:0 auto;padding:24px}}h1{{font-size:20px}}
+a{{color:#7ba3c4;text-decoration:none}}a:hover{{text-decoration:underline}}
 .card{{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 22px}}
 .foot{{color:var(--mut);font-size:11px;margin-top:24px;border-top:1px solid var(--line);padding-top:12px}}</style></head>
 <body><div class="wrap"><h1>🔬 L3 深度研究 · {stock_id} {name}</h1>
 <div class="card">{body}</div>
-<p style="margin-top:18px"><a href="index.html">← 回選股報告</a></p>
+<p style="margin-top:18px"><a href="../index.html">← 回選股報告</a></p>
 <div class="foot">L3 研究層 · {L3_MODEL} · as-of {digest['as_of']} · 研究輔助非投資建議</div></div></body></html>"""
     p = os.path.join(ANALYSIS_DIR, f"{stock_id}.html")
     with open(p, "w", encoding="utf-8") as f:

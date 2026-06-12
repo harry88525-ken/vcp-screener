@@ -25,6 +25,7 @@ TEMPLATE = Template("""<!doctype html>
 font:15px/1.5 -apple-system,"Segoe UI","PingFang TC","Microsoft JhengHei",sans-serif}
 .wrap{max-width:1100px;margin:0 auto;padding:20px}
 h1{font-size:20px;margin:0 0 4px}.sub{color:var(--mut);font-size:13px;margin-bottom:18px}
+a{color:#7ba3c4;text-decoration:none}a:hover{text-decoration:underline}
 .cards{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap}
 .kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:120px}
 .kpi b{font-size:26px;display:block}.kpi span{color:var(--mut);font-size:12px}
