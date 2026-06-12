@@ -164,8 +164,11 @@ def run(sample: bool = True, as_of: str | None = None, limit: int | None = None)
         r["_price_ok"], r["_in_breakout"], r["_in_core"], r["_near_high"] = price_ok, in_breakout, in_core, near_high
         cands.append(r)
 
-    # Stage 2：enrich 只對 RS 最強的前 N 檔（加分欄位、不影響入選；防全市場逐檔拖死）
-    cands.sort(key=lambda r: -(r["rs_rating"] or 0))
+    # Stage 2：LEADERS/BREAKOUT（主攻標的）一定先 enrich，再用 RS 補滿上限（防全市場逐檔拖死）
+    def _enrich_prio(r):
+        prime = (r["_in_core"] and r["vcp"]["is_vcp"]) or r["_in_breakout"]
+        return (0 if prime else 1, -(r["rs_rating"] or 0))
+    cands.sort(key=_enrich_prio)
     for r in cands[:C.ENRICH_MAX_CANDIDATES]:
         enrich_candidate(client, r, end)
 
