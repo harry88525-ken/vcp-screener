@@ -195,6 +195,17 @@ class FinMindClient:
             df["date"] = pd.to_datetime(df["date"])
         return df
 
+    def per_pbr(self, stock_id: str, start: str, end: str) -> pd.DataFrame:
+        """本益比/股價淨值比/殖利率（TaiwanStockPER）。L3 估值用。"""
+        rows = self._get("TaiwanStockPER", data_id=stock_id, start_date=start, end_date=end)
+        df = pd.DataFrame(rows)
+        if not df.empty:
+            df["date"] = pd.to_datetime(df["date"])
+            for c in ("PER", "PBR", "dividend_yield"):
+                if c in df.columns:
+                    df[c] = pd.to_numeric(df[c], errors="coerce")
+        return df
+
     def index_price(self, index_id: str, start: str, end: str) -> pd.DataFrame:
         """加權報酬指數（RS 分母 / A-1 大盤）。欄位 date/close。"""
         rows = self._get("TaiwanStockTotalReturnIndex", data_id=index_id, start_date=start, end_date=end)

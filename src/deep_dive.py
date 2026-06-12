@@ -48,10 +48,53 @@ def _l1l2_context(stock_id: str) -> dict | None:
     return None
 
 
+def _group_context(industry: str | None) -> dict | None:
+    """從 groups.json 撈這檔所屬產業的族群定位（排名/動能/廣度/一致性/前段班 peer）。"""
+    if not industry:
+        return None
+    try:
+        g = json.load(open(C.OUTPUT_GROUPS_JSON, encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    return next((s for s in g.get("industries", []) if s["name"] == industry), None)
+
+
+def _trade_plan(ctx: dict | None) -> dict | None:
+    """從 L1 脈絡算完整進場數字：進場(樞紐高)/停損/目標(量測)/風報比 R:R。"""
+    if not ctx:
+        return None
+    entry, stop = ctx.get("pivot_high"), ctx.get("stop")
+    if not entry or not stop or entry <= stop:
+        return None
+    target = round(entry * (1 + C.L3_TARGET_MEASURED_MOVE), 1)
+    rr = round((target - entry) / (entry - stop), 2)
+    return {"entry": entry, "stop": stop, "target": target, "reward_risk": rr,
+            "risk_pct": round((entry - stop) / entry, 4),
+            "target_basis": f"樞紐高 ×{1 + C.L3_TARGET_MEASURED_MOVE:.2f} 量測"}
+
+
 def gather(client: FinMindClient, stock_id: str, as_of: str | None = None) -> dict:
     """拉全套深度資料，回結構化 digest（L3 輸入）。"""
     end = as_of or dt.date.today().isoformat()
-    out: dict = {"stock_id": stock_id, "as_of": end, "l1l2": _l1l2_context(stock_id)}
+    ctx = _l1l2_context(stock_id)
+    out: dict = {"stock_id": stock_id, "as_of": end, "l1l2": ctx}
+    out["group"] = _group_context((ctx or {}).get("industry"))
+    out["trade_plan"] = _trade_plan(ctx)
+    try:
+        pp = client.per_pbr(stock_id, _recent(end, 400), end)
+        if not pp.empty:
+            pp = pp.sort_values("date")
+            last = pp.iloc[-1]
+            per = pp["PER"].dropna()
+            out["valuation"] = {
+                "per": float(last.get("PER")) if "PER" in pp else None,
+                "pbr": float(last.get("PBR")) if "PBR" in pp else None,
+                "dividend_yield": float(last.get("dividend_yield")) if "dividend_yield" in pp else None,
+                "per_1y_low": round(float(per.min()), 1) if not per.empty else None,
+                "per_1y_high": round(float(per.max()), 1) if not per.empty else None,
+            }
+    except Exception:
+        pass
 
     mr = client.month_revenue(stock_id, _recent(end, 560), end)
     if not mr.empty:
@@ -102,7 +145,10 @@ def to_prompt(digest: dict) -> str:
     name = ctx.get("name", "")
     lines = [
         f"標的：{digest['stock_id']} {name}（as-of {digest['as_of']}）",
-        f"L1/L2 技術面/族群：{json.dumps(ctx, ensure_ascii=False)}",
+        f"L1 技術面：{json.dumps(ctx, ensure_ascii=False)}",
+        f"L2 族群定位(所屬產業排名/動能1月3月6月/廣度/一致性vcp_count/前段班peer top_members)：{json.dumps(digest.get('group'), ensure_ascii=False)}",
+        f"估值(PER/PBR/殖利率/PER近1年高低)：{json.dumps(digest.get('valuation'), ensure_ascii=False)}",
+        f"完整進場數字(進場樞紐高/停損/目標量測/風報比R:R)：{json.dumps(digest.get('trade_plan'), ensure_ascii=False)}",
         f"月營收(年,月,值千元)：{digest.get('revenue_monthly')}",
         f"季 EPS：{digest.get('eps')}",
         f"季營收：{digest.get('revenue_q')}",
@@ -116,9 +162,17 @@ def to_prompt(digest: dict) -> str:
     return "\n".join(lines)
 
 
-SYSTEM = """你是台股 VCP 深度研究分析師。依下列個股的技術面(L1)、族群(L2)、深度財報與籌碼，產出**繁體中文**結構化研究報告：
-結論先行(一句信心判斷) → 基本面(EPS/營收/雙率/現金流/股利趨勢) → 技術面 → 籌碼(法人動向，特別留意背離) → 族群定位 → 進場/停損/倉位 → 一句話判斷。
-重點：把訊號變成下單信心，明確點出 L1/L2 看不到的東西（如形態好但法人在賣的背離）。客觀、有立場、不堆術語。"""
+SYSTEM = """你是台股 VCP 深度研究分析師。依個股的技術面(L1)、族群定位(L2)、估值、深度財報、籌碼，產出**繁體中文**結構化研究報告，目的=讓投資人做出最優判斷。依序：
+
+【結論先行】一句信心判斷（明確：可動手 / 觀察 / 跳過）+ 信心等級。
+【族群定位】★最重要★ 回答「這是不是這場賽馬裡最好的馬、這場賽值不值得跑」：①這檔在所屬產業排第幾、是領頭還是跟隨 ②板塊動能(1月/3月/6月)→ 同步上漲嗎、剛啟動還是已續航 ③廣度+一致性(真族群 vs 孤狼) ④同板塊最強 peer 比較(要這主題、最強的是這檔還是別檔？)。
+【基本面】EPS/營收/雙率/現金流/股利趨勢 + 估值(PER/PBR 相對近1年高低=便宜還貴)。
+【籌碼】法人動向，特別點出背離(如形態好但法人在賣)。
+【完整進場計畫】進場(樞紐高)/停損/目標/風報比 R:R/倉位建議(A-1 燈號調整)。
+【催化劑與風險】明列。
+【一句話判斷】
+
+重點：把訊號變成下單信心；明確點出 L1/L2 單看不到的東西（族群是否最強、籌碼背離、估值偏貴）。客觀、有立場、不堆術語。"""
 
 
 def synthesize(prompt: str, model: str = L3_MODEL) -> str | None:

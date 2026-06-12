@@ -140,3 +140,4 @@ LIST_BREAKOUT = "BREAKOUT"   # 當日突破樞紐且量增
 OUTPUT_JSON = "docs/leaders.json"
 OUTPUT_HTML = "docs/index.html"
 OUTPUT_GROUPS_JSON = "docs/groups.json"      # L2 族群熱點獨立輸出
+L3_TARGET_MEASURED_MOVE = 0.20               # L3 目標價 = 樞紐高 ×(1+此值)；風報比 R:R 用

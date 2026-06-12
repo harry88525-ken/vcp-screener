@@ -76,13 +76,18 @@ def rank_dimension(rows: list[dict], key_fn, index_returns: dict,
         if rs_vs.get(FRAMES[0]) is not None:
             score += max(-12.0, min(12.0, rs_vs[FRAMES[0]] * 100 * 0.5))
 
+        ranked_mem = sorted([m for m in members if m.get("rs_rating") is not None],
+                            key=lambda m: m["rs_rating"], reverse=True)[:5]
+        top_members = [{"stock_id": m.get("stock_id"), "name": m.get("name"), "rs": m["rs_rating"]}
+                       for m in ranked_mem]
+
         stats.append({
             "name": name, "members": len(members),
             "median_rs": round(median_rs, 1), "breadth": round(breadth, 3),
             "vcp_count": vcp_count, "real_group": bool(vcp_count >= C.GROUP_CONSISTENCY_MIN),
             "mom": {str(f): (round(mom[f], 4) if mom[f] is not None else None) for f in FRAMES},
             "rs_vs_mkt": {str(f): (round(rs_vs[f], 4) if rs_vs[f] is not None else None) for f in FRAMES},
-            "score": round(score, 2),
+            "score": round(score, 2), "top_members": top_members,
         })
 
     stats.sort(key=lambda s: -s["score"])
