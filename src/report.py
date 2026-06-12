@@ -115,15 +115,26 @@ tr:last-child td{border-bottom:none}
 <section><h2>🟢 LEADERS · 主攻（全門檻通過）</h2>
 {% if d.LEADERS %}{{ trade_table(d.LEADERS) }}{% else %}<div class="empty">今日無 LEADERS（紅盤常見，系統不勉強選股）。</div>{% endif %}</section>
 
-<section><h2>🟡 READY · 觀察（趨勢+RS 強，樞紐未夠緊）</h2>
-{% if d.READY %}<table><thead><tr>
+{% macro ready_table(rows) %}
+{% if rows %}<table><thead><tr>
 <th>代號</th><th>名稱</th><th>產業</th><th>RS</th><th>收盤</th><th>距52高</th><th>樞紐寬</th><th>旗標</th></tr></thead><tbody>
-{% for x in d.READY %}<tr>
+{% for x in rows %}<tr>
 <td>{{ x.stock_id }}</td><td>{{ x.name }}</td><td class="l muted">{{ x.industry }}</td>
 <td>{{ x.rs_rating }}</td><td>{{ x.close }}</td><td>{{ '%+.1f%%'|format(x.dist_52w_high*100) }}</td>
 <td>{{ '%.1f%%'|format(x.pivot_width*100) }}</td>
-<td class="l flag">{% if x.rs_line_new_high %}RS線新高{% endif %}</td>
+<td class="l flag">{% if x.rs_line_new_high %}RS線新高 {% endif %}{% if x.group_top %}<span class="tag to">族群#{{ x.group_rank }}</span>{% endif %}</td>
 </tr>{% endfor %}</tbody></table>
+{% else %}<div class="empty">—</div>{% endif %}
+{% endmacro %}
+
+<section><h2>🟡 READY · 觀察（依成熟度分三組，每組內最貼近突破者在前）</h2>
+{% if d.READY %}
+{% set r1 = d.READY|selectattr('ready_tier','equalto',1)|sort(attribute='dist_52w_high',reverse=true)|list %}
+{% set r2 = d.READY|selectattr('ready_tier','equalto',2)|sort(attribute='dist_52w_high',reverse=true)|list %}
+{% set r3 = d.READY|selectattr('ready_tier','equalto',3)|sort(attribute='dist_52w_high',reverse=true)|list %}
+<p class="hoth">🔥 即將收緊（樞紐 ≤18%）· {{ r1|length }} 檔 — 每天盯，隨時可能升 LEADER</p>{{ ready_table(r1) }}
+<p class="hoth" style="margin-top:16px">📈 發展中（樞紐 18–25%）· {{ r2|length }} 檔 — 基底成形中</p>{{ ready_table(r2) }}
+<p class="hoth" style="margin-top:16px">👀 早期觀察（樞紐 &gt;25%）· {{ r3|length }} 檔 — 強股留底、還早</p>{{ ready_table(r3) }}
 {% else %}<div class="empty">今日無 READY。</div>{% endif %}</section>
 
 <section><h2>🚀 BREAKOUT · 當日突破</h2>

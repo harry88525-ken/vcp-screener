@@ -181,6 +181,8 @@ def run(sample: bool = True, as_of: str | None = None, limit: int | None = None)
             if r["vcp"]["is_vcp"]:
                 leaders.append(rec)
             elif r["_near_high"]:
+                pw = rec["pivot_width"]
+                rec["ready_tier"] = 1 if pw <= C.READY_TIER1_PIVOT else (2 if pw <= C.READY_TIER2_PIVOT else 3)
                 ready.append(rec)
 
     leaders.sort(key=lambda x: (-_grade_rank(x["grade"]), -(x["rs_rating"] or 0)))
