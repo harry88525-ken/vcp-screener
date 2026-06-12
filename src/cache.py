@@ -9,6 +9,7 @@
 from __future__ import annotations
 
 import os
+import time
 
 import pandas as pd
 
@@ -17,6 +18,7 @@ from src.finmind_client import FinMindClient
 
 PRICE_DIR = os.path.join("data", "prices")
 SYNC_MARKER = os.path.join(PRICE_DIR, "_synced_through.txt")
+FUND_DIR = os.path.join("data", "fundamentals")
 
 
 def _path(stock_id: str) -> str:
@@ -83,6 +85,26 @@ def sync_bulk(client: FinMindClient, trading_days: list[str], universe_ids,
             flush(d)
     flush(todo[-1])
     return fetched
+
+
+def get_fundamental(fetch, name: str, stock_id: str, start: str, end: str,
+                    stale_days: int = None) -> pd.DataFrame:
+    """季/月財報長期快取（財報/資產負債/月營收）。
+
+    這些是「重請求」（抓 3 年）且季月才更新——快取後 enrich 大幅省呼叫，
+    也避開了害 enrich 卡死的長連線。快取新鮮（檔齡 < stale_days）就直接用，否則重抓。
+    fetch：client 的方法（financials/balance_sheet/month_revenue）。
+    """
+    stale_days = stale_days if stale_days is not None else C.FUNDAMENTAL_CACHE_DAYS
+    d = os.path.join(FUND_DIR, name)
+    os.makedirs(d, exist_ok=True)
+    p = os.path.join(d, f"{stock_id}.parquet")
+    if os.path.exists(p) and (time.time() - os.path.getmtime(p)) / 86400 < stale_days:
+        return pd.read_parquet(p)
+    df = fetch(stock_id, start, end)
+    if not df.empty:
+        df.to_parquet(p, index=False)
+    return df
 
 
 def get_price(client: FinMindClient, stock_id: str, start: str, end: str,

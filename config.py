@@ -24,6 +24,7 @@ FINMIND_RATE_BACKOFF_SEC = 90   # 遇限流(402/429)每次等候秒數
 FINMIND_RATE_MAX_WAITS = 80     # 限流等候次數上限（保護：80×90s=2hr）
 BACKFILL_CHUNK_DAYS = 120       # sync_bulk 每抓滿幾個交易日就 flush 磁碟 + 增量 commit（防逾時蒸發）
 ENRICH_MAX_CANDIDATES = 80      # Stage 2 enrich 只跑 RS 最強前 N 檔（加分欄位、不影響入選；防全市場逐檔拖死）
+FUNDAMENTAL_CACHE_DAYS = 10     # 財報/資產負債/月營收長期快取天數（季月才更新，抓一次存著，避開重連線卡死）
 
 # ─────────────────────────────────────────────────────────────
 # 排除清單（產業 / 標的類型）

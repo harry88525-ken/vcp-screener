@@ -65,6 +65,29 @@ def test_sync_bulk_filters_universe_and_marker(monkeypatch, tmp_path):
     assert cache.sync_bulk(fake, days, ["2330", "2317"], chunk=2) == 0
 
 
+def test_get_fundamental_cache_hit_and_stale(monkeypatch, tmp_path):
+    monkeypatch.setattr(cache, "FUND_DIR", str(tmp_path / "fund"))
+    calls = {"n": 0}
+
+    def fetch(sid, start, end):
+        calls["n"] += 1
+        return pd.DataFrame({"date": pd.to_datetime(["2026-03-31"]), "type": ["EPS"], "value": [1.5]})
+
+    # 第一次抓、第二次（新鮮）走快取
+    cache.get_fundamental(fetch, "financials", "2330", "2024-01-01", "2026-06-11", stale_days=10)
+    df = cache.get_fundamental(fetch, "financials", "2330", "2024-01-01", "2026-06-11", stale_days=10)
+    assert calls["n"] == 1 and df["value"].tolist() == [1.5]
+
+    # stale_days=0 → 視為過期、重抓
+    cache.get_fundamental(fetch, "financials", "2330", "2024-01-01", "2026-06-11", stale_days=0)
+    assert calls["n"] == 2
+
+    # 不同 dataset / 不同股票各自獨立快取
+    cache.get_fundamental(fetch, "revenue", "2330", "2024-01-01", "2026-06-11", stale_days=10)
+    cache.get_fundamental(fetch, "financials", "2317", "2024-01-01", "2026-06-11", stale_days=10)
+    assert calls["n"] == 4
+
+
 def test_sync_bulk_incremental_append(monkeypatch, tmp_path):
     _isolate_cache(monkeypatch, tmp_path)
     fake = _FakeBulkClient()

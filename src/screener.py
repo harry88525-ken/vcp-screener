@@ -82,9 +82,10 @@ def enrich_candidate(client, r: dict, end: str) -> None:
     except Exception:
         r["chips"] = None
     try:
-        r["fundamental"] = fundamentals.evaluate(client.financials(sid, fin_start, end),
-                                                 client.balance_sheet(sid, fin_start, end),
-                                                 client.month_revenue(sid, fin_start, end))
+        r["fundamental"] = fundamentals.evaluate(
+            cache.get_fundamental(client.financials, "financials", sid, fin_start, end),
+            cache.get_fundamental(client.balance_sheet, "balance", sid, fin_start, end),
+            cache.get_fundamental(client.month_revenue, "revenue", sid, fin_start, end))
     except Exception:
         r["fundamental"] = None
 
