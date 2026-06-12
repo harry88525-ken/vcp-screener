@@ -23,7 +23,7 @@ import numpy as np
 import pandas as pd
 
 import config as C
-from src import cache, chips, fundamentals, groups, indicators, market_light, rs, trend_template, vcp
+from src import cache, chips, fundamentals, group_scan, indicators, market_light, rs, trend_template, vcp
 from src.finmind_client import FinMindClient
 
 # 示範用流動性權值股清單（正式版改掃全 universe）
@@ -60,6 +60,9 @@ def analyze_stock(client, sid, name, industry, start, end, index_df, offline: bo
     rsl = rs.rs_line_metrics(df, index_df)
     vres = vcp.analyze(df, rs_line_new_high=rsl["rs_line_new_high"],
                        dist_52w_high=m["dist_52w_high"], next_target=m["high_52w"])
+    closes = df["close"].to_numpy(float)                       # L2：多框架報酬（族群動能）
+    frames = {f: (float(closes[-1] / closes[-1 - f] - 1) if len(closes) > f and closes[-1 - f] > 0 else None)
+              for f in C.GROUP_FRAMES_DAYS}
     return {
         "stock_id": sid, "name": name, "industry": industry,
         "close": round(m["close"], 2),
@@ -67,7 +70,7 @@ def analyze_stock(client, sid, name, industry, start, end, index_df, offline: bo
         "liquid": m["liquid"], "avg_turnover_50": round(m["avg_turnover_50"], 0),
         "raw_rs": rs.raw_rs(df, index_df),
         "rs_line_rising": rsl["rs_line_rising"], "rs_line_new_high": rsl["rs_line_new_high"],
-        "trend_metrics": m, "vcp": vres.to_dict(),
+        "trend_metrics": m, "vcp": vres.to_dict(), "frames": frames,
         "fundamental": None, "chips": None,
     }
 
@@ -134,8 +137,13 @@ def run(sample: bool = True, as_of: str | None = None, limit: int | None = None)
     for r, rt in zip(rows, ratings):
         r["rs_rating"] = int(rt) if pd.notna(rt) else None
 
-    # A-8 族群熱點（跨個股）+ A-1 市場紅綠燈
-    group_summary = groups.annotate(rows)
+    # L2 族群熱點（A-8 雙維度：證交所產業 + 產業鏈主題）+ A-1 市場紅綠燈
+    chain_map: dict[str, list[str]] = {}
+    if use_bulk:
+        chain_df = cache.get_industry_chain(client)
+        for sid, sub in zip(chain_df["stock_id"], chain_df["sub_industry"]):
+            chain_map.setdefault(sid, []).append(sub)
+    group_summary = group_scan.scan(rows, chain_map, index_df)
     above200 = [1 for r in rows
                 if np.isfinite(r["trend_metrics"]["ma200"]) and r["close"] > r["trend_metrics"]["ma200"]]
     breadth_pct = len(above200) / len(rows) if rows else 0.0
@@ -182,7 +190,7 @@ def run(sample: bool = True, as_of: str | None = None, limit: int | None = None)
         "market": market,
         "counts": {"LEADERS": len(leaders), "READY": len(ready), "BREAKOUT": len(breakout)},
         "LEADERS": leaders, "READY": ready, "BREAKOUT": breakout,
-        "groups_top": group_summary[:8],
+        "groups": group_summary,
     }
 
 
@@ -259,6 +267,13 @@ def main():
     result["changes"] = compute_changes(result, prev)
     out_dir = os.path.dirname(args.out)
     os.makedirs(out_dir, exist_ok=True)
+    # L2：完整族群榜寫獨立 groups.json；leaders.json 只留前段供報告（防膨脹）
+    gf = result.get("groups") or {"industries": [], "themes": []}
+    with open(C.OUTPUT_GROUPS_JSON, "w", encoding="utf-8") as f:
+        json.dump({"as_of": result["as_of"], "generated_at": result["generated_at"],
+                   "industries": gf.get("industries", []), "themes": gf.get("themes", [])},
+                  f, ensure_ascii=False, indent=2)
+    result["groups"] = {"industries": gf.get("industries", [])[:15], "themes": gf.get("themes", [])[:15]}
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
     # 歷史快照（供日後任意日比較）

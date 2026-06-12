@@ -122,6 +122,14 @@ class FinMindClient:
             df[col] = pd.to_numeric(df[col], errors="coerce")
         return df[cols]
 
+    def industry_chain(self) -> pd.DataFrame:
+        """個股所屬產業鏈（Backer）。回傳 stock_id → sub_industry（多對多，一檔可屬多鏈）。"""
+        rows = self._get("TaiwanStockIndustryChain")
+        df = pd.DataFrame(rows)
+        if df.empty or "sub_industry" not in df.columns:
+            return pd.DataFrame(columns=["stock_id", "sub_industry"])
+        return df[["stock_id", "sub_industry"]].dropna().drop_duplicates().reset_index(drop=True)
+
     def institutional(self, stock_id: str, start: str, end: str) -> pd.DataFrame:
         """三大法人買賣超（長格式 → 寬格式：每日各法人淨買超 + 合計）。"""
         rows = self._get("TaiwanStockInstitutionalInvestorsBuySell",

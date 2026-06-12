@@ -19,6 +19,7 @@ from src.finmind_client import FinMindClient
 PRICE_DIR = os.path.join("data", "prices")
 SYNC_MARKER = os.path.join(PRICE_DIR, "_synced_through.txt")
 FUND_DIR = os.path.join("data", "fundamentals")
+CHAIN_PATH = os.path.join("data", "industry_chain.parquet")
 
 
 def _path(stock_id: str) -> str:
@@ -104,6 +105,18 @@ def get_fundamental(fetch, name: str, stock_id: str, start: str, end: str,
     df = fetch(stock_id, start, end)
     if not df.empty:
         df.to_parquet(p, index=False)
+    return df
+
+
+def get_industry_chain(client: FinMindClient, stale_days: int = None) -> pd.DataFrame:
+    """產業鏈分類長期快取（分類極少變、抓一次存著）。回傳 stock_id/sub_industry。"""
+    stale_days = stale_days if stale_days is not None else C.GROUP_CHAIN_CACHE_DAYS
+    if os.path.exists(CHAIN_PATH) and (time.time() - os.path.getmtime(CHAIN_PATH)) / 86400 < stale_days:
+        return pd.read_parquet(CHAIN_PATH)
+    df = client.industry_chain()
+    if not df.empty:
+        os.makedirs(os.path.dirname(CHAIN_PATH), exist_ok=True)
+        df.to_parquet(CHAIN_PATH, index=False)
     return df
 
 

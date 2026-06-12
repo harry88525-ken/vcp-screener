@@ -3,7 +3,7 @@
 import numpy as np
 import pandas as pd
 
-from src import chips, fundamentals, groups, market_light
+from src import chips, fundamentals, group_scan, market_light
 
 
 # ── A-7 籌碼 ──
@@ -72,7 +72,7 @@ def test_groups_ranking_consistency_top():
     rows = [_grow("半導體", 95, 100, 90, True), _grow("半導體", 92, 100, 90, True),
             _grow("半導體", 90, 100, 90, True), _grow("航運", 40, 100, 90, False),
             _grow("食品", 30, 100, 110, False)]
-    groups.annotate(rows)
+    group_scan.annotate(rows)
     semis = [r for r in rows if r["industry"] == "半導體"]
     assert all(r["group_rank"] == 1 for r in semis)   # 最強族群
     assert all(r["group_top"] for r in semis)

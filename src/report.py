@@ -42,6 +42,8 @@ tr:last-child td{border-bottom:none}
 .mkt{display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:18px;font-size:13px}
 .mkt b{font-size:15px}.tag{font-size:11px;border-radius:4px;padding:1px 6px;margin-right:4px}
 .tg{background:rgba(63,185,80,.16);color:var(--a)}.to{background:rgba(210,153,34,.18);color:var(--c)}
+.hot{display:flex;gap:16px;flex-wrap:wrap}.hotcol{flex:1;min-width:330px}
+.hoth{font-size:13px;color:var(--mut);margin:0 0 6px}.up{color:var(--a)}.dn{color:var(--red)}
 .foot{color:var(--mut);font-size:11px;margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
 </style></head><body><div class="wrap">
 <h1>📈 VCP 選股大腦 · L1</h1>
@@ -89,6 +91,26 @@ tr:last-child td{border-bottom:none}
 {% if x.group_top %}<span class="tag to">族群#{{ x.group_rank }}</span>{% endif %}</td>
 </tr>{% endfor %}</tbody></table>
 {% endmacro %}
+
+{% macro group_table(gs) %}
+{% if gs %}<table><thead><tr><th>#</th><th>族群</th><th>檔</th><th>中位RS</th><th>廣度</th><th>1月</th><th>3月</th><th>真族群</th></tr></thead><tbody>
+{% for g in gs %}<tr>
+<td>{{ g.rank }}</td><td class="l">{{ g.name }}{% if g.top %} <span class="tag to">熱</span>{% endif %}</td>
+<td>{{ g.members }}</td><td>{{ g.median_rs }}</td><td>{{ '%.0f%%'|format(g.breadth*100) }}</td>
+<td class="{{ 'up' if g.mom['21'] and g.mom['21'] > 0 else 'dn' }}">{{ '%+.1f%%'|format(g.mom['21']*100) if g.mom['21'] is not none else '—' }}</td>
+<td class="{{ 'up' if g.mom['63'] and g.mom['63'] > 0 else 'dn' }}">{{ '%+.1f%%'|format(g.mom['63']*100) if g.mom['63'] is not none else '—' }}</td>
+<td>{% if g.real_group %}<span class="flag">✓ {{ g.vcp_count }}</span>{% endif %}</td>
+</tr>{% endfor %}</tbody></table>
+{% else %}<div class="empty">—</div>{% endif %}
+{% endmacro %}
+
+{% if d.groups %}
+<section><h2>🔥 族群熱力區（前段班 = 個股 VCP 評分 +1）</h2>
+<div class="hot">
+<div class="hotcol"><p class="hoth">🏭 產業（證交所）· 強度排名</p>{{ group_table(d.groups.industries) }}</div>
+<div class="hotcol"><p class="hoth">🧩 主題（產業鏈）· 強度排名</p>{{ group_table(d.groups.themes) }}</div>
+</div></section>
+{% endif %}
 
 <section><h2>🟢 LEADERS · 主攻（全門檻通過）</h2>
 {% if d.LEADERS %}{{ trade_table(d.LEADERS) }}{% else %}<div class="empty">今日無 LEADERS（紅盤常見，系統不勉強選股）。</div>{% endif %}</section>
