@@ -1,6 +1,6 @@
 {
   "as_of": "2026-06-11",
-  "generated_at": "2026-06-12T05:20:03",
+  "generated_at": "2026-06-12T06:01:54",
   "universe_scanned": 1480,
   "market": {
     "light": "yellow",
@@ -89,7 +89,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "4973",
@@ -123,7 +124,8 @@
       "fundamental_ok": false,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "5386",
@@ -157,7 +159,8 @@
       "fundamental_ok": true,
       "group_rank": 9,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "6173",
@@ -191,7 +194,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "7610",
@@ -223,7 +227,8 @@
       "fundamental_ok": false,
       "group_rank": 38,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 3
     },
     {
       "stock_id": "8021",
@@ -257,7 +262,8 @@
       "fundamental_ok": false,
       "group_rank": 18,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 3
     },
     {
       "stock_id": "2344",
@@ -289,7 +295,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "2492",
@@ -321,7 +328,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "3037",
@@ -353,7 +361,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "3167",
@@ -385,7 +394,8 @@
       "fundamental_ok": true,
       "group_rank": 16,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 2
     },
     {
       "stock_id": "3189",
@@ -419,7 +429,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "4542",
@@ -451,7 +462,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "5289",
@@ -483,7 +495,8 @@
       "fundamental_ok": true,
       "group_rank": 9,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6274",
@@ -515,7 +528,8 @@
       "fundamental_ok": true,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6831",
@@ -549,7 +563,8 @@
       "fundamental_ok": false,
       "group_rank": 9,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "8043",
@@ -583,7 +598,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2327",
@@ -615,7 +631,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2383",
@@ -649,7 +666,8 @@
       "fundamental_ok": true,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "2408",
@@ -681,7 +699,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "2472",
@@ -715,7 +734,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "4958",
@@ -750,7 +770,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6223",
@@ -785,7 +806,8 @@
       "fundamental_ok": true,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "6265",
@@ -819,7 +841,8 @@
       "fundamental_ok": false,
       "group_rank": 1,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "7828",
@@ -855,7 +878,8 @@
       "fundamental_ok": false,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "8042",
@@ -889,7 +913,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "8358",
@@ -923,7 +948,8 @@
       "fundamental_ok": true,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2360",
@@ -955,7 +981,8 @@
       "fundamental_ok": true,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "2478",
@@ -989,7 +1016,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "3532",
@@ -1021,7 +1049,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "4741",
@@ -1056,7 +1085,8 @@
       "fundamental_ok": false,
       "group_rank": 5,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "6127",
@@ -1088,7 +1118,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "7769",
@@ -1120,7 +1151,8 @@
       "fundamental_ok": false,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "8289",
@@ -1155,7 +1187,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "2308",
@@ -1189,7 +1222,8 @@
       "fundamental_ok": true,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "2313",
@@ -1223,7 +1257,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "2454",
@@ -1255,7 +1290,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "3481",
@@ -1287,7 +1323,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "5274",
@@ -1321,7 +1358,8 @@
       "fundamental_ok": true,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6182",
@@ -1353,7 +1391,8 @@
       "fundamental_ok": false,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2368",
@@ -1385,7 +1424,8 @@
       "fundamental_ok": true,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "3042",
@@ -1419,7 +1459,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "3221",
@@ -1453,7 +1494,8 @@
       "fundamental_ok": false,
       "group_rank": 8,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "3236",
@@ -1487,7 +1529,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "3711",
@@ -1519,7 +1562,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6155",
@@ -1556,7 +1600,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "6405",
@@ -1588,7 +1633,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "8299",
@@ -1622,7 +1668,8 @@
       "fundamental_ok": true,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2303",
@@ -1654,7 +1701,8 @@
       "fundamental_ok": false,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2484",
@@ -1688,7 +1736,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "3624",
@@ -1722,7 +1771,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "4967",
@@ -1757,7 +1807,8 @@
       "fundamental_ok": true,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6449",
@@ -1791,7 +1842,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6834",
@@ -1826,7 +1878,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "8150",
@@ -1860,7 +1913,8 @@
       "fundamental_ok": false,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "8996",
@@ -1892,7 +1946,8 @@
       "fundamental_ok": true,
       "group_rank": 16,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 3
     },
     {
       "stock_id": "1809",
@@ -1924,7 +1979,8 @@
       "fundamental_ok": false,
       "group_rank": 2,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2486",
@@ -1958,7 +2014,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "4919",
@@ -1990,7 +2047,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "6174",
@@ -2025,7 +2083,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6175",
@@ -2059,7 +2118,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "6207",
@@ -2091,7 +2151,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "6432",
@@ -2125,7 +2186,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6672",
@@ -2160,7 +2222,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "8027",
@@ -2192,7 +2255,8 @@
       "fundamental_ok": false,
       "group_rank": 16,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 3
     },
     {
       "stock_id": "1785",
@@ -2227,7 +2291,8 @@
       "fundamental_ok": true,
       "group_rank": 7,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "3234",
@@ -2261,7 +2326,8 @@
       "fundamental_ok": false,
       "group_rank": 8,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "3583",
@@ -2295,7 +2361,8 @@
       "fundamental_ok": false,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "5328",
@@ -2329,7 +2396,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "8096",
@@ -2361,7 +2429,8 @@
       "fundamental_ok": false,
       "group_rank": 1,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "8210",
@@ -2396,7 +2465,8 @@
       "fundamental_ok": true,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "1727",
@@ -2428,7 +2498,8 @@
       "fundamental_ok": false,
       "group_rank": 5,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "2059",
@@ -2463,7 +2534,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2351",
@@ -2495,7 +2567,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2375",
@@ -2527,7 +2600,8 @@
       "fundamental_ok": false,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "3048",
@@ -2561,7 +2635,8 @@
       "fundamental_ok": false,
       "group_rank": 1,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "3264",
@@ -2593,7 +2668,8 @@
       "fundamental_ok": true,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6239",
@@ -2625,7 +2701,8 @@
       "fundamental_ok": false,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6693",
@@ -2657,7 +2734,8 @@
       "fundamental_ok": false,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6949",
@@ -2693,7 +2771,8 @@
       "fundamental_ok": false,
       "group_rank": 10,
       "group_real": false,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "2345",
@@ -2728,7 +2807,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "2399",
@@ -2760,7 +2840,8 @@
       "fundamental_ok": null,
       "group_rank": 9,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "3441",
@@ -2795,7 +2876,8 @@
       "fundamental_ok": null,
       "group_rank": 12,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 3
     },
     {
       "stock_id": "4916",
@@ -2829,7 +2911,8 @@
       "fundamental_ok": null,
       "group_rank": 9,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "5351",
@@ -2863,7 +2946,8 @@
       "fundamental_ok": null,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6196",
@@ -2895,7 +2979,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "6435",
@@ -2927,7 +3012,8 @@
       "fundamental_ok": null,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6548",
@@ -2959,7 +3045,8 @@
       "fundamental_ok": null,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2413",
@@ -2996,7 +3083,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "3093",
@@ -3032,7 +3120,8 @@
       "fundamental_ok": null,
       "group_rank": 7,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "3149",
@@ -3064,7 +3153,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "3357",
@@ -3098,7 +3188,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "3673",
@@ -3130,7 +3221,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6257",
@@ -3162,7 +3254,8 @@
       "fundamental_ok": null,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "6285",
@@ -3194,7 +3287,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "8182",
@@ -3228,7 +3322,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2451",
@@ -3260,7 +3355,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "4739",
@@ -3294,7 +3390,8 @@
       "fundamental_ok": null,
       "group_rank": 11,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 3
     },
     {
       "stock_id": "6166",
@@ -3326,7 +3423,8 @@
       "fundamental_ok": null,
       "group_rank": 9,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6197",
@@ -3358,7 +3456,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6290",
@@ -3390,7 +3489,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "6488",
@@ -3422,7 +3522,8 @@
       "fundamental_ok": null,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "8091",
@@ -3456,7 +3557,8 @@
       "fundamental_ok": null,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "1303",
@@ -3488,7 +3590,8 @@
       "fundamental_ok": null,
       "group_rank": 14,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 2
     },
     {
       "stock_id": "3028",
@@ -3522,7 +3625,8 @@
       "fundamental_ok": null,
       "group_rank": 1,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "3450",
@@ -3554,7 +3658,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "3550",
@@ -3588,7 +3693,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "3691",
@@ -3622,7 +3728,8 @@
       "fundamental_ok": null,
       "group_rank": 12,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 2
     },
     {
       "stock_id": "8121",
@@ -3656,7 +3763,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "2316",
@@ -3690,7 +3798,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "2406",
@@ -3724,7 +3833,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2481",
@@ -3756,7 +3866,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "2495",
@@ -3790,7 +3901,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "3615",
@@ -3822,7 +3934,8 @@
       "fundamental_ok": null,
       "group_rank": 12,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 3
     },
     {
       "stock_id": "6139",
@@ -3856,7 +3969,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "6209",
@@ -3888,7 +4002,8 @@
       "fundamental_ok": null,
       "group_rank": 12,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 2
     },
     {
       "stock_id": "8028",
@@ -3920,7 +4035,8 @@
       "fundamental_ok": null,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "2305",
@@ -3952,7 +4068,8 @@
       "fundamental_ok": null,
       "group_rank": 9,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "4931",
@@ -3984,7 +4101,8 @@
       "fundamental_ok": null,
       "group_rank": 9,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "5285",
@@ -4016,7 +4134,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "6278",
@@ -4048,7 +4167,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "8131",
@@ -4087,7 +4207,8 @@
       "fundamental_ok": null,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "2302",
@@ -4119,7 +4240,8 @@
       "fundamental_ok": null,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2428",
@@ -4153,7 +4275,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "3008",
@@ -4187,7 +4310,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "3537",
@@ -4219,7 +4343,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6224",
@@ -4253,7 +4378,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "1560",
@@ -4285,7 +4411,8 @@
       "fundamental_ok": null,
       "group_rank": 16,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 2
     },
     {
       "stock_id": "2409",
@@ -4317,7 +4444,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "2441",
@@ -4349,7 +4477,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "3088",
@@ -4383,7 +4512,8 @@
       "fundamental_ok": null,
       "group_rank": 9,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "6190",
@@ -4417,7 +4547,8 @@
       "fundamental_ok": null,
       "group_rank": 8,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "6271",
@@ -4451,7 +4582,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6821",
@@ -4483,7 +4615,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "1409",
@@ -4515,7 +4648,8 @@
       "fundamental_ok": null,
       "group_rank": 35,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 2
     },
     {
       "stock_id": "3033",
@@ -4550,7 +4684,8 @@
       "fundamental_ok": null,
       "group_rank": 1,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "3317",
@@ -4582,7 +4717,8 @@
       "fundamental_ok": null,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "3528",
@@ -4616,7 +4752,8 @@
       "fundamental_ok": null,
       "group_rank": 1,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 3
     },
     {
       "stock_id": "3556",
@@ -4648,7 +4785,8 @@
       "fundamental_ok": null,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "5347",
@@ -4682,7 +4820,8 @@
       "fundamental_ok": null,
       "group_rank": 4,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6205",
@@ -4716,7 +4855,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6446",
@@ -4748,7 +4888,8 @@
       "fundamental_ok": null,
       "group_rank": 33,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 1
     },
     {
       "stock_id": "3044",
@@ -4782,7 +4923,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 1
     },
     {
       "stock_id": "3406",
@@ -4816,7 +4958,8 @@
       "fundamental_ok": null,
       "group_rank": 6,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6282",
@@ -4848,7 +4991,8 @@
       "fundamental_ok": null,
       "group_rank": 3,
       "group_real": true,
-      "group_top": true
+      "group_top": true,
+      "ready_tier": 2
     },
     {
       "stock_id": "6944",
@@ -4883,7 +5027,8 @@
       "fundamental_ok": null,
       "group_rank": 38,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 1
     },
     {
       "stock_id": "8105",
@@ -4917,7 +5062,8 @@
       "fundamental_ok": null,
       "group_rank": 12,
       "group_real": true,
-      "group_top": false
+      "group_top": false,
+      "ready_tier": 2
     }
   ],
   "BREAKOUT": [],
