@@ -5,7 +5,9 @@
 """
 from __future__ import annotations
 
+import glob
 import json
+import os
 import sys
 
 from jinja2 import Template
@@ -78,7 +80,7 @@ tr:last-child td{border-bottom:none}
 <th>代號</th><th>名稱</th><th>產業</th><th>RS</th><th>評分</th><th>收盤</th><th>距52高</th>
 <th>樞紐(買點)</th><th>停損</th><th>風險%</th><th>R:R</th><th>狀態</th><th>加分</th></tr></thead><tbody>
 {% for x in rows %}<tr>
-<td>{{ x.stock_id }}</td><td>{{ x.name }}</td><td class="l muted">{{ x.industry }}</td>
+<td>{% if x.stock_id in analyzed %}<a href="analysis/{{ x.stock_id }}.html">{{ x.stock_id }} 🔬</a>{% else %}{{ x.stock_id }}{% endif %}</td><td>{{ x.name }}</td><td class="l muted">{{ x.industry }}</td>
 <td>{{ x.rs_rating }}</td><td><span class="g g{{ x.grade }}">{{ x.grade }}</span></td>
 <td>{{ x.close }}</td><td>{{ '%+.1f%%'|format(x.dist_52w_high*100) }}</td>
 <td>{{ x.pivot_high }}</td><td>{{ x.stop }}</td><td>{{ '%.1f%%'|format(x.risk_pct*100) }}</td>
@@ -119,7 +121,7 @@ tr:last-child td{border-bottom:none}
 {% if rows %}<table><thead><tr>
 <th>代號</th><th>名稱</th><th>產業</th><th>RS</th><th>收盤</th><th>距52高</th><th>樞紐寬</th><th>旗標</th></tr></thead><tbody>
 {% for x in rows %}<tr>
-<td>{{ x.stock_id }}</td><td>{{ x.name }}</td><td class="l muted">{{ x.industry }}</td>
+<td>{% if x.stock_id in analyzed %}<a href="analysis/{{ x.stock_id }}.html">{{ x.stock_id }} 🔬</a>{% else %}{{ x.stock_id }}{% endif %}</td><td>{{ x.name }}</td><td class="l muted">{{ x.industry }}</td>
 <td>{{ x.rs_rating }}</td><td>{{ x.close }}</td><td>{{ '%+.1f%%'|format(x.dist_52w_high*100) }}</td>
 <td>{{ '%.1f%%'|format(x.pivot_width*100) }}</td>
 <td class="l flag">{% if x.rs_line_new_high %}RS線新高 {% endif %}{% if x.group_top %}<span class="tag to">族群#{{ x.group_rank }}</span>{% endif %}</td>
@@ -148,7 +150,9 @@ tr:last-child td{border-bottom:none}
 def build(json_path: str = C.OUTPUT_JSON, html_path: str = C.OUTPUT_HTML) -> None:
     with open(json_path, encoding="utf-8") as f:
         d = json.load(f)
-    html = TEMPLATE.render(d=d)
+    adir = os.path.join(os.path.dirname(html_path) or ".", "analysis")
+    analyzed = {os.path.splitext(os.path.basename(p))[0] for p in glob.glob(os.path.join(adir, "*.html"))}
+    html = TEMPLATE.render(d=d, analyzed=analyzed)
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"→ {html_path}")

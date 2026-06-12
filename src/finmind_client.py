@@ -178,6 +178,23 @@ class FinMindClient:
                     df[col] = pd.to_numeric(df[col], errors="coerce")
         return df
 
+    def cashflow(self, stock_id: str, start: str, end: str) -> pd.DataFrame:
+        """現金流量表（長格式 type/value，Backer）。L3 用。"""
+        rows = self._get("TaiwanStockCashFlowsStatement", data_id=stock_id, start_date=start, end_date=end)
+        df = pd.DataFrame(rows)
+        if not df.empty:
+            df["date"] = pd.to_datetime(df["date"])
+            df["value"] = pd.to_numeric(df["value"], errors="coerce")
+        return df
+
+    def dividend(self, stock_id: str, start: str, end: str) -> pd.DataFrame:
+        """股利政策表（Backer）。CashEarningsDistribution=現金股利/股。L3 用。"""
+        rows = self._get("TaiwanStockDividend", data_id=stock_id, start_date=start, end_date=end)
+        df = pd.DataFrame(rows)
+        if not df.empty:
+            df["date"] = pd.to_datetime(df["date"])
+        return df
+
     def index_price(self, index_id: str, start: str, end: str) -> pd.DataFrame:
         """加權報酬指數（RS 分母 / A-1 大盤）。欄位 date/close。"""
         rows = self._get("TaiwanStockTotalReturnIndex", data_id=index_id, start_date=start, end_date=end)

@@ -54,6 +54,17 @@ jobs:
           echo "Running: python -m src.screener $ARGS"
           python -m src.screener $ARGS
 
+      - name: L3 deep-dive LEADERS
+        env:
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PYTHONUTF8: "1"
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then echo "no ANTHROPIC_API_KEY — skip L3"; exit 0; fi
+          ids=$(python -c "import json;print(' '.join(x['stock_id'] for x in json.load(open('docs/leaders.json',encoding='utf-8'))['LEADERS']))")
+          for id in $ids; do echo "L3 deep-dive $id"; python -m src.deep_dive "$id" || true; done
+          python -m src.report docs/leaders.json docs/index.html   # 重建報告以掛上深挖連結
+
       - name: Commit results
         run: |
           git pull --rebase --autostash || true   # 增量 commit 已推遠端，先同步再推
