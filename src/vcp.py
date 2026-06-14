@@ -164,6 +164,13 @@ def analyze_pivot(df: pd.DataFrame) -> dict:
     high_pos = int(np.argmax(recent["high"].to_numpy())) / max(w - 1, 1)  # 0=窗首,1=窗尾
     high_at_start = high_pos <= C.PIVOT_HIGH_AT_START_FRAC
 
+    # 突破判斷專用的「前期樞紐高」＝近 PIVOT_WINDOW 日但『排除當日』(截至前一日)。
+    # 含當日版的 pivot_high 已把當日 high 算進去，而當日 high >= close，
+    # 使 close > pivot_high 幾乎永遠 False → today_breakout 常年空（線上 BREAKOUT 清單長期為 0）。
+    # 正確時序：前一日盤整 tight setup → 當日收盤突破『前一日為止』的樞紐高（與 backtest 同步）。
+    prev_highs = df["high"].iloc[-(w + 1):-1]
+    prev_pivot_high = float(prev_highs.max()) if len(prev_highs) else pivot_high
+
     vol = df["volume"].to_numpy()
     avg_vol = float(vol[-C.VOLUME_AVG_WINDOW:].mean())
     recent_vol = float(vol[-w:].mean())
@@ -173,6 +180,7 @@ def analyze_pivot(df: pd.DataFrame) -> dict:
     vol_contraction = (recent_vol < avg_vol) and (slope < 0)
 
     return {"pivot_high": pivot_high, "pivot_low": pivot_low, "width": float(width),
+            "prev_pivot_high": prev_pivot_high,
             "high_at_start": bool(high_at_start), "avg_vol": avg_vol,
             "recent_vol": recent_vol, "vol_slope": slope,
             "vol_contraction": bool(vol_contraction),
@@ -183,6 +191,10 @@ def analyze_pivot(df: pd.DataFrame) -> dict:
 # 突破（A-4.4）
 # ─────────────────────────────────────────────────────────────
 def detect_breakout(df: pd.DataFrame, pivot_high: float, avg_vol: float) -> dict:
+    """當日是否突破樞紐高 + 量增。
+    pivot_high 必須是『前期樞紐高』(不含當日，見 analyze_pivot 的 prev_pivot_high)，
+    否則當日 high 已含在內，close 永遠突不破 → today_breakout 恆為 False。
+    """
     last = df.iloc[-1]
     close, volume = float(last["close"]), float(last["volume"])
     above = close > pivot_high
@@ -289,7 +301,8 @@ def analyze(df: pd.DataFrame, rs_line_new_high: bool = False,
     v = validate_contractions(contractions)
 
     piv = analyze_pivot(df)
-    brk = detect_breakout(df, piv["pivot_high"], piv["avg_vol"])
+    # 突破比對『前期樞紐高』(不含當日)；entry/risk 仍用含當日樞紐高(piv["pivot_high"])。
+    brk = detect_breakout(df, piv["prev_pivot_high"], piv["avg_vol"])
 
     last_low = contractions[-1]["low"] if contractions else piv["pivot_low"]
     rk = risk_metrics(piv["pivot_high"], piv["pivot_low"], last_low)
