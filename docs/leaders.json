@@ -1,6 +1,6 @@
 {
   "as_of": "2026-06-12",
-  "generated_at": "2026-06-15T07:23:17",
+  "generated_at": "2026-06-15T08:11:08",
   "universe_scanned": 1480,
   "market": {
     "light": "green",
@@ -1729,7 +1729,7 @@
       "avg_vol": 23296127.0,
       "trend_price_ok": true,
       "inst_net_buy": false,
-      "trust_streak": 2,
+      "trust_streak": 0,
       "margin_overheat": false,
       "eps_yoy": -27.7407,
       "roe": 0.1831,
@@ -7772,63 +7772,7 @@
       "left": []
     },
     "BREAKOUT": {
-      "entered": [
-        {
-          "stock_id": "6515",
-          "name": "穎崴",
-          "grade": ""
-        },
-        {
-          "stock_id": "5498",
-          "name": "凱崴",
-          "grade": ""
-        },
-        {
-          "stock_id": "2484",
-          "name": "希華",
-          "grade": ""
-        },
-        {
-          "stock_id": "6834",
-          "name": "天二科技",
-          "grade": ""
-        },
-        {
-          "stock_id": "2059",
-          "name": "川湖",
-          "grade": ""
-        },
-        {
-          "stock_id": "2413",
-          "name": "環科",
-          "grade": ""
-        },
-        {
-          "stock_id": "2483",
-          "name": "百容",
-          "grade": ""
-        },
-        {
-          "stock_id": "8105",
-          "name": "凌巨",
-          "grade": ""
-        },
-        {
-          "stock_id": "6944",
-          "name": "兆聯實業",
-          "grade": ""
-        },
-        {
-          "stock_id": "5904",
-          "name": "寶雅",
-          "grade": ""
-        },
-        {
-          "stock_id": "6691",
-          "name": "洋基工程",
-          "grade": ""
-        }
-      ],
+      "entered": [],
       "left": []
     }
   }
