@@ -62,20 +62,6 @@ tr:last-child td{border-bottom:none}
   <div class="kpi"><b style="color:var(--c)">{{ d.counts.BREAKOUT }}</b><span>BREAKOUT 突破</span></div>
 </div>
 
-<section><h2>📋 與昨日變化{% if d.changes and d.changes.vs %}（vs {{ d.changes.vs }}）{% endif %}</h2>
-{% if not d.changes or not d.changes.vs %}<div class="empty">首次執行，無比較基準。</div>
-{% else %}
-{% set anychg = d.changes.LEADERS.entered or d.changes.LEADERS.left or d.changes.READY.entered or d.changes.READY.left or d.changes.BREAKOUT.entered or d.changes.BREAKOUT.left %}
-<div class="chg">
-{% if not anychg %}<span class="muted">與昨日相同，無進出。</span>{% endif %}
-{% for key in ['LEADERS','READY','BREAKOUT'] %}{% set c = d.changes[key] %}{% if c.entered or c.left %}
-<div class="chgrow"><span class="chgk">{{ key }}</span>
-{% for x in c.entered %}<span class="ent">+ {{ x.stock_id }} {{ x.name }}{% if x.grade %} {{ x.grade }}{% endif %}</span>{% endfor %}
-{% for x in c.left %}<span class="lft">− {{ x.stock_id }} {{ x.name }}</span>{% endfor %}
-</div>{% endif %}{% endfor %}
-</div>
-{% endif %}</section>
-
 {% macro trade_table(rows) %}
 <table><thead><tr>
 <th>代號</th><th>名稱</th><th>產業</th><th>RS</th><th>評分</th><th>收盤</th><th>距52高</th>
@@ -123,14 +109,6 @@ tr:last-child td{border-bottom:none}
 <p class="hoth" style="margin:0 0 10px">隔天開盤只盯這幾檔：收盤站上「買點」且當日量 ≥「量門檻」才進場，否則續觀察。量門檻＝50 日均量 ×1.4。{{ watch|length }} 檔。</p>
 {{ snipe_table(watch) }}</section>
 
-{% if d.groups %}
-<section><h2>🔥 族群熱力區（前段班 = 個股 VCP 評分 +1）</h2>
-<div class="hot">
-<div class="hotcol"><p class="hoth">🏭 產業（證交所）· 強度排名</p>{{ group_table(d.groups.industries) }}</div>
-<div class="hotcol"><p class="hoth">🧩 主題（產業鏈）· 強度排名</p>{{ group_table(d.groups.themes) }}</div>
-</div></section>
-{% endif %}
-
 <section><h2>🟢 LEADERS · 主攻（全門檻通過）</h2>
 {% if d.LEADERS %}{{ trade_table(d.LEADERS) }}{% else %}<div class="empty">今日無 LEADERS（紅盤常見，系統不勉強選股）。</div>{% endif %}</section>
 
@@ -158,6 +136,28 @@ tr:last-child td{border-bottom:none}
 
 <section><h2>🚀 BREAKOUT · 當日突破</h2>
 {% if d.BREAKOUT %}{{ trade_table(d.BREAKOUT) }}{% else %}<div class="empty">今日無突破。</div>{% endif %}</section>
+
+<section><h2>📋 與昨日變化{% if d.changes and d.changes.vs %}（vs {{ d.changes.vs }}）{% endif %}</h2>
+{% if not d.changes or not d.changes.vs %}<div class="empty">首次執行，無比較基準。</div>
+{% else %}
+{% set anychg = d.changes.LEADERS.entered or d.changes.LEADERS.left or d.changes.READY.entered or d.changes.READY.left or d.changes.BREAKOUT.entered or d.changes.BREAKOUT.left %}
+<div class="chg">
+{% if not anychg %}<span class="muted">與昨日相同，無進出。</span>{% endif %}
+{% for key in ['LEADERS','READY','BREAKOUT'] %}{% set c = d.changes[key] %}{% if c.entered or c.left %}
+<div class="chgrow"><span class="chgk">{{ key }}</span>
+{% for x in c.entered %}<span class="ent">+ {{ x.stock_id }} {{ x.name }}{% if x.grade %} {{ x.grade }}{% endif %}</span>{% endfor %}
+{% for x in c.left %}<span class="lft">− {{ x.stock_id }} {{ x.name }}</span>{% endfor %}
+</div>{% endif %}{% endfor %}
+</div>
+{% endif %}</section>
+
+{% if d.groups %}
+<section><h2>🔥 族群熱力區（前段班 = 個股 VCP 評分 +1）</h2>
+<div class="hot">
+<div class="hotcol"><p class="hoth">🏭 產業（證交所）· 強度排名</p>{{ group_table(d.groups.industries) }}</div>
+<div class="hotcol"><p class="hoth">🧩 主題（產業鏈）· 強度排名</p>{{ group_table(d.groups.themes) }}</div>
+</div></section>
+{% endif %}
 
 <div class="foot">VCP 選股大腦 L1｜緊度派 gate（近52週高≤25% + 10日樞紐&lt;10%）｜資料 FinMind｜
 進場=樞紐高、停損=樞紐低/末段低、風報比≥3:1、單筆≤總資金10%（A-1 紅燈降倉）。本頁為研究輔助，非投資建議。</div>
