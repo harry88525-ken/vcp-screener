@@ -1,6 +1,6 @@
 {
   "as_of": "2026-06-15",
-  "generated_at": "2026-06-15T09:13:44",
+  "generated_at": "2026-06-15T09:49:07",
   "universe_scanned": 1486,
   "market": {
     "light": "green",
@@ -8520,240 +8520,101 @@
       }
     ]
   },
+  "top_volume": [
+    {
+      "stock_id": "2330",
+      "name": "台積電",
+      "industry": "電子工業",
+      "close": 2375.0,
+      "turnover_last": 66196956850.0,
+      "dist_52w_high": -0.0266
+    },
+    {
+      "stock_id": "2454",
+      "name": "聯發科",
+      "industry": "電子工業",
+      "close": 4470.0,
+      "turnover_last": 51988358430.0,
+      "dist_52w_high": -0.1006
+    },
+    {
+      "stock_id": "2408",
+      "name": "南亞科",
+      "industry": "電子工業",
+      "close": 395.5,
+      "turnover_last": 51911168309.0,
+      "dist_52w_high": -0.0813
+    },
+    {
+      "stock_id": "2303",
+      "name": "聯電",
+      "industry": "半導體業",
+      "close": 141.5,
+      "turnover_last": 46160650833.0,
+      "dist_52w_high": -0.09
+    },
+    {
+      "stock_id": "2344",
+      "name": "華邦電",
+      "industry": "電子工業",
+      "close": 189.0,
+      "turnover_last": 42292264163.0,
+      "dist_52w_high": -0.0207
+    },
+    {
+      "stock_id": "2327",
+      "name": "國巨*",
+      "industry": "電子零組件業",
+      "close": 940.0,
+      "turnover_last": 39412890207.0,
+      "dist_52w_high": 0.0
+    },
+    {
+      "stock_id": "4958",
+      "name": "臻鼎-KY",
+      "industry": "電子工業",
+      "close": 590.0,
+      "turnover_last": 30059388867.0,
+      "dist_52w_high": -0.028
+    },
+    {
+      "stock_id": "2308",
+      "name": "台達電",
+      "industry": "電子零組件業",
+      "close": 2210.0,
+      "turnover_last": 21154049330.0,
+      "dist_52w_high": -0.1451
+    },
+    {
+      "stock_id": "2313",
+      "name": "華通",
+      "industry": "電子零組件業",
+      "close": 257.5,
+      "turnover_last": 19342332022.0,
+      "dist_52w_high": -0.1571
+    },
+    {
+      "stock_id": "6239",
+      "name": "力成",
+      "industry": "電子工業",
+      "close": 327.0,
+      "turnover_last": 17803153183.0,
+      "dist_52w_high": -0.155
+    }
+  ],
   "changes": {
-    "vs": "2026-06-12",
+    "vs": "2026-06-15",
     "LEADERS": {
       "entered": [],
       "left": []
     },
     "READY": {
-      "entered": [
-        {
-          "stock_id": "2337",
-          "name": "旺宏",
-          "grade": ""
-        },
-        {
-          "stock_id": "8046",
-          "name": "南電",
-          "grade": ""
-        },
-        {
-          "stock_id": "6291",
-          "name": "沛亨",
-          "grade": ""
-        },
-        {
-          "stock_id": "3443",
-          "name": "創意",
-          "grade": ""
-        },
-        {
-          "stock_id": "6770",
-          "name": "力積電",
-          "grade": ""
-        },
-        {
-          "stock_id": "2464",
-          "name": "盟立",
-          "grade": ""
-        },
-        {
-          "stock_id": "2467",
-          "name": "志聖",
-          "grade": ""
-        },
-        {
-          "stock_id": "4760",
-          "name": "勤凱",
-          "grade": ""
-        },
-        {
-          "stock_id": "6187",
-          "name": "萬潤",
-          "grade": ""
-        },
-        {
-          "stock_id": "2455",
-          "name": "全新",
-          "grade": ""
-        },
-        {
-          "stock_id": "2489",
-          "name": "瑞軒",
-          "grade": ""
-        },
-        {
-          "stock_id": "3498",
-          "name": "陽程",
-          "grade": ""
-        },
-        {
-          "stock_id": "3576",
-          "name": "聯合再生",
-          "grade": ""
-        },
-        {
-          "stock_id": "6213",
-          "name": "聯茂",
-          "grade": ""
-        },
-        {
-          "stock_id": "1785",
-          "name": "光洋科",
-          "grade": ""
-        },
-        {
-          "stock_id": "1802",
-          "name": "台玻",
-          "grade": ""
-        },
-        {
-          "stock_id": "6415",
-          "name": "矽力*-KY",
-          "grade": ""
-        },
-        {
-          "stock_id": "3535",
-          "name": "晶彩科",
-          "grade": ""
-        },
-        {
-          "stock_id": "2369",
-          "name": "菱生",
-          "grade": ""
-        },
-        {
-          "stock_id": "4534",
-          "name": "慶騰",
-          "grade": ""
-        },
-        {
-          "stock_id": "6525",
-          "name": "捷敏-KY",
-          "grade": ""
-        },
-        {
-          "stock_id": "2460",
-          "name": "建通",
-          "grade": ""
-        },
-        {
-          "stock_id": "3406",
-          "name": "玉晶光",
-          "grade": ""
-        }
-      ],
-      "left": [
-        {
-          "stock_id": "5498",
-          "name": "凱崴"
-        },
-        {
-          "stock_id": "2313",
-          "name": "華通"
-        },
-        {
-          "stock_id": "6405",
-          "name": "悅城"
-        },
-        {
-          "stock_id": "1409",
-          "name": "新纖"
-        }
-      ]
+      "entered": [],
+      "left": []
     },
     "BREAKOUT": {
-      "entered": [
-        {
-          "stock_id": "3624",
-          "name": "光頡",
-          "grade": ""
-        },
-        {
-          "stock_id": "6155",
-          "name": "鈞寶",
-          "grade": ""
-        },
-        {
-          "stock_id": "6693",
-          "name": "廣閎科",
-          "grade": ""
-        },
-        {
-          "stock_id": "2428",
-          "name": "興勤",
-          "grade": ""
-        },
-        {
-          "stock_id": "3008",
-          "name": "大立光",
-          "grade": ""
-        },
-        {
-          "stock_id": "3152",
-          "name": "璟德",
-          "grade": ""
-        },
-        {
-          "stock_id": "6525",
-          "name": "捷敏-KY",
-          "grade": ""
-        },
-        {
-          "stock_id": "5471",
-          "name": "松翰",
-          "grade": ""
-        },
-        {
-          "stock_id": "4952",
-          "name": "凌通",
-          "grade": ""
-        },
-        {
-          "stock_id": "3390",
-          "name": "旭軟",
-          "grade": ""
-        }
-      ],
-      "left": [
-        {
-          "stock_id": "5498",
-          "name": "凱崴"
-        },
-        {
-          "stock_id": "2484",
-          "name": "希華"
-        },
-        {
-          "stock_id": "6834",
-          "name": "天二科技"
-        },
-        {
-          "stock_id": "2059",
-          "name": "川湖"
-        },
-        {
-          "stock_id": "2413",
-          "name": "環科"
-        },
-        {
-          "stock_id": "8105",
-          "name": "凌巨"
-        },
-        {
-          "stock_id": "6944",
-          "name": "兆聯實業"
-        },
-        {
-          "stock_id": "5904",
-          "name": "寶雅"
-        },
-        {
-          "stock_id": "6691",
-          "name": "洋基工程"
-        }
-      ]
+      "entered": [],
+      "left": []
     }
   }
 }
