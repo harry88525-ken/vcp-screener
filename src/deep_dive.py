@@ -198,19 +198,91 @@ def is_fresh(stock_id: str, reuse_days: int = L3_REUSE_DAYS) -> bool:
     return (time.time() - os.path.getmtime(p)) / 86400 < reuse_days
 
 
+def _md_inline(s: str) -> str:
+    import re, html as _h
+    s = _h.escape(s)
+    s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
+    s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
+    return s
+
+
+def _md_table(rows: list) -> str:
+    def cells(r):
+        return [c.strip() for c in r.strip().strip("|").split("|")]
+    parsed = [cells(r) for r in rows]
+    body = [r for r in parsed if not all((set(c) <= set("-: ")) for c in r)]   # 丟 |---|---| 分隔列
+    if not body:
+        return ""
+    head, rest = body[0], body[1:]
+    th = "".join(f"<th>{_md_inline(c)}</th>" for c in head)
+    trs = "".join("<tr>" + "".join(f"<td>{_md_inline(c)}</td>" for c in r) + "</tr>" for r in rest)
+    return f"<table><thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table>"
+
+
+def _md_to_html(md: str) -> str:
+    """輕量 Markdown→HTML（逐行；支援 #/##/###、---、- 清單、| 表格、**粗體**、`code`）。
+    逐行設計＝不依賴空行分段，對 L3 報告「標題/清單/表格各自成行」結構穩定。"""
+    import re
+    lines = md.split("\n")
+    out, i = [], 0
+    while i < len(lines):
+        s = lines[i].strip()
+        if not s:
+            i += 1; continue
+        if s.startswith("### "):
+            out.append(f"<h3>{_md_inline(s[4:])}</h3>"); i += 1
+        elif s.startswith("## "):
+            out.append(f"<h2>{_md_inline(s[3:])}</h2>"); i += 1
+        elif s.startswith("# "):
+            out.append(f'<p class="lead">{_md_inline(s[2:])}</p>'); i += 1
+        elif len(s) >= 3 and set(s) <= set("-"):
+            out.append("<hr>"); i += 1
+        elif s.startswith("|") and s.count("|") >= 2:
+            rows = []
+            while i < len(lines) and lines[i].strip().startswith("|"):
+                rows.append(lines[i].strip()); i += 1
+            out.append(_md_table(rows))
+        elif re.match(r"^[-*]\s+", s):
+            items = []
+            while i < len(lines) and re.match(r"^\s*[-*]\s+", lines[i]):
+                items.append(re.sub(r"^\s*[-*]\s+", "", lines[i].strip())); i += 1
+            out.append("<ul>" + "".join(f"<li>{_md_inline(it)}</li>" for it in items) + "</ul>")
+        else:
+            out.append(f"<p>{_md_inline(s)}</p>"); i += 1
+    return "\n".join(out)
+
+
 def render_html(stock_id: str, report_md: str, digest: dict) -> str:
-    """把研究報告寫成 docs/analysis/{id}.html（風格對齊選股報告）。回檔案路徑。"""
+    """把研究報告寫成 docs/analysis/{id}.html（Markdown 正確渲染＋美觀深色排版）。回檔案路徑。"""
     os.makedirs(ANALYSIS_DIR, exist_ok=True)
     name = (digest.get("l1l2") or {}).get("name", "")
-    body = "".join(f"<p>{ln}</p>" if ln.strip() else "" for ln in report_md.split("\n"))
+    body = _md_to_html(report_md)
     html = f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>L3 深挖 · {stock_id} {name}</title>
-<style>:root{{--bg:#0d1117;--card:#161b22;--line:#30363d;--fg:#e6edf3;--mut:#8b949e;--b:#58a6ff}}
-body{{margin:0;background:var(--bg);color:var(--fg);font:15px/1.7 -apple-system,"PingFang TC","Microsoft JhengHei",sans-serif}}
-.wrap{{max-width:780px;margin:0 auto;padding:24px}}h1{{font-size:20px}}
+<style>
+:root{{--bg:#0d1117;--card:#161b22;--line:#30363d;--fg:#e6edf3;--mut:#8b949e;--b:#58a6ff}}
+*{{box-sizing:border-box}}
+body{{margin:0;background:var(--bg);color:var(--fg);font:16px/1.85 -apple-system,"Segoe UI","PingFang TC","Microsoft JhengHei",sans-serif}}
+.wrap{{max-width:760px;margin:0 auto;padding:24px 20px 64px}}
+h1{{font-size:21px;margin:0 0 18px}}
 a{{color:#7ba3c4;text-decoration:none}}a:hover{{text-decoration:underline}}
-.card{{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 22px}}
-.foot{{color:var(--mut);font-size:11px;margin-top:24px;border-top:1px solid var(--line);padding-top:12px}}</style></head>
+.card{{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 24px 22px}}
+.card .lead{{color:var(--mut);font-size:14px;margin:16px 0 4px}}
+.card h2{{font-size:16px;margin:28px 0 12px;padding:9px 13px;background:#11161d;border-left:3px solid var(--b);border-radius:6px;color:#cfe2ff}}
+.card h3{{font-size:14px;color:var(--mut);margin:18px 0 6px}}
+.card p{{margin:11px 0}}
+.card strong{{color:#fff;font-weight:700}}
+.card code{{background:#0d1117;border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-size:13px}}
+.card ul{{margin:10px 0;padding:0;list-style:none}}
+.card li{{margin:8px 0;padding-left:18px;position:relative}}
+.card li::before{{content:"▍";color:var(--b);position:absolute;left:0;top:3px;font-size:11px}}
+.card hr{{border:none;border-top:1px solid var(--line);margin:20px 0}}
+.card table{{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}}
+.card th,.card td{{padding:8px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}}
+.card th{{color:var(--mut);background:#11161d;font-weight:600}}
+.card tr:last-child td{{border-bottom:none}}
+.foot{{color:var(--mut);font-size:11px;margin-top:24px;border-top:1px solid var(--line);padding-top:12px}}
+</style></head>
 <body><div class="wrap"><h1>🔬 L3 深度研究 · {stock_id} {name}</h1>
 <div class="card">{body}</div>
 <p style="margin-top:18px"><a href="../index.html">← 回選股報告</a></p>
