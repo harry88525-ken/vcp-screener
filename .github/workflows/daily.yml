@@ -76,23 +76,6 @@ jobs:
             git commit -m "data: VCP screen $(date -u +%Y-%m-%d)"
             git push
           fi
-
-  deploy-pages:
-    needs: screen
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref }}
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs
-      - id: deploy
-        uses: actions/deploy-pages@v4
+      # Pages 已改「分支自動部署」(legacy, main /docs)：push 後 GitHub 自動發布。
+      # 原 deploy-pages job(Actions 部署) 已移除——因 L3 直接 push 不會觸發 Actions 部署，
+      # 改分支來源後 L1/L3 任何 push 都會自動上線（2026-06-15）。
