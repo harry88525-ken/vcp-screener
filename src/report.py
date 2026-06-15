@@ -47,6 +47,7 @@ tr:last-child td{border-bottom:none}
 .tg{background:rgba(63,185,80,.16);color:var(--a)}.to{background:rgba(210,153,34,.18);color:var(--c)}
 .hot{display:flex;gap:16px;flex-wrap:wrap}.hotcol{flex:1;min-width:330px}
 .hoth{font-size:13px;color:var(--mut);margin:0 0 6px}.up{color:var(--a)}.dn{color:var(--red)}
+.q-ok{color:var(--a);font-weight:700}.q-no{color:var(--mut)}
 .foot{color:var(--mut);font-size:11px;margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
 .sidebar{position:fixed;left:14px;top:88px;width:176px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:12px;max-height:82vh;overflow:auto}
 .sidebar h3{font-size:12px;margin:0 0 8px;color:var(--fg)}
@@ -105,10 +106,10 @@ tr:last-child td{border-bottom:none}
 
 {% macro snipe_table(rows) %}
 {% if rows %}<table><thead><tr>
-<th>代號</th><th>名稱</th><th>產業</th><th>級別</th><th>收盤</th><th>買點(突破價)</th><th>距突破</th><th>量門檻(張)</th><th>停損</th><th>風險%</th></tr></thead><tbody>
+<th>代號</th><th>名稱</th><th>產業</th><th>級別</th><th>判定</th><th>收盤</th><th>買點(突破價)</th><th>距突破</th><th>量門檻(張)</th><th>停損</th><th>風險%</th></tr></thead><tbody>
 {% for x in rows %}<tr>
 <td>{% if x.stock_id in analyzed %}<a href="analysis/{{ x.stock_id }}.html">{{ x.stock_id }} 🔬</a>{% else %}{{ x.stock_id }}{% endif %}</td><td>{{ x.name }}</td><td class="l muted">{{ x.industry }}</td>
-<td class="l">{{ x._bucket }}</td><td>{{ x.close }}</td><td><b style="color:var(--b)">{{ x.pivot_high }}</b></td>
+<td class="l">{{ x._bucket }}</td><td class="l">{% if x._qualified %}<span class="q-ok">✅合格</span>{% else %}<span class="q-no">⚪觀察</span>{% endif %}</td><td>{{ x.close }}</td><td><b style="color:var(--b)">{{ x.pivot_high }}</b></td>
 <td>{{ '%+.1f%%'|format(x.dist_to_pivot*100) }}</td><td>{{ x._vol_lots }}</td>
 <td>{{ x.stop }}</td><td>{{ '%.1f%%'|format(x.risk_pct*100) }}</td>
 </tr>{% endfor %}</tbody></table>
@@ -116,7 +117,7 @@ tr:last-child td{border-bottom:none}
 {% endmacro %}
 
 <section><h2>🎯 明日突破狙擊清單（最貼近買點者在前）</h2>
-<p class="hoth" style="margin:0 0 10px">隔天開盤只盯這幾檔：收盤站上「買點」且當日量 ≥「量門檻」才進場，否則續觀察。量門檻＝50 日均量 ×1.4。{{ watch|length }} 檔。</p>
+<p class="hoth" style="margin:0 0 10px">隔天開盤只盯這幾檔：收盤站上「買點」且當日量 ≥「量門檻」才進場。量門檻＝50 日均量 ×1.4。<b class="q-ok">✅合格</b>＝樞紐&lt;10%＋風險≤8%＋測幅R:R≥3（乾淨設定、可下手）；<span class="q-no">⚪觀察</span>＝貼著高但基底太鬆、別追。{{ watch|length }} 檔。</p>
 {{ snipe_table(watch) }}</section>
 
 <section><h2>🟢 LEADERS · 主攻（全門檻通過）</h2>
@@ -189,6 +190,11 @@ def _watchlist(d: dict) -> list:
         x["dist_to_pivot"] = (ph / cl - 1) if (ph and cl) else None
         av = x.get("avg_vol") or ((x.get("avg_turnover_50") or 0) / cl if cl else 0)
         x["_vol_lots"] = int(round(av * C.BREAKOUT_VOLUME_MULT / 1000))
+        # ✅合格＝樞紐<10% + 風險≤8% + 測幅R:R(樞紐高×1.2÷風險)≥3（乾淨 LEADER 級設定）
+        pw, rk = x.get("pivot_width"), x.get("risk_pct")
+        rr_mm = (C.L3_TARGET_MEASURED_MOVE / rk) if rk and rk > 0 else 0
+        x["_qualified"] = bool(pw is not None and pw < C.PIVOT_WIDTH_MAX
+                               and rk and rk <= C.RISK_PER_TRADE_MAX and rr_mm >= C.REWARD_RISK_MIN)
     out.sort(key=lambda r: r["dist_to_pivot"] if r["dist_to_pivot"] is not None else 9)
     return out[:12]
 
