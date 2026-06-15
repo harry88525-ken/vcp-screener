@@ -265,6 +265,7 @@ class VCPResult:
     vol_contraction: bool = False
     seq_clean: bool = False
     pivot_width: float = 0.0
+    avg_vol: float = 0.0
     breakout_status: str = ""
     today_breakout: bool = False
     rs_line_new_high: bool = False
@@ -328,7 +329,7 @@ def analyze(df: pd.DataFrame, rs_line_new_high: bool = False,
         entry=rk["entry"], stop=rk["stop"], risk_pct=rk["risk_pct"],
         reward_risk=round(reward_risk, 2),
         vol_contraction=piv["vol_contraction"], seq_clean=bool(v["valid"]),
-        pivot_width=round(piv["width"], 4),
+        pivot_width=round(piv["width"], 4), avg_vol=round(piv["avg_vol"], 0),
         breakout_status=brk["status"], today_breakout=brk["today_breakout"],
         rs_line_new_high=bool(rs_line_new_high), reasons=reasons,
     )

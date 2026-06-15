@@ -220,7 +220,8 @@ def _record(r, price_ok) -> dict:
         "reward_risk": v.get("reward_risk", 0), "pivot_width": v["pivot_width"],
         "seq_clean": v["seq_clean"], "vol_contraction": v["vol_contraction"],
         "breakout_status": v["breakout_status"], "contractions": v["contractions"],
-        "avg_turnover_50": r["avg_turnover_50"], "trend_price_ok": price_ok,
+        "avg_turnover_50": r["avg_turnover_50"], "avg_vol": v.get("avg_vol", 0),
+        "trend_price_ok": price_ok,
         # A-6/A-7/A-8 加分欄位
         "inst_net_buy": ch.get("inst_net_buy"), "trust_streak": ch.get("trust_streak"),
         "margin_overheat": ch.get("margin_overheat"),

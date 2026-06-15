@@ -107,6 +107,22 @@ tr:last-child td{border-bottom:none}
 {% else %}<div class="empty">—</div>{% endif %}
 {% endmacro %}
 
+{% macro snipe_table(rows) %}
+{% if rows %}<table><thead><tr>
+<th>代號</th><th>名稱</th><th>產業</th><th>級別</th><th>收盤</th><th>買點(突破價)</th><th>距突破</th><th>量門檻(張)</th><th>停損</th><th>風險%</th></tr></thead><tbody>
+{% for x in rows %}<tr>
+<td>{% if x.stock_id in analyzed %}<a href="analysis/{{ x.stock_id }}.html">{{ x.stock_id }} 🔬</a>{% else %}{{ x.stock_id }}{% endif %}</td><td>{{ x.name }}</td><td class="l muted">{{ x.industry }}</td>
+<td class="l">{{ x._bucket }}</td><td>{{ x.close }}</td><td><b style="color:var(--b)">{{ x.pivot_high }}</b></td>
+<td>{{ '%+.1f%%'|format(x.dist_to_pivot*100) }}</td><td>{{ x._vol_lots }}</td>
+<td>{{ x.stop }}</td><td>{{ '%.1f%%'|format(x.risk_pct*100) }}</td>
+</tr>{% endfor %}</tbody></table>
+{% else %}<div class="empty">今日無貼近突破的狙擊標的（樞紐都還沒收緊到位）。</div>{% endif %}
+{% endmacro %}
+
+<section><h2>🎯 明日突破狙擊清單（最貼近買點者在前）</h2>
+<p class="hoth" style="margin:0 0 10px">隔天開盤只盯這幾檔：收盤站上「買點」且當日量 ≥「量門檻」才進場，否則續觀察。量門檻＝50 日均量 ×1.4。{{ watch|length }} 檔。</p>
+{{ snipe_table(watch) }}</section>
+
 {% if d.groups %}
 <section><h2>🔥 族群熱力區（前段班 = 個股 VCP 評分 +1）</h2>
 <div class="hot">
@@ -148,12 +164,31 @@ tr:last-child td{border-bottom:none}
 </div></body></html>""")
 
 
+def _watchlist(d: dict) -> list:
+    """🎯 明日突破狙擊：LEADERS + READY tier1 中『待突破』者，依距買點由近到遠。
+    買點=樞紐高、量門檻=50日均量×1.4(張)。avg_vol 缺時退用 avg_turnover/close 近似。"""
+    out = []
+    for x in d.get("LEADERS", []):
+        if x.get("breakout_status") == "待突破":
+            out.append({**x, "_bucket": "LEADER"})
+    for x in d.get("READY", []):
+        if x.get("ready_tier") == 1 and x.get("breakout_status") == "待突破":
+            out.append({**x, "_bucket": "READY①"})
+    for x in out:
+        ph, cl = x.get("pivot_high"), x.get("close")
+        x["dist_to_pivot"] = (ph / cl - 1) if (ph and cl) else None
+        av = x.get("avg_vol") or ((x.get("avg_turnover_50") or 0) / cl if cl else 0)
+        x["_vol_lots"] = int(round(av * C.BREAKOUT_VOLUME_MULT / 1000))
+    out.sort(key=lambda r: r["dist_to_pivot"] if r["dist_to_pivot"] is not None else 9)
+    return out[:12]
+
+
 def build(json_path: str = C.OUTPUT_JSON, html_path: str = C.OUTPUT_HTML) -> None:
     with open(json_path, encoding="utf-8") as f:
         d = json.load(f)
     adir = os.path.join(os.path.dirname(html_path) or ".", "analysis")
     analyzed = {os.path.splitext(os.path.basename(p))[0] for p in glob.glob(os.path.join(adir, "*.html"))}
-    html = TEMPLATE.render(d=d, analyzed=analyzed)
+    html = TEMPLATE.render(d=d, analyzed=analyzed, watch=_watchlist(d))
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"→ {html_path}")
