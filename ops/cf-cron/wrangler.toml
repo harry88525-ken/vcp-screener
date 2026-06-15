@@ -2,8 +2,10 @@ name = "vcp-l1-cron"
 main = "worker.js"
 compatibility_date = "2026-06-15"
 
-# Cron 是 UTC。07:00 UTC = 15:00 台北，週一至週五（台股收盤後）。
+# Cron 是 UTC。10:00 UTC = 18:00 台北，週一至週五。
+# 為何 18:00 不是 15:00：FinMind 的「加權報酬指數」要傍晚才放（文件 17:30；實測 6/15 約 16:46），
+# 太早跑會鎖到前一交易日＝資料慢一天。18:00 = 文件 17:30 + 緩衝，確保拿到當天。
 [triggers]
-crons = ["0 7 * * 1-5"]
+crons = ["0 10 * * 1-5"]
 
 # 機密 GH_PAT 用：npx wrangler secret put GH_PAT（不寫在這裡、不進 repo）

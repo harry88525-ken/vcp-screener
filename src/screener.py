@@ -68,6 +68,7 @@ def analyze_stock(client, sid, name, industry, start, end, index_df, offline: bo
         "close": round(m["close"], 2),
         "dist_52w_high": round(m["dist_52w_high"], 4) if pd.notna(m["dist_52w_high"]) else None,
         "liquid": m["liquid"], "avg_turnover_50": round(m["avg_turnover_50"], 0),
+        "turnover_last": round(float(df["turnover"].iloc[-1]), 0),
         "raw_rs": rs.raw_rs(df, index_df),
         "rs_line_rising": rsl["rs_line_rising"], "rs_line_new_high": rsl["rs_line_new_high"],
         "trend_metrics": m, "vcp": vres.to_dict(), "frames": frames,
@@ -188,6 +189,14 @@ def run(sample: bool = True, as_of: str | None = None, limit: int | None = None)
     leaders.sort(key=lambda x: (-_grade_rank(x["grade"]), -(x["rs_rating"] or 0)))
     ready.sort(key=lambda x: -(x["rs_rating"] or 0))
 
+    # 昨日成交值榜（全掃描宇宙，排除金融/ETF）→ 報告左側浮動框
+    top_volume = [
+        {"stock_id": r["stock_id"], "name": r["name"], "industry": r["industry"],
+         "close": r["close"], "turnover_last": r.get("turnover_last"),
+         "dist_52w_high": r["dist_52w_high"]}
+        for r in sorted(rows, key=lambda r: r.get("turnover_last") or 0, reverse=True)[:10]
+    ]
+
     return {
         "as_of": end,
         "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
@@ -196,6 +205,7 @@ def run(sample: bool = True, as_of: str | None = None, limit: int | None = None)
         "counts": {"LEADERS": len(leaders), "READY": len(ready), "BREAKOUT": len(breakout)},
         "LEADERS": leaders, "READY": ready, "BREAKOUT": breakout,
         "groups": group_summary,
+        "top_volume": top_volume,
     }
 
 

@@ -48,7 +48,17 @@ tr:last-child td{border-bottom:none}
 .hot{display:flex;gap:16px;flex-wrap:wrap}.hotcol{flex:1;min-width:330px}
 .hoth{font-size:13px;color:var(--mut);margin:0 0 6px}.up{color:var(--a)}.dn{color:var(--red)}
 .foot{color:var(--mut);font-size:11px;margin-top:30px;border-top:1px solid var(--line);padding-top:12px}
-</style></head><body><div class="wrap">
+.sidebar{position:fixed;left:14px;top:88px;width:176px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:12px;max-height:82vh;overflow:auto}
+.sidebar h3{font-size:12px;margin:0 0 8px;color:var(--fg)}
+.sidebar ol{margin:0;padding-left:22px}.sidebar li{margin-bottom:6px;line-height:1.3}
+.sidebar .v{color:var(--mut);font-size:11px}
+.sidebar .sbnote{color:var(--mut);font-size:10px;margin-top:8px;border-top:1px solid var(--line);padding-top:6px}
+@media(max-width:1480px){.sidebar{display:none}}
+</style></head><body>
+{% if d.top_volume %}<div class="sidebar"><h3>🔊 昨日成交值 Top{{ d.top_volume|length }}</h3>
+<ol>{% for x in d.top_volume %}<li><b>{{ x.stock_id }}</b> {{ x.name }}<br><span class="v">{{ '%.0f'|format((x.turnover_last or 0)/100000000) }} 億　收 {{ x.close }}</span></li>{% endfor %}</ol>
+<div class="sbnote">當日最大量能（排除金融/ETF）</div></div>{% endif %}
+<div class="wrap">
 <h1>📈 VCP 選股大腦 · L1</h1>
 <div class="sub">as-of {{ d.as_of }}　|　掃描 {{ d.universe_scanned }} 檔　|　產生 {{ d.generated_at }}　|　緊度派</div>
 {% if d.market %}{% set lt = {'green':['🟢','綠燈','var(--a)'],'yellow':['🟡','黃燈','var(--c)'],'red':['🔴','紅燈','var(--red)']}[d.market.light] %}
@@ -112,6 +122,9 @@ tr:last-child td{border-bottom:none}
 <section><h2>🟢 LEADERS · 主攻（全門檻通過）</h2>
 {% if d.LEADERS %}{{ trade_table(d.LEADERS) }}{% else %}<div class="empty">今日無 LEADERS（紅盤常見，系統不勉強選股）。</div>{% endif %}</section>
 
+<section><h2>🚀 BREAKOUT · 當日突破</h2>
+{% if d.BREAKOUT %}{{ trade_table(d.BREAKOUT) }}{% else %}<div class="empty">今日無突破。</div>{% endif %}</section>
+
 {% macro ready_table(rows) %}
 {% if rows %}<table><thead><tr>
 <th>代號</th><th>名稱</th><th>產業</th><th>RS</th><th>收盤</th><th>距52高</th><th>樞紐寬</th><th>旗標</th></tr></thead><tbody>
@@ -133,9 +146,6 @@ tr:last-child td{border-bottom:none}
 <p class="hoth" style="margin-top:16px">📈 發展中（樞紐 18–25%）· {{ r2|length }} 檔 — 基底成形中</p>{{ ready_table(r2) }}
 <p class="hoth" style="margin-top:16px">👀 早期觀察（樞紐 &gt;25%）· {{ r3|length }} 檔 — 強股留底、還早</p>{{ ready_table(r3) }}
 {% else %}<div class="empty">今日無 READY。</div>{% endif %}</section>
-
-<section><h2>🚀 BREAKOUT · 當日突破</h2>
-{% if d.BREAKOUT %}{{ trade_table(d.BREAKOUT) }}{% else %}<div class="empty">今日無突破。</div>{% endif %}</section>
 
 <section><h2>📋 與昨日變化{% if d.changes and d.changes.vs %}（vs {{ d.changes.vs }}）{% endif %}</h2>
 {% if not d.changes or not d.changes.vs %}<div class="empty">首次執行，無比較基準。</div>
