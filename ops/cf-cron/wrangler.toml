@@ -1,0 +1,9 @@
+name = "vcp-l1-cron"
+main = "worker.js"
+compatibility_date = "2026-06-15"
+
+# Cron 是 UTC。07:00 UTC = 15:00 台北，週一至週五（台股收盤後）。
+[triggers]
+crons = ["0 7 * * 1-5"]
+
+# 機密 GH_PAT 用：npx wrangler secret put GH_PAT（不寫在這裡、不進 repo）

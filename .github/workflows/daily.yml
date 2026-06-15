@@ -1,8 +1,9 @@
 name: VCP daily screen
 
 on:
-  schedule:
-    - cron: "0 7 * * 1-5"        # 07:00 UTC = 15:00 台北，週一至週五（台股收盤後）
+  # 觸發改由 Cloudflare Worker「vcp-l1-cron」準時打 workflow_dispatch（07:00 UTC=15:00 台北，週一~五）。
+  # GitHub 內建 schedule 會被降級延遲（曾延 4hr）+ 會與 CF 雙重觸發，故移除。見 ops/cf-cron/。
+  # 備援：若 CF 失效，L3 任務 vcp-l3-deepdive 16:30 防呆會偵測 leaders.json 非今天並自行觸發 L1。
   workflow_dispatch:
     inputs:
       limit:
