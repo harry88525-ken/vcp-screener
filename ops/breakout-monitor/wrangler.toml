@@ -1,0 +1,21 @@
+name = "vcp-breakout-monitor"
+main = "worker.js"
+compatibility_date = "2026-07-02"
+
+# Cron 是 UTC。台北 09:00–13:30 = UTC 01:00–05:30。
+# 每分鐘、UTC 01–05 時、週一至週五。worker 內另有 09:00–13:35 台北時段閘門把關。
+[triggers]
+crons = ["* 1-5 * * 1-5"]
+
+# KV：記錄「今天這檔已推播」避免重複。部署前先建 namespace：
+#   npx wrangler kv namespace create FIRED
+# 再把回傳的 id 貼到下面 id = "..."
+[[kv_namespaces]]
+binding = "FIRED"
+id = "6fcdab52bcb94d6583da8e0cce36d65e"
+
+# 機密（不寫這裡、不進 repo），逐一設定：
+#   npx wrangler secret put FUGLE_API_KEY
+#   npx wrangler secret put TELEGRAM_BOT_TOKEN
+#   npx wrangler secret put TELEGRAM_CHAT_ID
+#   npx wrangler secret put TRIGGER_KEY      # 手動測試閘門，隨便一組字串
