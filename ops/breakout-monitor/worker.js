@@ -91,7 +91,7 @@ async function gather(env) {
     .sort((a,b)=>Number(b.crossed)-Number(a.crossed)||a.distPct-b.distPct);
 
   return { as_of: L.as_of, generated_at: L.generated_at,
-    market: L.market || null,
+    market: L.market || null, top_volume: L.top_volume || [],
     counts: { breakout: breakoutOut.length, approaching: approaching.length, leaders: leadersOut.length, ready: readyOut.length },
     breakout: breakoutOut, approaching, leaders: leadersOut, ready: readyOut };
 }
