@@ -80,8 +80,10 @@ async function gather(env) {
   const leaders = L.LEADERS || [], ready = L.READY || [], breakout = L.BREAKOUT || [];
   const isWait = (r) => r.breakout_status === "待突破";
 
-  const approaching = [...leaders, ...ready].filter(r => isWait(r) && r.pivot_high && r.close)
-    .map(r => enrich(r, snap, false)).sort((a,b)=>Number(b.crossed)-Number(a.crossed)||a.distPct-b.distPct).slice(0,30);
+  // 狙擊清單＝LEADERS + READY tier1（樞紐≤18%、即將收緊），與報告一致，不混 tier2/3 太鬆的
+  const approaching = [...leaders, ...ready.filter(r => r.ready_tier === 1)]
+    .filter(r => isWait(r) && r.pivot_high && r.close)
+    .map(r => enrich(r, snap, false)).sort((a,b)=>Number(b.crossed)-Number(a.crossed)||a.distPct-b.distPct).slice(0,50);
   const leadersOut = leaders.map(r => enrich(r, snap, true))
     .sort((a,b)=>Number(b.crossed)-Number(a.crossed)||a.distPct-b.distPct);
   const breakoutOut = breakout.map(r => enrich(r, snap, false)).sort((a,b)=>(b.rs||0)-(a.rs||0));
