@@ -15,3 +15,4 @@ tmp/
 
 # 註：data/ 快取「要」進 repo（雲端增量更新的基礎），故不忽略
 .wrangler/
+.scratch/
