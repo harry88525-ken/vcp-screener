@@ -116,15 +116,15 @@ tr:last-child td{border-bottom:none}
 {% else %}<div class="empty">今日無貼近突破的狙擊標的（樞紐都還沒收緊到位）。</div>{% endif %}
 {% endmacro %}
 
+<section><h2>🚀 BREAKOUT · 當日突破</h2>
+{% if d.BREAKOUT %}{{ trade_table(d.BREAKOUT) }}{% else %}<div class="empty">今日無突破。</div>{% endif %}</section>
+
 <section><h2>🎯 明日突破狙擊清單（最貼近買點者在前）</h2>
 <p class="hoth" style="margin:0 0 10px">隔天開盤只盯這幾檔：收盤站上「買點」且當日量 ≥「量門檻」才進場。量門檻＝50 日均量 ×1.4。<b class="q-ok">✅合格</b>＝樞紐&lt;10%＋風險≤8%＋測幅R:R≥3（乾淨設定、可下手）；<span class="q-no">⚪觀察</span>＝貼著高但基底太鬆、別追。{{ watch|length }} 檔。</p>
 {{ snipe_table(watch) }}</section>
 
 <section><h2>🟢 LEADERS · 主攻（全門檻通過）</h2>
 {% if d.LEADERS %}{{ trade_table(d.LEADERS) }}{% else %}<div class="empty">今日無 LEADERS（紅盤常見，系統不勉強選股）。</div>{% endif %}</section>
-
-<section><h2>🚀 BREAKOUT · 當日突破</h2>
-{% if d.BREAKOUT %}{{ trade_table(d.BREAKOUT) }}{% else %}<div class="empty">今日無突破。</div>{% endif %}</section>
 
 {% macro ready_table(rows) %}
 {% if rows %}<table><thead><tr>
