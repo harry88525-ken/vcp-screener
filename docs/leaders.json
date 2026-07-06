@@ -1,6 +1,6 @@
 {
   "as_of": "2026-07-06",
-  "generated_at": "2026-07-06T10:10:08",
+  "generated_at": "2026-07-06T16:48:49",
   "universe_scanned": 1507,
   "market": {
     "light": "green",
@@ -28,7 +28,7 @@
     {
       "stock_id": "3028",
       "name": "增你強",
-      "industry": "電子通路業",
+      "industry": "電子工業",
       "close": 80.1,
       "rs_rating": 84,
       "dist_52w_high": -0.0929,
@@ -94,7 +94,7 @@
       "roe": 0.0601,
       "rev_3m_yoy": 0.1459,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -102,7 +102,7 @@
     {
       "stock_id": "3026",
       "name": "禾伸堂",
-      "industry": "電子零組件業",
+      "industry": "電子工業",
       "close": 963.0,
       "rs_rating": 99,
       "dist_52w_high": -0.0559,
@@ -130,7 +130,7 @@
       "roe": 0.1265,
       "rev_3m_yoy": 0.1352,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -138,7 +138,7 @@
     {
       "stock_id": "3189",
       "name": "景碩",
-      "industry": "電子工業",
+      "industry": "半導體業",
       "close": 763.0,
       "rs_rating": 99,
       "dist_52w_high": -0.1874,
@@ -164,7 +164,7 @@
       "roe": 0.0691,
       "rev_3m_yoy": 0.2827,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 1,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -198,7 +198,7 @@
       "roe": 0.0486,
       "rev_3m_yoy": 0.3034,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -234,7 +234,7 @@
       "roe": 0.072,
       "rev_3m_yoy": 0.1979,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -306,7 +306,7 @@
       "roe": 0.3698,
       "rev_3m_yoy": null,
       "fundamental_ok": false,
-      "group_rank": 38,
+      "group_rank": 35,
       "group_real": true,
       "group_top": false,
       "ready_tier": 2
@@ -342,7 +342,7 @@
       "roe": 0.1099,
       "rev_3m_yoy": 0.6732,
       "fundamental_ok": false,
-      "group_rank": 9,
+      "group_rank": 8,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -378,7 +378,7 @@
       "roe": -0.051,
       "rev_3m_yoy": 0.0752,
       "fundamental_ok": false,
-      "group_rank": 23,
+      "group_rank": 22,
       "group_real": true,
       "group_top": false,
       "ready_tier": 3
@@ -414,7 +414,7 @@
       "roe": 0.1943,
       "rev_3m_yoy": 0.3006,
       "fundamental_ok": false,
-      "group_rank": 21,
+      "group_rank": 20,
       "group_real": true,
       "group_top": false,
       "ready_tier": 3
@@ -448,7 +448,7 @@
       "roe": 0.1224,
       "rev_3m_yoy": 1.5016,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -484,7 +484,7 @@
       "roe": 0.0061,
       "rev_3m_yoy": 0.1837,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -520,7 +520,7 @@
       "roe": 0.0381,
       "rev_3m_yoy": 0.1472,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -556,7 +556,7 @@
       "roe": 0.2213,
       "rev_3m_yoy": 0.9718,
       "fundamental_ok": true,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -590,7 +590,7 @@
       "roe": 0.098,
       "rev_3m_yoy": 0.2892,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -626,7 +626,7 @@
       "roe": 0.0949,
       "rev_3m_yoy": 0.8325,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -634,7 +634,7 @@
     {
       "stock_id": "8046",
       "name": "南電",
-      "industry": "電子零組件業",
+      "industry": "電子工業",
       "close": 1075.0,
       "rs_rating": 98,
       "dist_52w_high": -0.1634,
@@ -660,7 +660,7 @@
       "roe": 0.0653,
       "rev_3m_yoy": 0.3808,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -732,7 +732,7 @@
       "roe": 0.0501,
       "rev_3m_yoy": 0.2281,
       "fundamental_ok": false,
-      "group_rank": 20,
+      "group_rank": 19,
       "group_real": true,
       "group_top": false,
       "ready_tier": 3
@@ -766,7 +766,7 @@
       "roe": 0.1573,
       "rev_3m_yoy": 0.302,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -800,7 +800,7 @@
       "roe": 0.1794,
       "rev_3m_yoy": 6.7493,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -834,7 +834,7 @@
       "roe": 0.2077,
       "rev_3m_yoy": 0.1755,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -842,7 +842,7 @@
     {
       "stock_id": "2478",
       "name": "大毅",
-      "industry": "電子工業",
+      "industry": "電子零組件業",
       "close": 215.0,
       "rs_rating": 97,
       "dist_52w_high": -0.1618,
@@ -870,7 +870,7 @@
       "roe": 0.0733,
       "rev_3m_yoy": 0.1383,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -906,7 +906,7 @@
       "roe": 0.0286,
       "rev_3m_yoy": 0.0002,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -942,7 +942,7 @@
       "roe": 0.0127,
       "rev_3m_yoy": 0.1798,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -1010,7 +1010,7 @@
       "roe": 0.124,
       "rev_3m_yoy": null,
       "fundamental_ok": false,
-      "group_rank": 8,
+      "group_rank": 10,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -1046,7 +1046,7 @@
       "roe": 0.0372,
       "rev_3m_yoy": 0.4068,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -1054,7 +1054,7 @@
     {
       "stock_id": "4989",
       "name": "榮科",
-      "industry": "電子零組件業",
+      "industry": "電子工業",
       "close": 111.0,
       "rs_rating": 96,
       "dist_52w_high": -0.112,
@@ -1085,7 +1085,7 @@
       "roe": -0.2493,
       "rev_3m_yoy": 0.3773,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -1121,7 +1121,7 @@
       "roe": 0.3445,
       "rev_3m_yoy": 0.8771,
       "fundamental_ok": true,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -1155,7 +1155,7 @@
       "roe": -0.0154,
       "rev_3m_yoy": -0.0678,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -1191,7 +1191,7 @@
       "roe": 0.0387,
       "rev_3m_yoy": 0.1525,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -1227,7 +1227,7 @@
       "roe": 0.0692,
       "rev_3m_yoy": 0.2733,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -1235,7 +1235,7 @@
     {
       "stock_id": "4958",
       "name": "臻鼎-KY",
-      "industry": "電子零組件業",
+      "industry": "電子工業",
       "close": 579.0,
       "rs_rating": 96,
       "dist_52w_high": -0.1214,
@@ -1261,7 +1261,7 @@
       "roe": 0.0925,
       "rev_3m_yoy": 0.1772,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -1476,7 +1476,7 @@
       "roe": 0.0705,
       "rev_3m_yoy": 0.1887,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -1484,7 +1484,7 @@
     {
       "stock_id": "2303",
       "name": "聯電",
-      "industry": "半導體業",
+      "industry": "電子工業",
       "close": 166.0,
       "rs_rating": 95,
       "dist_52w_high": -0.1051,
@@ -1510,7 +1510,7 @@
       "roe": 0.1227,
       "rev_3m_yoy": 0.1111,
       "fundamental_ok": false,
-      "group_rank": 1,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -1546,7 +1546,7 @@
       "roe": 0.0474,
       "rev_3m_yoy": 0.8487,
       "fundamental_ok": false,
-      "group_rank": 8,
+      "group_rank": 10,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -1582,7 +1582,7 @@
       "roe": 0.0584,
       "rev_3m_yoy": -0.242,
       "fundamental_ok": false,
-      "group_rank": 3,
+      "group_rank": 4,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -1652,7 +1652,7 @@
       "roe": 0.0597,
       "rev_3m_yoy": 0.015,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -1688,7 +1688,7 @@
       "roe": 0.0375,
       "rev_3m_yoy": -0.0889,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -1761,7 +1761,7 @@
       "roe": 0.0543,
       "rev_3m_yoy": 0.3028,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -1769,7 +1769,7 @@
     {
       "stock_id": "2302",
       "name": "麗正",
-      "industry": "半導體業",
+      "industry": "電子工業",
       "close": 52.2,
       "rs_rating": 94,
       "dist_52w_high": -0.1015,
@@ -1797,7 +1797,7 @@
       "roe": 0.0733,
       "rev_3m_yoy": 0.1851,
       "fundamental_ok": false,
-      "group_rank": 1,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -1834,7 +1834,7 @@
       "roe": 0.0357,
       "rev_3m_yoy": 0.0144,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -1870,7 +1870,7 @@
       "roe": 0.0957,
       "rev_3m_yoy": 0.1362,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -1904,7 +1904,7 @@
       "roe": 0.0272,
       "rev_3m_yoy": 0.1862,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -1941,7 +1941,7 @@
       "roe": 0.1878,
       "rev_3m_yoy": 0.0145,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -1977,7 +1977,7 @@
       "roe": 0.1387,
       "rev_3m_yoy": 0.2056,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -2011,7 +2011,7 @@
       "roe": -0.0425,
       "rev_3m_yoy": 0.0158,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -2047,7 +2047,7 @@
       "roe": 0.0246,
       "rev_3m_yoy": 0.1458,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -2083,7 +2083,7 @@
       "roe": 0.1771,
       "rev_3m_yoy": 7.8969,
       "fundamental_ok": false,
-      "group_rank": 5,
+      "group_rank": 6,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -2117,7 +2117,7 @@
       "roe": 0.1063,
       "rev_3m_yoy": 0.349,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -2162,7 +2162,7 @@
     {
       "stock_id": "1727",
       "name": "中華化",
-      "industry": "化學工業",
+      "industry": "化學生技醫療",
       "close": 101.5,
       "rs_rating": 93,
       "dist_52w_high": -0.0938,
@@ -2191,9 +2191,9 @@
       "roe": null,
       "rev_3m_yoy": 0.3416,
       "fundamental_ok": false,
-      "group_rank": 3,
+      "group_rank": 11,
       "group_real": true,
-      "group_top": true,
+      "group_top": false,
       "ready_tier": 1
     },
     {
@@ -2227,7 +2227,7 @@
       "roe": 0.2587,
       "rev_3m_yoy": 0.0497,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -2264,7 +2264,7 @@
       "roe": 0.1494,
       "rev_3m_yoy": 0.7931,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -2298,7 +2298,7 @@
       "roe": 0.0241,
       "rev_3m_yoy": 0.3018,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -2370,7 +2370,7 @@
       "roe": -0.1739,
       "rev_3m_yoy": 0.5914,
       "fundamental_ok": false,
-      "group_rank": 29,
+      "group_rank": 28,
       "group_real": true,
       "group_top": false,
       "ready_tier": 1
@@ -2378,7 +2378,7 @@
     {
       "stock_id": "7769",
       "name": "鴻勁",
-      "industry": "半導體業",
+      "industry": "電子工業",
       "close": 6800.0,
       "rs_rating": 93,
       "dist_52w_high": -0.1967,
@@ -2407,7 +2407,7 @@
       "roe": 0.2299,
       "rev_3m_yoy": null,
       "fundamental_ok": false,
-      "group_rank": 1,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -2415,7 +2415,7 @@
     {
       "stock_id": "7795",
       "name": "長廣",
-      "industry": "電子工業",
+      "industry": "電子零組件業",
       "close": 666.0,
       "rs_rating": 93,
       "dist_52w_high": 0.0,
@@ -2443,7 +2443,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -2479,7 +2479,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 5,
+      "group_rank": 6,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -2516,7 +2516,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 38,
+      "group_rank": 35,
       "group_real": true,
       "group_top": false,
       "ready_tier": 2
@@ -2553,7 +2553,7 @@
       "roe": 0.0629,
       "rev_3m_yoy": 0.2419,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -2624,7 +2624,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -2658,7 +2658,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -2666,7 +2666,7 @@
     {
       "stock_id": "3055",
       "name": "蔚華科",
-      "industry": "電子工業",
+      "industry": "電子通路業",
       "close": 160.5,
       "rs_rating": 92,
       "dist_52w_high": -0.0153,
@@ -2694,7 +2694,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 6,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -2800,7 +2800,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -2834,7 +2834,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -2842,7 +2842,7 @@
     {
       "stock_id": "6226",
       "name": "光鼎",
-      "industry": "光電業",
+      "industry": "電子工業",
       "close": 23.1,
       "rs_rating": 92,
       "dist_52w_high": -0.2021,
@@ -2868,15 +2868,15 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 11,
+      "group_rank": 5,
       "group_real": true,
-      "group_top": false,
+      "group_top": true,
       "ready_tier": 3
     },
     {
       "stock_id": "6446",
       "name": "藥華藥",
-      "industry": "化學生技醫療",
+      "industry": "生技醫療業",
       "close": 1445.0,
       "rs_rating": 92,
       "dist_52w_high": -0.017,
@@ -2904,7 +2904,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 15,
+      "group_rank": 28,
       "group_real": true,
       "group_top": false,
       "ready_tier": 3
@@ -2940,7 +2940,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -2948,7 +2948,7 @@
     {
       "stock_id": "2059",
       "name": "川湖",
-      "industry": "電子工業",
+      "industry": "電子零組件業",
       "close": 7785.0,
       "rs_rating": 91,
       "dist_52w_high": -0.0448,
@@ -2976,7 +2976,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -3010,7 +3010,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -3046,7 +3046,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -3116,9 +3116,9 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 11,
+      "group_rank": 9,
       "group_real": true,
-      "group_top": false,
+      "group_top": true,
       "ready_tier": 2
     },
     {
@@ -3152,7 +3152,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -3160,7 +3160,7 @@
     {
       "stock_id": "6197",
       "name": "佳必琪",
-      "industry": "電子工業",
+      "industry": "電子零組件業",
       "close": 372.5,
       "rs_rating": 91,
       "dist_52w_high": -0.0312,
@@ -3188,7 +3188,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -3196,7 +3196,7 @@
     {
       "stock_id": "6257",
       "name": "矽格",
-      "industry": "電子工業",
+      "industry": "半導體業",
       "close": 273.0,
       "rs_rating": 91,
       "dist_52w_high": -0.0233,
@@ -3224,7 +3224,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 1,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -3260,7 +3260,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -3334,7 +3334,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -3407,7 +3407,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 15,
+      "group_rank": 11,
       "group_real": true,
       "group_top": false,
       "ready_tier": 3
@@ -3443,7 +3443,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 6,
+      "group_rank": 7,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -3515,7 +3515,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -3549,7 +3549,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -3557,7 +3557,7 @@
     {
       "stock_id": "3149",
       "name": "正達",
-      "industry": "光電業",
+      "industry": "電子工業",
       "close": 87.9,
       "rs_rating": 89,
       "dist_52w_high": -0.1936,
@@ -3583,9 +3583,9 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 11,
+      "group_rank": 5,
       "group_real": true,
-      "group_top": false,
+      "group_top": true,
       "ready_tier": 2
     },
     {
@@ -3625,7 +3625,7 @@
     {
       "stock_id": "6196",
       "name": "帆宣",
-      "industry": "其他電子業",
+      "industry": "電子工業",
       "close": 570.0,
       "rs_rating": 89,
       "dist_52w_high": -0.0468,
@@ -3653,7 +3653,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 9,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -3689,7 +3689,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -3726,7 +3726,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -3763,7 +3763,7 @@
       "roe": 0.119,
       "rev_3m_yoy": 0.1989,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -3799,7 +3799,7 @@
       "roe": 0.1935,
       "rev_3m_yoy": 0.0934,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -3837,7 +3837,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 6,
+      "group_rank": 7,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -3874,7 +3874,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 8,
+      "group_rank": 10,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -3908,7 +3908,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -3916,7 +3916,7 @@
     {
       "stock_id": "3450",
       "name": "聯鈞",
-      "industry": "半導體業",
+      "industry": "電子工業",
       "close": 520.0,
       "rs_rating": 88,
       "dist_52w_high": -0.1503,
@@ -3942,7 +3942,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 1,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -3980,7 +3980,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -4016,7 +4016,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 6,
+      "group_rank": 7,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -4060,7 +4060,7 @@
     {
       "stock_id": "8162",
       "name": "微矽電子-創",
-      "industry": "創新板股票",
+      "industry": "電子工業",
       "close": 85.8,
       "rs_rating": 88,
       "dist_52w_high": -0.0456,
@@ -4088,7 +4088,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 10,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -4124,7 +4124,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -4204,7 +4204,7 @@
     {
       "stock_id": "5285",
       "name": "界霖",
-      "industry": "電子工業",
+      "industry": "半導體業",
       "close": 106.5,
       "rs_rating": 87,
       "dist_52w_high": -0.0779,
@@ -4232,7 +4232,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 1,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -4276,7 +4276,7 @@
     {
       "stock_id": "6139",
       "name": "亞翔",
-      "industry": "其他電子業",
+      "industry": "電子工業",
       "close": 932.0,
       "rs_rating": 87,
       "dist_52w_high": -0.0557,
@@ -4304,7 +4304,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 9,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -4312,7 +4312,7 @@
     {
       "stock_id": "6166",
       "name": "凌華",
-      "industry": "電子工業",
+      "industry": "電腦及週邊設備業",
       "close": 130.5,
       "rs_rating": 87,
       "dist_52w_high": -0.2091,
@@ -4338,7 +4338,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 10,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -4411,7 +4411,7 @@
       "roe": 0.0617,
       "rev_3m_yoy": 0.1096,
       "fundamental_ok": false,
-      "group_rank": 15,
+      "group_rank": 11,
       "group_real": true,
       "group_top": false,
       "ready_tier": 2
@@ -4448,7 +4448,7 @@
       "roe": -0.2251,
       "rev_3m_yoy": -0.0563,
       "fundamental_ok": false,
-      "group_rank": 15,
+      "group_rank": 11,
       "group_real": true,
       "group_top": false,
       "ready_tier": 2
@@ -4484,7 +4484,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 20,
+      "group_rank": 19,
       "group_real": true,
       "group_top": false,
       "ready_tier": 3
@@ -4522,7 +4522,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 30,
+      "group_rank": 29,
       "group_real": true,
       "group_top": false,
       "ready_tier": 3
@@ -4561,7 +4561,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 8,
+      "group_rank": 10,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -4600,7 +4600,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 6,
+      "group_rank": 7,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -4634,7 +4634,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 15,
+      "group_rank": 11,
       "group_real": true,
       "group_top": false,
       "ready_tier": 1
@@ -4671,7 +4671,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 8,
+      "group_rank": 10,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -4679,7 +4679,7 @@
     {
       "stock_id": "6271",
       "name": "同欣電",
-      "industry": "電子工業",
+      "industry": "半導體業",
       "close": 272.0,
       "rs_rating": 86,
       "dist_52w_high": -0.0993,
@@ -4707,7 +4707,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 1,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -4779,7 +4779,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -4816,7 +4816,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -4852,7 +4852,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 8,
+      "group_rank": 10,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -4925,7 +4925,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -4997,7 +4997,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -5075,7 +5075,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -5112,7 +5112,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -5148,7 +5148,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 8,
+      "group_rank": 10,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -5266,7 +5266,7 @@
     {
       "stock_id": "6209",
       "name": "今國光",
-      "industry": "光電業",
+      "industry": "電子工業",
       "close": 81.1,
       "rs_rating": 84,
       "dist_52w_high": -0.2239,
@@ -5292,9 +5292,9 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 11,
+      "group_rank": 5,
       "group_real": true,
-      "group_top": false,
+      "group_top": true,
       "ready_tier": 2
     },
     {
@@ -5328,9 +5328,9 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 11,
+      "group_rank": 9,
       "group_real": true,
-      "group_top": false,
+      "group_top": true,
       "ready_tier": 1
     },
     {
@@ -5435,7 +5435,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -5473,7 +5473,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -5509,7 +5509,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -5545,7 +5545,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 8,
+      "group_rank": 10,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -5579,9 +5579,9 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 11,
+      "group_rank": 9,
       "group_real": true,
-      "group_top": false,
+      "group_top": true,
       "ready_tier": 3
     },
     {
@@ -5652,7 +5652,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -5689,9 +5689,9 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 11,
+      "group_rank": 9,
       "group_real": true,
-      "group_top": false,
+      "group_top": true,
       "ready_tier": 1
     },
     {
@@ -5728,7 +5728,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -5810,7 +5810,7 @@
     {
       "stock_id": "3048",
       "name": "益登",
-      "industry": "電子工業",
+      "industry": "電子通路業",
       "close": 64.6,
       "rs_rating": 82,
       "dist_52w_high": -0.2112,
@@ -5838,7 +5838,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 6,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -5911,7 +5911,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 6,
+      "group_rank": 7,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -5959,7 +5959,7 @@
     {
       "stock_id": "7827",
       "name": "漢康-KY創",
-      "industry": "創新板股票",
+      "industry": "生技醫療業",
       "close": 156.0,
       "rs_rating": 82,
       "dist_52w_high": -0.1285,
@@ -5994,9 +5994,9 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 10,
+      "group_rank": 28,
       "group_real": true,
-      "group_top": true,
+      "group_top": false,
       "ready_tier": 1
     },
     {
@@ -6030,7 +6030,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -6064,7 +6064,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -6098,7 +6098,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -6169,9 +6169,9 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 11,
+      "group_rank": 9,
       "group_real": true,
-      "group_top": false,
+      "group_top": true,
       "ready_tier": 1
     },
     {
@@ -6241,7 +6241,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 15,
+      "group_rank": 11,
       "group_real": true,
       "group_top": false,
       "ready_tier": 2
@@ -6311,7 +6311,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -6347,7 +6347,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 22,
+      "group_rank": 21,
       "group_real": true,
       "group_top": false,
       "ready_tier": 1
@@ -6355,7 +6355,7 @@
     {
       "stock_id": "1708",
       "name": "東鹼",
-      "industry": "化學工業",
+      "industry": "化學生技醫療",
       "close": 61.7,
       "rs_rating": 80,
       "dist_52w_high": -0.0389,
@@ -6383,9 +6383,9 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 3,
+      "group_rank": 11,
       "group_real": true,
-      "group_top": true,
+      "group_top": false,
       "ready_tier": 2
     },
     {
@@ -6417,7 +6417,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -6497,7 +6497,7 @@
     {
       "stock_id": "5471",
       "name": "松翰",
-      "industry": "半導體業",
+      "industry": "電子工業",
       "close": 63.8,
       "rs_rating": 80,
       "dist_52w_high": -0.0449,
@@ -6525,7 +6525,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 1,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -6598,7 +6598,7 @@
       "roe": null,
       "rev_3m_yoy": null,
       "fundamental_ok": null,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -6644,7 +6644,7 @@
     {
       "stock_id": "4989",
       "name": "榮科",
-      "industry": "電子零組件業",
+      "industry": "電子工業",
       "close": 111.0,
       "rs_rating": 96,
       "dist_52w_high": -0.112,
@@ -6675,7 +6675,7 @@
       "roe": -0.2493,
       "rev_3m_yoy": 0.3773,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -6712,7 +6712,7 @@
       "roe": 0.0705,
       "rev_3m_yoy": 0.1887,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -6749,7 +6749,7 @@
       "roe": 0.0543,
       "rev_3m_yoy": 0.3028,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -6786,7 +6786,7 @@
       "roe": 0.0629,
       "rev_3m_yoy": 0.2419,
       "fundamental_ok": false,
-      "group_rank": 7,
+      "group_rank": 5,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -6860,7 +6860,7 @@
       "roe": 0.119,
       "rev_3m_yoy": 0.1989,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -6896,7 +6896,7 @@
       "roe": 0.1935,
       "rev_3m_yoy": 0.0934,
       "fundamental_ok": false,
-      "group_rank": 4,
+      "group_rank": 3,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -6933,7 +6933,7 @@
       "roe": 0.0617,
       "rev_3m_yoy": 0.1096,
       "fundamental_ok": false,
-      "group_rank": 15,
+      "group_rank": 11,
       "group_real": true,
       "group_top": false,
       "ready_tier": 2
@@ -6970,7 +6970,7 @@
       "roe": -0.2251,
       "rev_3m_yoy": -0.0563,
       "fundamental_ok": false,
-      "group_rank": 15,
+      "group_rank": 11,
       "group_real": true,
       "group_top": false,
       "ready_tier": 2
@@ -7121,7 +7121,7 @@
       "roe": 0.5244,
       "rev_3m_yoy": 0.1885,
       "fundamental_ok": false,
-      "group_rank": 32,
+      "group_rank": 31,
       "group_real": true,
       "group_top": false
     },
@@ -7156,7 +7156,7 @@
       "roe": 0.1219,
       "rev_3m_yoy": 0.0403,
       "fundamental_ok": false,
-      "group_rank": 3,
+      "group_rank": 4,
       "group_real": true,
       "group_top": true
     },
@@ -7196,7 +7196,7 @@
       "roe": 0.0359,
       "rev_3m_yoy": 0.3016,
       "fundamental_ok": false,
-      "group_rank": 18,
+      "group_rank": 17,
       "group_real": true,
       "group_top": false
     },
@@ -7240,23 +7240,28 @@
     "industries": [
       {
         "name": "半導體業",
-        "members": 131,
-        "median_rs": 80.0,
-        "breadth": 0.924,
+        "members": 130,
+        "median_rs": 78.0,
+        "breadth": 0.923,
         "vcp_count": 90,
         "real_group": true,
         "mom": {
-          "21": 0.0039,
-          "63": 0.3956,
-          "126": 0.6667
+          "21": 0.008,
+          "63": 0.3852,
+          "126": 0.6434
         },
         "rs_vs_mkt": {
-          "21": -0.0213,
-          "63": -0.0424,
-          "126": -0.0014
+          "21": -0.0172,
+          "63": -0.0528,
+          "126": -0.0247
         },
-        "score": 88.17,
+        "score": 86.37,
         "top_members": [
+          {
+            "stock_id": "3189",
+            "name": "景碩",
+            "rs": 99
+          },
           {
             "stock_id": "6182",
             "name": "合晶",
@@ -7275,11 +7280,6 @@
           {
             "stock_id": "6435",
             "name": "大中",
-            "rs": 96
-          },
-          {
-            "stock_id": "6693",
-            "name": "廣閎科",
             "rs": 96
           }
         ],
@@ -7330,80 +7330,27 @@
         "top": true
       },
       {
-        "name": "化學工業",
-        "members": 16,
-        "median_rs": 75.0,
-        "breadth": 0.812,
-        "vcp_count": 12,
-        "real_group": true,
-        "mom": {
-          "21": 0.0367,
-          "63": 0.2918,
-          "126": 0.4182
-        },
-        "rs_vs_mkt": {
-          "21": 0.0114,
-          "63": -0.1462,
-          "126": -0.2499
-        },
-        "score": 83.7,
-        "top_members": [
-          {
-            "stock_id": "4707",
-            "name": "磐亞",
-            "rs": 95
-          },
-          {
-            "stock_id": "1727",
-            "name": "中華化",
-            "rs": 93
-          },
-          {
-            "stock_id": "3430",
-            "name": "奇鈦科",
-            "rs": 89
-          },
-          {
-            "stock_id": "4741",
-            "name": "泓瀚",
-            "rs": 85
-          },
-          {
-            "stock_id": "1708",
-            "name": "東鹼",
-            "rs": 80
-          }
-        ],
-        "rank": 3,
-        "top": true
-      },
-      {
         "name": "電子零組件業",
-        "members": 168,
-        "median_rs": 74.5,
-        "breadth": 0.851,
-        "vcp_count": 125,
+        "members": 170,
+        "median_rs": 73.0,
+        "breadth": 0.841,
+        "vcp_count": 124,
         "real_group": true,
         "mom": {
           "21": -0.0039,
-          "63": 0.331,
-          "126": 0.5175
+          "63": 0.3062,
+          "126": 0.4517
         },
         "rs_vs_mkt": {
           "21": -0.0292,
-          "63": -0.1071,
-          "126": -0.1506
+          "63": -0.1318,
+          "126": -0.2163
         },
-        "score": 81.55,
+        "score": 79.95,
         "top_members": [
           {
             "stock_id": "2492",
             "name": "華新科",
-            "rs": 99
-          },
-          {
-            "stock_id": "3026",
-            "name": "禾伸堂",
             "rs": 99
           },
           {
@@ -7420,29 +7367,130 @@
             "stock_id": "3037",
             "name": "欣興",
             "rs": 98
+          },
+          {
+            "stock_id": "5328",
+            "name": "華容",
+            "rs": 98
+          }
+        ],
+        "rank": 3,
+        "top": true
+      },
+      {
+        "name": "化學工業",
+        "members": 17,
+        "median_rs": 69.0,
+        "breadth": 0.824,
+        "vcp_count": 13,
+        "real_group": true,
+        "mom": {
+          "21": -0.0072,
+          "63": 0.2715,
+          "126": 0.3713
+        },
+        "rs_vs_mkt": {
+          "21": -0.0325,
+          "63": -0.1665,
+          "126": -0.2968
+        },
+        "score": 75.61,
+        "top_members": [
+          {
+            "stock_id": "4707",
+            "name": "磐亞",
+            "rs": 95
+          },
+          {
+            "stock_id": "3430",
+            "name": "奇鈦科",
+            "rs": 89
+          },
+          {
+            "stock_id": "4741",
+            "name": "泓瀚",
+            "rs": 85
+          },
+          {
+            "stock_id": "4768",
+            "name": "晶呈科技",
+            "rs": 77
+          },
+          {
+            "stock_id": "4720",
+            "name": "德淵",
+            "rs": 76
           }
         ],
         "rank": 4,
         "top": true
       },
       {
-        "name": "電子通路業",
-        "members": 27,
-        "median_rs": 71.0,
-        "breadth": 0.815,
-        "vcp_count": 18,
+        "name": "電子工業",
+        "members": 219,
+        "median_rs": 69.0,
+        "breadth": 0.84,
+        "vcp_count": 161,
         "real_group": true,
         "mom": {
-          "21": -0.0304,
-          "63": 0.3042,
-          "126": 0.4939
+          "21": -0.0182,
+          "63": 0.289,
+          "126": 0.3506
         },
         "rs_vs_mkt": {
-          "21": -0.0557,
-          "63": -0.1338,
-          "126": -0.1741
+          "21": -0.0434,
+          "63": -0.149,
+          "126": -0.3174
         },
-        "score": 76.36,
+        "score": 75.23,
+        "top_members": [
+          {
+            "stock_id": "3026",
+            "name": "禾伸堂",
+            "rs": 99
+          },
+          {
+            "stock_id": "2344",
+            "name": "華邦電",
+            "rs": 98
+          },
+          {
+            "stock_id": "3481",
+            "name": "群創",
+            "rs": 98
+          },
+          {
+            "stock_id": "8046",
+            "name": "南電",
+            "rs": 98
+          },
+          {
+            "stock_id": "2408",
+            "name": "南亞科",
+            "rs": 97
+          }
+        ],
+        "rank": 5,
+        "top": true
+      },
+      {
+        "name": "電子通路業",
+        "members": 28,
+        "median_rs": 68.0,
+        "breadth": 0.75,
+        "vcp_count": 17,
+        "real_group": true,
+        "mom": {
+          "21": -0.0191,
+          "63": 0.2908,
+          "126": 0.4849
+        },
+        "rs_vs_mkt": {
+          "21": -0.0444,
+          "63": -0.1472,
+          "126": -0.1832
+        },
+        "score": 73.28,
         "top_members": [
           {
             "stock_id": "6265",
@@ -7455,22 +7503,22 @@
             "rs": 93
           },
           {
-            "stock_id": "3028",
-            "name": "增你強",
-            "rs": 84
+            "stock_id": "3055",
+            "name": "蔚華科",
+            "rs": 92
+          },
+          {
+            "stock_id": "3048",
+            "name": "益登",
+            "rs": 82
           },
           {
             "stock_id": "5434",
             "name": "崇越",
             "rs": 79
-          },
-          {
-            "stock_id": "3209",
-            "name": "全科",
-            "rs": 78
           }
         ],
-        "rank": 5,
+        "rank": 6,
         "top": true
       },
       {
@@ -7518,75 +7566,123 @@
             "rs": 87
           }
         ],
-        "rank": 6,
-        "top": true
-      },
-      {
-        "name": "電子工業",
-        "members": 202,
-        "median_rs": 66.5,
-        "breadth": 0.817,
-        "vcp_count": 143,
-        "real_group": true,
-        "mom": {
-          "21": -0.0181,
-          "63": 0.2639,
-          "126": 0.3318
-        },
-        "rs_vs_mkt": {
-          "21": -0.0434,
-          "63": -0.1741,
-          "126": -0.3363
-        },
-        "score": 72.5,
-        "top_members": [
-          {
-            "stock_id": "3189",
-            "name": "景碩",
-            "rs": 99
-          },
-          {
-            "stock_id": "2344",
-            "name": "華邦電",
-            "rs": 98
-          },
-          {
-            "stock_id": "3481",
-            "name": "群創",
-            "rs": 98
-          },
-          {
-            "stock_id": "2408",
-            "name": "南亞科",
-            "rs": 97
-          },
-          {
-            "stock_id": "2478",
-            "name": "大毅",
-            "rs": 97
-          }
-        ],
         "rank": 7,
         "top": true
       },
       {
+        "name": "其他電子業",
+        "members": 6,
+        "median_rs": 60.0,
+        "breadth": 0.667,
+        "vcp_count": 4,
+        "real_group": true,
+        "mom": {
+          "21": -0.0447,
+          "63": 0.3683,
+          "126": 0.2918
+        },
+        "rs_vs_mkt": {
+          "21": -0.07,
+          "63": -0.0697,
+          "126": -0.3763
+        },
+        "score": 63.17,
+        "top_members": [
+          {
+            "stock_id": "8021",
+            "name": "尖點",
+            "rs": 99
+          },
+          {
+            "stock_id": "2312",
+            "name": "金寶",
+            "rs": 78
+          },
+          {
+            "stock_id": "6698",
+            "name": "旭暉應材",
+            "rs": 66
+          },
+          {
+            "stock_id": "2359",
+            "name": "所羅門",
+            "rs": 54
+          },
+          {
+            "stock_id": "6558",
+            "name": "興能高",
+            "rs": 18
+          }
+        ],
+        "rank": 8,
+        "top": true
+      },
+      {
+        "name": "光電業",
+        "members": 52,
+        "median_rs": 55.5,
+        "breadth": 0.788,
+        "vcp_count": 32,
+        "real_group": true,
+        "mom": {
+          "21": -0.0157,
+          "63": 0.1518,
+          "126": 0.1465
+        },
+        "rs_vs_mkt": {
+          "21": -0.041,
+          "63": -0.2862,
+          "126": -0.5216
+        },
+        "score": 61.34,
+        "top_members": [
+          {
+            "stock_id": "8064",
+            "name": "東捷",
+            "rs": 93
+          },
+          {
+            "stock_id": "3441",
+            "name": "聯一光",
+            "rs": 91
+          },
+          {
+            "stock_id": "3455",
+            "name": "由田",
+            "rs": 89
+          },
+          {
+            "stock_id": "6419",
+            "name": "京晨科",
+            "rs": 84
+          },
+          {
+            "stock_id": "3615",
+            "name": "安可",
+            "rs": 83
+          }
+        ],
+        "rank": 9,
+        "top": true
+      },
+      {
         "name": "電腦及週邊設備業",
-        "members": 89,
-        "median_rs": 59.0,
-        "breadth": 0.73,
-        "vcp_count": 57,
+        "members": 88,
+        "median_rs": 56.0,
+        "breadth": 0.705,
+        "vcp_count": 55,
         "real_group": true,
         "mom": {
           "21": -0.0415,
-          "63": 0.2252,
-          "126": 0.1676
+          "63": 0.1988,
+          "126": 0.1582
         },
         "rs_vs_mkt": {
           "21": -0.0668,
-          "63": -0.2128,
-          "126": -0.5005
+          "63": -0.2392,
+          "126": -0.5099
         },
-        "score": 62.97,
+        "score": 59.71,
         "top_members": [
           {
             "stock_id": "5386",
@@ -7614,148 +7710,52 @@
             "rs": 95
           }
         ],
-        "rank": 8,
-        "top": true
-      },
-      {
-        "name": "其他電子業",
-        "members": 13,
-        "median_rs": 56.0,
-        "breadth": 0.615,
-        "vcp_count": 10,
-        "real_group": true,
-        "mom": {
-          "21": 0.038,
-          "63": 0.2815,
-          "126": 0.1106
-        },
-        "rs_vs_mkt": {
-          "21": 0.0127,
-          "63": -0.1565,
-          "126": -0.5575
-        },
-        "score": 62.79,
-        "top_members": [
-          {
-            "stock_id": "8021",
-            "name": "尖點",
-            "rs": 99
-          },
-          {
-            "stock_id": "6196",
-            "name": "帆宣",
-            "rs": 89
-          },
-          {
-            "stock_id": "6139",
-            "name": "亞翔",
-            "rs": 87
-          },
-          {
-            "stock_id": "6691",
-            "name": "洋基工程",
-            "rs": 72
-          },
-          {
-            "stock_id": "6409",
-            "name": "旭隼",
-            "rs": 71
-          }
-        ],
-        "rank": 9,
-        "top": true
-      },
-      {
-        "name": "創新板股票",
-        "members": 5,
-        "median_rs": 60.0,
-        "breadth": 0.6,
-        "vcp_count": 3,
-        "real_group": true,
-        "mom": {
-          "21": -0.0541,
-          "63": 0.2332,
-          "126": 0.1705
-        },
-        "rs_vs_mkt": {
-          "21": -0.0793,
-          "63": -0.2048,
-          "126": -0.4976
-        },
-        "score": 62.03,
-        "top_members": [
-          {
-            "stock_id": "8162",
-            "name": "微矽電子-創",
-            "rs": 88
-          },
-          {
-            "stock_id": "7827",
-            "name": "漢康-KY創",
-            "rs": 82
-          },
-          {
-            "stock_id": "7631",
-            "name": "聚賢研發-創",
-            "rs": 60
-          },
-          {
-            "stock_id": "7740",
-            "name": "熙特爾-創",
-            "rs": 8
-          },
-          {
-            "stock_id": "6908",
-            "name": "宏碁遊戲-創",
-            "rs": 5
-          }
-        ],
         "rank": 10,
         "top": true
       },
       {
-        "name": "光電業",
-        "members": 61,
-        "median_rs": 56.0,
-        "breadth": 0.787,
-        "vcp_count": 38,
+        "name": "化學生技醫療",
+        "members": 27,
+        "median_rs": 51.0,
+        "breadth": 0.63,
+        "vcp_count": 18,
         "real_group": true,
         "mom": {
-          "21": -0.0166,
-          "63": 0.1523,
-          "126": 0.1607
+          "21": 0.0203,
+          "63": 0.0888,
+          "126": 0.1914
         },
         "rs_vs_mkt": {
-          "21": -0.0419,
-          "63": -0.2857,
-          "126": -0.5073
+          "21": -0.005,
+          "63": -0.3492,
+          "126": -0.4767
         },
-        "score": 61.77,
+        "score": 57.05,
         "top_members": [
           {
-            "stock_id": "8064",
-            "name": "東捷",
+            "stock_id": "4764",
+            "name": "雙鍵",
+            "rs": 98
+          },
+          {
+            "stock_id": "1727",
+            "name": "中華化",
             "rs": 93
           },
           {
-            "stock_id": "6226",
-            "name": "光鼎",
-            "rs": 92
+            "stock_id": "1714",
+            "name": "和桐",
+            "rs": 90
           },
           {
-            "stock_id": "3441",
-            "name": "聯一光",
-            "rs": 91
+            "stock_id": "1711",
+            "name": "永光",
+            "rs": 86
           },
           {
-            "stock_id": "3149",
-            "name": "正達",
-            "rs": 89
-          },
-          {
-            "stock_id": "3455",
-            "name": "由田",
-            "rs": 89
+            "stock_id": "1717",
+            "name": "長興",
+            "rs": 86
           }
         ],
         "rank": 11,
@@ -7763,22 +7763,22 @@
       },
       {
         "name": "通信網路業",
-        "members": 44,
-        "median_rs": 55.0,
-        "breadth": 0.727,
-        "vcp_count": 19,
+        "members": 45,
+        "median_rs": 51.0,
+        "breadth": 0.711,
+        "vcp_count": 20,
         "real_group": true,
         "mom": {
-          "21": -0.0571,
-          "63": 0.086,
-          "126": 0.1547
+          "21": -0.0515,
+          "63": 0.0955,
+          "126": 0.1429
         },
         "rs_vs_mkt": {
-          "21": -0.0824,
-          "63": -0.352,
-          "126": -0.5134
+          "21": -0.0768,
+          "63": -0.3425,
+          "126": -0.5252
         },
-        "score": 58.15,
+        "score": 54.27,
         "top_members": [
           {
             "stock_id": "3081",
@@ -7901,48 +7901,48 @@
         "top": false
       },
       {
-        "name": "化學生技醫療",
-        "members": 30,
-        "median_rs": 46.0,
-        "breadth": 0.6,
-        "vcp_count": 19,
+        "name": "貿易百貨",
+        "members": 8,
+        "median_rs": 41.5,
+        "breadth": 0.75,
+        "vcp_count": 8,
         "real_group": true,
         "mom": {
-          "21": -0.0086,
-          "63": 0.134,
-          "126": 0.1886
+          "21": 0.0034,
+          "63": 0.0595,
+          "126": 0.0467
         },
         "rs_vs_mkt": {
-          "21": -0.0338,
-          "63": -0.304,
-          "126": -0.4795
+          "21": -0.0219,
+          "63": -0.3785,
+          "126": -0.6214
         },
-        "score": 50.31,
+        "score": 47.91,
         "top_members": [
           {
-            "stock_id": "4764",
-            "name": "雙鍵",
-            "rs": 98
-          },
-          {
-            "stock_id": "6446",
-            "name": "藥華藥",
-            "rs": 92
-          },
-          {
-            "stock_id": "1714",
-            "name": "和桐",
+            "stock_id": "4807",
+            "name": "日成-KY",
             "rs": 90
           },
           {
-            "stock_id": "1711",
-            "name": "永光",
-            "rs": 86
+            "stock_id": "2908",
+            "name": "特力",
+            "rs": 46
           },
           {
-            "stock_id": "1717",
-            "name": "長興",
-            "rs": 86
+            "stock_id": "2945",
+            "name": "三商家購",
+            "rs": 46
+          },
+          {
+            "stock_id": "2910",
+            "name": "統領",
+            "rs": 45
+          },
+          {
+            "stock_id": "2912",
+            "name": "統一超",
+            "rs": 38
           }
         ],
         "rank": 15,
@@ -8713,255 +8713,25 @@
     {
       "stock_id": "4958",
       "name": "臻鼎-KY",
-      "industry": "電子零組件業",
+      "industry": "電子工業",
       "close": 579.0,
       "turnover_last": 19983790003.0,
       "dist_52w_high": -0.1214
     }
   ],
   "changes": {
-    "vs": "2026-07-03",
+    "vs": "2026-07-06",
     "LEADERS": {
-      "entered": [
-        {
-          "stock_id": "3028",
-          "name": "增你強",
-          "grade": "B"
-        }
-      ],
-      "left": [
-        {
-          "stock_id": "6290",
-          "name": "良維"
-        },
-        {
-          "stock_id": "6190",
-          "name": "萬泰科"
-        },
-        {
-          "stock_id": "3088",
-          "name": "艾訊"
-        }
-      ]
+      "entered": [],
+      "left": []
     },
     "READY": {
-      "entered": [
-        {
-          "stock_id": "6290",
-          "name": "良維",
-          "grade": ""
-        },
-        {
-          "stock_id": "1721",
-          "name": "三晃",
-          "grade": ""
-        },
-        {
-          "stock_id": "5351",
-          "name": "鈺創",
-          "grade": ""
-        },
-        {
-          "stock_id": "4576",
-          "name": "大銀微系統",
-          "grade": ""
-        },
-        {
-          "stock_id": "6419",
-          "name": "京晨科",
-          "grade": ""
-        },
-        {
-          "stock_id": "6190",
-          "name": "萬泰科",
-          "grade": ""
-        },
-        {
-          "stock_id": "8926",
-          "name": "台汽電",
-          "grade": ""
-        },
-        {
-          "stock_id": "3094",
-          "name": "聯傑",
-          "grade": ""
-        },
-        {
-          "stock_id": "5471",
-          "name": "松翰",
-          "grade": ""
-        }
-      ],
-      "left": [
-        {
-          "stock_id": "3037",
-          "name": "欣興"
-        },
-        {
-          "stock_id": "6515",
-          "name": "穎崴"
-        },
-        {
-          "stock_id": "8358",
-          "name": "金居"
-        },
-        {
-          "stock_id": "3443",
-          "name": "創意"
-        },
-        {
-          "stock_id": "8064",
-          "name": "東捷"
-        },
-        {
-          "stock_id": "6531",
-          "name": "愛普*"
-        },
-        {
-          "stock_id": "3455",
-          "name": "由田"
-        },
-        {
-          "stock_id": "4919",
-          "name": "新唐"
-        },
-        {
-          "stock_id": "1802",
-          "name": "台玻"
-        },
-        {
-          "stock_id": "6903",
-          "name": "巨漢"
-        },
-        {
-          "stock_id": "6278",
-          "name": "台表科"
-        },
-        {
-          "stock_id": "3028",
-          "name": "增你強"
-        },
-        {
-          "stock_id": "3362",
-          "name": "先進光"
-        },
-        {
-          "stock_id": "3537",
-          "name": "堡達"
-        },
-        {
-          "stock_id": "5434",
-          "name": "崇越"
-        },
-        {
-          "stock_id": "6538",
-          "name": "倉和"
-        },
-        {
-          "stock_id": "7556",
-          "name": "意德士"
-        },
-        {
-          "stock_id": "8105",
-          "name": "凌巨"
-        }
-      ]
+      "entered": [],
+      "left": []
     },
     "BREAKOUT": {
-      "entered": [
-        {
-          "stock_id": "4989",
-          "name": "榮科",
-          "grade": ""
-        },
-        {
-          "stock_id": "2351",
-          "name": "順德",
-          "grade": ""
-        },
-        {
-          "stock_id": "3264",
-          "name": "欣銓",
-          "grade": ""
-        },
-        {
-          "stock_id": "6290",
-          "name": "良維",
-          "grade": ""
-        },
-        {
-          "stock_id": "1721",
-          "name": "三晃",
-          "grade": ""
-        },
-        {
-          "stock_id": "8131",
-          "name": "福懋科",
-          "grade": ""
-        },
-        {
-          "stock_id": "4534",
-          "name": "慶騰",
-          "grade": ""
-        },
-        {
-          "stock_id": "5299",
-          "name": "杰力",
-          "grade": ""
-        },
-        {
-          "stock_id": "2103",
-          "name": "台橡",
-          "grade": ""
-        },
-        {
-          "stock_id": "1904",
-          "name": "正隆",
-          "grade": ""
-        }
-      ],
-      "left": [
-        {
-          "stock_id": "6173",
-          "name": "信昌電"
-        },
-        {
-          "stock_id": "8042",
-          "name": "金山電"
-        },
-        {
-          "stock_id": "6515",
-          "name": "穎崴"
-        },
-        {
-          "stock_id": "8182",
-          "name": "加高"
-        },
-        {
-          "stock_id": "5483",
-          "name": "中美晶"
-        },
-        {
-          "stock_id": "3141",
-          "name": "晶宏"
-        },
-        {
-          "stock_id": "1301",
-          "name": "台塑"
-        },
-        {
-          "stock_id": "6505",
-          "name": "台塑化"
-        },
-        {
-          "stock_id": "2108",
-          "name": "南帝"
-        },
-        {
-          "stock_id": "4566",
-          "name": "時碩工業"
-        }
-      ]
+      "entered": [],
+      "left": []
     }
   }
 }
