@@ -45,7 +45,7 @@ async function snapshotMap(env) {
 }
 
 // 把一筆 leaders.json 記錄 + 即時價 → 前端用的物件
-function enrich(r, snap, detailed) {
+function enrich(r, snap, detailed, bucket) {
   const q = snap.get(r.stock_id);
   const price = q ? q.price : null;
   const volShares = q ? q.volLots * 1000 : 0;
@@ -54,6 +54,7 @@ function enrich(r, snap, detailed) {
   const o = {
     id: r.stock_id, name: r.name || r.stock_id, industry: r.industry || "",
     rs: r.rs_rating ?? null, grade: r.grade || "",
+    bucket: bucket || null, readyTier: r.ready_tier ?? null,
     buy: r.pivot_high, close: r.close, price, distPct,
     volPct: volTh ? Math.round((volShares / volTh) * 100) : null,
     volThresholdLots: Math.round(volTh / 1000),
@@ -81,13 +82,16 @@ async function gather(env) {
   const isWait = (r) => r.breakout_status === "待突破";
 
   // 狙擊清單＝LEADERS + 全 READY「待突破」（含 tier1/2/3，KEN 要觀察一週看差異）
-  const approaching = [...leaders, ...ready]
-    .filter(r => isWait(r) && r.pivot_high && r.close)
-    .map(r => enrich(r, snap, false)).sort((a,b)=>Number(b.crossed)-Number(a.crossed)||a.distPct-b.distPct).slice(0,80);
-  const leadersOut = leaders.map(r => enrich(r, snap, true))
+  const approaching = [
+      ...leaders.filter(r => isWait(r) && r.pivot_high && r.close).map(r => ({ r, bucket: "LEADER" })),
+      ...ready.filter(r => isWait(r) && r.pivot_high && r.close).map(r => ({ r, bucket: "READY" })),
+    ]
+    .map(({ r, bucket }) => enrich(r, snap, false, bucket))
+    .sort((a,b)=>Number(b.crossed)-Number(a.crossed)||a.distPct-b.distPct).slice(0,80);
+  const leadersOut = leaders.map(r => enrich(r, snap, true, "LEADER"))
     .sort((a,b)=>Number(b.crossed)-Number(a.crossed)||a.distPct-b.distPct);
-  const breakoutOut = breakout.map(r => enrich(r, snap, false)).sort((a,b)=>(b.rs||0)-(a.rs||0));
-  const readyOut = ready.map(r => enrich(r, snap, false))
+  const breakoutOut = breakout.map(r => enrich(r, snap, false, "BREAKOUT")).sort((a,b)=>(b.rs||0)-(a.rs||0));
+  const readyOut = ready.map(r => enrich(r, snap, false, "READY"))
     .sort((a,b)=>Number(b.crossed)-Number(a.crossed)||a.distPct-b.distPct);
 
   return { as_of: L.as_of, generated_at: L.generated_at,
