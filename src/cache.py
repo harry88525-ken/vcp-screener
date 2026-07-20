@@ -88,6 +88,55 @@ def sync_bulk(client: FinMindClient, trading_days: list[str], universe_ids,
     return fetched
 
 
+def sync_fugle(fclient, trading_days: list[str], universe_ids,
+               commit_cb=None) -> int:
+    """用富果把全市場價格快取補到最新交易日（取代 sync_bulk 的 FinMind 付費 by-date）。
+
+    - 只缺最新一天 → snapshot()（TSE+OTC 各一發，最省，日更正常路徑）。
+    - 有缺口 / 冷啟動 → 逐檔 candles() 補 [起,迄]（一次性；每 200 檔 flush 一次）。
+    欄位/單位已由 FugleClient 對齊 FinMind，_merge_to_disk 與下游零改動。
+    回傳實際同步的交易日數。
+    """
+    os.makedirs(PRICE_DIR, exist_ok=True)
+    uni = set(universe_ids)
+    marker = read_marker()
+    todo = [d for d in trading_days if marker is None or d > marker]
+    if not todo:
+        return 0
+    start, end = todo[0], todo[-1]
+
+    def _write_marker(upto: str):
+        with open(SYNC_MARKER, "w", encoding="utf-8") as f:
+            f.write(upto)
+
+    # ── 快路徑：只缺最新一天，且富果快照就是那天 → 一次拿全市場 ──
+    if len(todo) == 1:
+        snap = fclient.snapshot()
+        if not snap.empty and str(snap["date"].iloc[0].date()) == end:
+            _merge_to_disk(snap, uni)
+            _write_marker(end)
+            if commit_cb:
+                commit_cb(end)
+            return 1
+        # 快照日期不符（盤中跑、或當天尚無快照）→ 落到 candles 回補路徑
+
+    # ── 回補路徑：逐檔 candles 補 [start, end] ──
+    buf: list[pd.DataFrame] = []
+    for i, sid in enumerate(universe_ids):
+        df = fclient.candles(sid, start, end)
+        if not df.empty:
+            buf.append(df.assign(stock_id=sid))
+        if (i + 1) % 200 == 0 and buf:
+            _merge_to_disk(pd.concat(buf, ignore_index=True), uni)
+            buf.clear()
+    if buf:
+        _merge_to_disk(pd.concat(buf, ignore_index=True), uni)
+    _write_marker(end)
+    if commit_cb:
+        commit_cb(end)
+    return len(todo)
+
+
 def get_fundamental(fetch, name: str, stock_id: str, start: str, end: str,
                     stale_days: int = None) -> pd.DataFrame:
     """季/月財報長期快取（財報/資產負債/月營收）。

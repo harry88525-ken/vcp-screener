@@ -25,6 +25,7 @@ import pandas as pd
 import config as C
 from src import cache, chips, fundamentals, group_scan, indicators, market_light, rs, trend_template, vcp
 from src.finmind_client import FinMindClient
+from src.fugle_client import FugleClient
 
 # 示範用流動性權值股清單（正式版改掃全 universe）
 SAMPLE = ["2330", "2317", "2454", "2382", "2308", "2303", "3711", "2891",
@@ -117,10 +118,13 @@ def run(sample: bool = True, as_of: str | None = None, limit: int | None = None)
         end = index_df["date"].max().date().isoformat()   # 鎖到最新交易日，避免快取「未覆蓋 end」誤判
 
     uni = build_universe(client, sample, limit)
-    use_bulk = not sample                                  # 全市場掃：by-date bulk 預載快取，Stage 1 全程 offline
+    use_bulk = not sample                                  # 全市場掃：富果快照預載快取，Stage 1 全程 offline
     if use_bulk and not index_df.empty:
         trading_days = [d.date().isoformat() for d in index_df["date"]]
-        cache.sync_bulk(client, trading_days, list(uni["stock_id"]), commit_cb=_make_commit_cb())
+        # 價格層改用富果（免費/一發全市場），取代 FinMind 付費 by-date bulk（退免費版被鎖＝日更凍結元兇）。
+        # index_df / 基本面 / 籌碼 仍走 FinMind 免費版。
+        fclient = FugleClient()
+        cache.sync_fugle(fclient, trading_days, list(uni["stock_id"]), commit_cb=_make_commit_cb())
 
     rows = []
     for _, u in uni.iterrows():

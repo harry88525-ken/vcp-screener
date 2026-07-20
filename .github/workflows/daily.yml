@@ -46,7 +46,8 @@ jobs:
       - name: Run screener
         env:
           FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
-          FINMIND_SLEEP_SEC: "2.4"       # Backer 1600/hr → 2.4s/req 安全
+          FUGLE_API_KEY: ${{ secrets.FUGLE_API_KEY }}   # 價格層改用富果（免費/一發全市場）
+          FINMIND_SLEEP_SEC: "6"         # 免費版 600/hr → 6s/req 安全（原 2.4s 是 Backer 1600/hr）
           VCP_INCREMENTAL_COMMIT: "1"    # 每 120 交易日 commit+push 快取（逾時不蒸發、可續跑）
           PYTHONUTF8: "1"
         run: |
