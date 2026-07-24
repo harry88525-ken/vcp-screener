@@ -113,7 +113,13 @@ def get_industry_chain(client: FinMindClient, stale_days: int = None) -> pd.Data
     stale_days = stale_days if stale_days is not None else C.GROUP_CHAIN_CACHE_DAYS
     if os.path.exists(CHAIN_PATH) and (time.time() - os.path.getmtime(CHAIN_PATH)) / 86400 < stale_days:
         return pd.read_parquet(CHAIN_PATH)
-    df = client.industry_chain()
+    try:
+        df = client.industry_chain()
+    except Exception:
+        # 免費版抓不到（Backer 資料集）→ 退用過期舊快取（產業鏈分類極少變，舊的堪用）；沒有才回空表
+        if os.path.exists(CHAIN_PATH):
+            return pd.read_parquet(CHAIN_PATH)
+        return pd.DataFrame(columns=["stock_id", "sub_industry"])
     if not df.empty:
         os.makedirs(os.path.dirname(CHAIN_PATH), exist_ok=True)
         df.to_parquet(CHAIN_PATH, index=False)

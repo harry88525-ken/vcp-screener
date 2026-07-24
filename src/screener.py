@@ -24,7 +24,7 @@ import pandas as pd
 
 import config as C
 from src import cache, chips, fundamentals, group_scan, indicators, market_light, rs, trend_template, vcp
-from src.finmind_client import FinMindClient
+from src.finmind_client import FinMindClient, FinMindError
 
 # 示範用流動性權值股清單（正式版改掃全 universe）
 SAMPLE = ["2330", "2317", "2454", "2382", "2308", "2303", "3711", "2891",
@@ -120,7 +120,12 @@ def run(sample: bool = True, as_of: str | None = None, limit: int | None = None)
     use_bulk = not sample                                  # 全市場掃：by-date bulk 預載快取，Stage 1 全程 offline
     if use_bulk and not index_df.empty:
         trading_days = [d.date().isoformat() for d in index_df["date"]]
-        cache.sync_bulk(client, trading_days, list(uni["stock_id"]), commit_cb=_make_commit_cb())
+        try:
+            cache.sync_bulk(client, trading_days, list(uni["stock_id"]), commit_cb=_make_commit_cb())
+        except FinMindError as e:
+            # 免費版無 by-date bulk（Backer 限定）→ 退回逐檔抓（get_price 單檔 fallback，慢但可跑）
+            print(f"[free-tier] by-date bulk 不可用，改逐檔模式：{e}")
+            use_bulk = False
 
     rows = []
     for _, u in uni.iterrows():
@@ -140,7 +145,7 @@ def run(sample: bool = True, as_of: str | None = None, limit: int | None = None)
 
     # L2 族群熱點（A-8 雙維度：證交所產業 + 產業鏈主題）+ A-1 市場紅綠燈
     chain_map: dict[str, list[str]] = {}
-    if use_bulk:
+    if not sample:                       # 全市場掃都載產業鏈（免費版退用舊快取，見 cache.get_industry_chain）
         chain_df = cache.get_industry_chain(client)
         for sid, sub in zip(chain_df["stock_id"], chain_df["sub_industry"]):
             chain_map.setdefault(sid, []).append(sub)
