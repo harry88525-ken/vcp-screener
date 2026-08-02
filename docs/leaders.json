@@ -1,6 +1,6 @@
 {
   "as_of": "2026-07-31",
-  "generated_at": "2026-08-01T05:45:59",
+  "generated_at": "2026-08-02T10:20:14",
   "universe_scanned": 1433,
   "market": {
     "light": "red",
@@ -93,7 +93,7 @@
       "roe": 0.3429,
       "rev_3m_yoy": 0.9663,
       "fundamental_ok": false,
-      "group_rank": 6,
+      "group_rank": 9,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -130,7 +130,7 @@
       "roe": 0.0266,
       "rev_3m_yoy": 0.0757,
       "fundamental_ok": false,
-      "group_rank": 9,
+      "group_rank": 8,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -170,7 +170,7 @@
       "roe": 0.5574,
       "rev_3m_yoy": 2.5674,
       "fundamental_ok": true,
-      "group_rank": 6,
+      "group_rank": 9,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -206,7 +206,7 @@
       "roe": 0.0203,
       "rev_3m_yoy": -0.0134,
       "fundamental_ok": false,
-      "group_rank": 9,
+      "group_rank": 8,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -244,7 +244,7 @@
       "roe": 0.6444,
       "rev_3m_yoy": 4.8244,
       "fundamental_ok": true,
-      "group_rank": 6,
+      "group_rank": 9,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -280,7 +280,7 @@
       "roe": 0.2243,
       "rev_3m_yoy": 0.4648,
       "fundamental_ok": false,
-      "group_rank": 6,
+      "group_rank": 9,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -392,7 +392,7 @@
       "roe": 0.3272,
       "rev_3m_yoy": 0.3,
       "fundamental_ok": true,
-      "group_rank": 6,
+      "group_rank": 9,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -429,7 +429,7 @@
       "roe": 0.0393,
       "rev_3m_yoy": 0.8103,
       "fundamental_ok": false,
-      "group_rank": 8,
+      "group_rank": 7,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -534,7 +534,7 @@
       "roe": null,
       "rev_3m_yoy": -0.5792,
       "fundamental_ok": false,
-      "group_rank": 6,
+      "group_rank": 9,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -572,7 +572,7 @@
       "roe": 0.3955,
       "rev_3m_yoy": 0.2601,
       "fundamental_ok": true,
-      "group_rank": 8,
+      "group_rank": 7,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -608,7 +608,7 @@
       "roe": -0.0365,
       "rev_3m_yoy": 0.17,
       "fundamental_ok": false,
-      "group_rank": 6,
+      "group_rank": 9,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -678,7 +678,7 @@
       "roe": 0.1473,
       "rev_3m_yoy": -0.186,
       "fundamental_ok": false,
-      "group_rank": 8,
+      "group_rank": 7,
       "group_real": true,
       "group_top": true,
       "ready_tier": 1
@@ -715,7 +715,7 @@
       "roe": 0.3398,
       "rev_3m_yoy": 0.6243,
       "fundamental_ok": true,
-      "group_rank": 8,
+      "group_rank": 7,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -749,7 +749,7 @@
       "roe": 0.3204,
       "rev_3m_yoy": 0.3779,
       "fundamental_ok": false,
-      "group_rank": 6,
+      "group_rank": 9,
       "group_real": true,
       "group_top": true,
       "ready_tier": 2
@@ -783,7 +783,7 @@
       "roe": 0.0754,
       "rev_3m_yoy": 0.2256,
       "fundamental_ok": false,
-      "group_rank": 18,
+      "group_rank": 19,
       "group_real": true,
       "group_top": false,
       "ready_tier": 2
@@ -823,7 +823,7 @@
       "roe": 0.6444,
       "rev_3m_yoy": 4.8244,
       "fundamental_ok": true,
-      "group_rank": 6,
+      "group_rank": 9,
       "group_real": true,
       "group_top": true,
       "ready_tier": 3
@@ -1134,54 +1134,6 @@
         "top": true
       },
       {
-        "name": "電子工業",
-        "members": 205,
-        "median_rs": 69.0,
-        "breadth": 0.532,
-        "vcp_count": 52,
-        "real_group": true,
-        "mom": {
-          "21": -0.1858,
-          "63": -0.0372,
-          "126": 0.0689
-        },
-        "rs_vs_mkt": {
-          "21": -0.1081,
-          "63": -0.1565,
-          "126": -0.3112
-        },
-        "score": 68.91,
-        "top_members": [
-          {
-            "stock_id": "2408",
-            "name": "南亞科",
-            "rs": 99
-          },
-          {
-            "stock_id": "3189",
-            "name": "景碩",
-            "rs": 99
-          },
-          {
-            "stock_id": "3481",
-            "name": "群創",
-            "rs": 98
-          },
-          {
-            "stock_id": "8021",
-            "name": "尖點",
-            "rs": 98
-          },
-          {
-            "stock_id": "2059",
-            "name": "川湖",
-            "rs": 97
-          }
-        ],
-        "rank": 6,
-        "top": true
-      },
-      {
         "name": "半導體業",
         "members": 122,
         "median_rs": 70.0,
@@ -1226,27 +1178,27 @@
             "rs": 97
           }
         ],
-        "rank": 7,
+        "rank": 6,
         "top": true
       },
       {
         "name": "電腦及週邊設備業",
-        "members": 84,
+        "members": 83,
         "median_rs": 63.0,
-        "breadth": 0.488,
+        "breadth": 0.494,
         "vcp_count": 30,
         "real_group": true,
         "mom": {
-          "21": -0.0861,
-          "63": 0.0006,
-          "126": 0.056
+          "21": -0.0883,
+          "63": 0.0013,
+          "126": 0.0579
         },
         "rs_vs_mkt": {
-          "21": -0.0083,
-          "63": -0.1188,
-          "126": -0.3241
+          "21": -0.0106,
+          "63": -0.1181,
+          "126": -0.3222
         },
-        "score": 67.46,
+        "score": 67.41,
         "top_members": [
           {
             "stock_id": "5289",
@@ -1274,27 +1226,27 @@
             "rs": 93
           }
         ],
-        "rank": 8,
+        "rank": 7,
         "top": true
       },
       {
         "name": "電子零組件業",
-        "members": 160,
-        "median_rs": 69.0,
-        "breadth": 0.438,
+        "members": 157,
+        "median_rs": 70.0,
+        "breadth": 0.446,
         "vcp_count": 21,
         "real_group": true,
         "mom": {
-          "21": -0.2313,
-          "63": -0.084,
-          "126": 0.0756
+          "21": -0.2289,
+          "63": -0.0797,
+          "126": 0.0773
         },
         "rs_vs_mkt": {
-          "21": -0.1536,
-          "63": -0.2033,
-          "126": -0.3045
+          "21": -0.1512,
+          "63": -0.1991,
+          "126": -0.3028
         },
-        "score": 65.7,
+        "score": 66.9,
         "top_members": [
           {
             "stock_id": "3026",
@@ -1320,6 +1272,54 @@
             "stock_id": "2383",
             "name": "台光電",
             "rs": 98
+          }
+        ],
+        "rank": 8,
+        "top": true
+      },
+      {
+        "name": "電子工業",
+        "members": 210,
+        "median_rs": 66.0,
+        "breadth": 0.519,
+        "vcp_count": 52,
+        "real_group": true,
+        "mom": {
+          "21": -0.186,
+          "63": -0.0458,
+          "126": 0.0641
+        },
+        "rs_vs_mkt": {
+          "21": -0.1083,
+          "63": -0.1652,
+          "126": -0.316
+        },
+        "score": 65.78,
+        "top_members": [
+          {
+            "stock_id": "2408",
+            "name": "南亞科",
+            "rs": 99
+          },
+          {
+            "stock_id": "3189",
+            "name": "景碩",
+            "rs": 99
+          },
+          {
+            "stock_id": "3481",
+            "name": "群創",
+            "rs": 98
+          },
+          {
+            "stock_id": "8021",
+            "name": "尖點",
+            "rs": 98
+          },
+          {
+            "stock_id": "2059",
+            "name": "川湖",
+            "rs": 97
           }
         ],
         "rank": 9,
@@ -2350,84 +2350,17 @@
     }
   ],
   "changes": {
-    "vs": "2026-07-30",
+    "vs": "2026-07-31",
     "LEADERS": {
       "entered": [],
       "left": []
     },
     "READY": {
-      "entered": [
-        {
-          "stock_id": "6432",
-          "name": "今展科",
-          "grade": ""
-        },
-        {
-          "stock_id": "8271",
-          "name": "宇瞻",
-          "grade": ""
-        },
-        {
-          "stock_id": "2451",
-          "name": "創見",
-          "grade": ""
-        },
-        {
-          "stock_id": "3362",
-          "name": "先進光",
-          "grade": ""
-        },
-        {
-          "stock_id": "2330",
-          "name": "台積電",
-          "grade": ""
-        },
-        {
-          "stock_id": "3702",
-          "name": "大聯大",
-          "grade": ""
-        },
-        {
-          "stock_id": "6669",
-          "name": "緯穎",
-          "grade": ""
-        },
-        {
-          "stock_id": "2347",
-          "name": "聯強",
-          "grade": ""
-        },
-        {
-          "stock_id": "2377",
-          "name": "微星",
-          "grade": ""
-        },
-        {
-          "stock_id": "3231",
-          "name": "緯創",
-          "grade": ""
-        }
-      ],
-      "left": [
-        {
-          "stock_id": "1301",
-          "name": "台塑"
-        }
-      ]
+      "entered": [],
+      "left": []
     },
     "BREAKOUT": {
-      "entered": [
-        {
-          "stock_id": "2451",
-          "name": "創見",
-          "grade": ""
-        },
-        {
-          "stock_id": "2347",
-          "name": "聯強",
-          "grade": ""
-        }
-      ],
+      "entered": [],
       "left": []
     }
   }
