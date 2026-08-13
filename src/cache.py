@@ -15,6 +15,7 @@ import pandas as pd
 
 import config as C
 from src.finmind_client import FinMindClient
+from src.fugle_client import FugleClient, FugleError
 
 PRICE_DIR = os.path.join("data", "prices")
 SYNC_MARKER = os.path.join(PRICE_DIR, "_synced_through.txt")
@@ -126,22 +127,58 @@ def get_industry_chain(client: FinMindClient, stale_days: int = None) -> pd.Data
     return df
 
 
+_FUGLE: FugleClient | None = None
+_FUGLE_WARNED = False
+
+
+def _fugle() -> FugleClient:
+    """模組級單例：整跑共用同一個 FugleClient（fail-streak 保命線才會跨檔累積）。"""
+    global _FUGLE
+    if _FUGLE is None:
+        _FUGLE = FugleClient()
+    return _FUGLE
+
+
 def get_price(client: FinMindClient, stock_id: str, start: str, end: str,
               offline: bool = False) -> pd.DataFrame:
     """單檔日線（升序）。
 
     offline=True：純讀本地快取（sync_bulk 後 Stage 1 用，0 API）；無快取回空表。
-    offline=False：快取覆蓋到 end 就用，否則抓 [start,end] 後存檔（單檔 fallback）。
+    offline=False：快取覆蓋到 end 就用；否則先走 Fugle candles「增量」補缺的日期
+    （只抓快取最後一天之後，暖快取每檔 1 request，60/min ≈ 全市場 30 分）；
+    Fugle 無此檔（404）/金鑰失效/斷網 → 整體退回 FinMind 舊路徑（抓 [start,end] 全段）。
     """
     os.makedirs(PRICE_DIR, exist_ok=True)
     p = _path(stock_id)
     end_ts = pd.Timestamp(end)
+    cached = None
     if os.path.exists(p):
-        df = pd.read_parquet(p)
-        if not df.empty and (offline or df["date"].max() >= end_ts):
-            return df[df["date"] <= end_ts].reset_index(drop=True)
+        cached = pd.read_parquet(p)
+        if not cached.empty and (offline or cached["date"].max() >= end_ts):
+            return cached[cached["date"] <= end_ts].reset_index(drop=True)
     if offline:
         return pd.DataFrame(columns=["date", "open", "high", "low", "close", "volume", "turnover"])
+
+    # ── 優先：Fugle 增量（欄位語意與 FinMind 逐位一致，實測 2026-08-12 PoC）──
+    try:
+        if cached is not None and not cached.empty:
+            fetch_start = (cached["date"].max() + pd.Timedelta(days=1)).date().isoformat()
+        else:
+            fetch_start = start
+        got = _fugle().candles(stock_id, fetch_start, end)
+        if not got.empty:
+            df = pd.concat([cached, got], ignore_index=True) if cached is not None else got
+            df = df.drop_duplicates("date", keep="last").sort_values("date").reset_index(drop=True)
+            if df["date"].max() >= end_ts:      # 補到位才算成功，否則交給 FinMind
+                df.to_parquet(p, index=False)
+                return df[df["date"] <= end_ts].reset_index(drop=True)
+    except Exception as e:                     # 任何 Fugle 問題都不准中斷掃描 → 退 FinMind
+        global _FUGLE_WARNED
+        if not _FUGLE_WARNED:                  # 只提示一次，避免全市場刷 1800 行
+            print(f"[fugle] 退回 FinMind：{e}")
+            _FUGLE_WARNED = True
+
+    # ── 兜底：FinMind 舊路徑（行為與改版前完全相同）──
     df = client.price(stock_id, start, end)
     if not df.empty:
         df.to_parquet(p, index=False)

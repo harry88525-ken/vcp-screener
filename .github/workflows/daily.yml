@@ -47,6 +47,7 @@ jobs:
         env:
           FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
           FINMIND_SLEEP_SEC: "6"         # 免費版(register) 600/hr → 6s/req 安全；升級 Backer 可調回 2.4
+          FUGLE_KEY: ${{ secrets.FUGLE_KEY }}   # 價格迴圈優先走 Fugle candles（60/min ≈ 30 分）；掛掉自動退 FinMind
           VCP_INCREMENTAL_COMMIT: "1"    # 每 120 交易日 commit+push 快取（逾時不蒸發、可續跑）
           PYTHONUTF8: "1"
         run: |

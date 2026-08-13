@@ -23,6 +23,14 @@ FINMIND_TIMEOUT_SEC = 15        # 單請求逾時：壞連線快速失敗（原 
 FINMIND_RATE_BACKOFF_SEC = 90   # 遇限流(402/429)每次等候秒數
 FINMIND_RATE_MAX_WAITS = 80     # 限流等候次數上限（保護：80×90s=2hr）
 BACKFILL_CHUNK_DAYS = 120       # sync_bulk 每抓滿幾個交易日就 flush 磁碟 + 增量 commit（防逾時蒸發）
+
+# Fugle 富果行情 API（每日價格迴圈優先來源；FinMind 兜底。env FUGLE_KEY 未設＝整條停用）
+FUGLE_BASE_URL = "https://api.fugle.tw/marketdata/v1.0/stock"
+FUGLE_SLEEP_SEC = 1.05          # 基本（免費）層 60 req/min → 1.05s/req 安全（可用 env FUGLE_SLEEP_SEC 覆寫）
+FUGLE_TIMEOUT_SEC = 15
+FUGLE_MAX_RETRY = 3
+FUGLE_SPAN_DAYS = 350           # 單請求跨度必須 <1 年（API 硬限制）→ candles 自動拆段
+FUGLE_MAX_FAIL_STREAK = 5       # 連續硬失敗 N 次 → 本次執行整體停用 Fugle、退回 FinMind 舊路徑
 ENRICH_MAX_CANDIDATES = 80      # Stage 2 enrich 只跑 RS 最強前 N 檔（加分欄位、不影響入選；防全市場逐檔拖死）
 READY_TIER1_PIVOT = 0.18        # READY 成熟度分組：樞紐 ≤18% = 即將收緊（每天盯）
 READY_TIER2_PIVOT = 0.25        # 18-25% = 發展中；>25% = 早期觀察池
