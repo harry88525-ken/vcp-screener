@@ -41,7 +41,7 @@ def _l1l2_context(stock_id: str) -> dict | None:
     keys = ("name", "industry", "rs_rating", "grade", "close", "dist_52w_high",
             "pivot_width", "pivot_high", "stop", "risk_pct", "reward_risk",
             "group_rank", "group_real", "rs_line_new_high", "inst_net_buy", "trust_streak")
-    for bucket in ("LEADERS", "READY", "BREAKOUT"):
+    for bucket in ("LEADERS", "BREAKOUT", "READY"):
         for x in d.get(bucket, []):
             if x["stock_id"] == stock_id:
                 return {"bucket": bucket, **{k: x.get(k) for k in keys}}
@@ -149,7 +149,7 @@ def to_prompt(digest: dict) -> str:
         f"L2 族群定位(所屬產業排名/動能1月3月6月/廣度/一致性vcp_count/前段班peer top_members)：{json.dumps(digest.get('group'), ensure_ascii=False)}",
         f"估值(PER/PBR/殖利率/PER近1年高低)：{json.dumps(digest.get('valuation'), ensure_ascii=False)}",
         f"完整進場數字(進場樞紐高/停損/目標量測/風報比R:R)：{json.dumps(digest.get('trade_plan'), ensure_ascii=False)}",
-        f"月營收(年,月,值千元)：{digest.get('revenue_monthly')}",
+        f"月營收(年,月,值元)：{digest.get('revenue_monthly')}",
         f"季 EPS：{digest.get('eps')}",
         f"季營收：{digest.get('revenue_q')}",
         f"季毛利：{digest.get('gross_profit')}",
