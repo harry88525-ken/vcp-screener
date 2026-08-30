@@ -1,6 +1,6 @@
 {
   "as_of": "2026-08-28",
-  "generated_at": "2026-08-28T13:21:29",
+  "generated_at": "2026-08-30T10:39:10",
   "universe_scanned": 1466,
   "market": {
     "light": "green",
@@ -5423,190 +5423,18 @@
     }
   ],
   "changes": {
-    "vs": "2026-08-27",
+    "vs": "2026-08-28",
     "LEADERS": {
-      "entered": [
-        {
-          "stock_id": "2357",
-          "name": "華碩",
-          "grade": "B"
-        },
-        {
-          "stock_id": "2527",
-          "name": "宏璟",
-          "grade": "C"
-        }
-      ],
-      "left": [
-        {
-          "stock_id": "1590",
-          "name": "亞德客-KY"
-        },
-        {
-          "stock_id": "1904",
-          "name": "正隆"
-        }
-      ]
+      "entered": [],
+      "left": []
     },
     "READY": {
-      "entered": [
-        {
-          "stock_id": "6274",
-          "name": "台燿",
-          "grade": ""
-        },
-        {
-          "stock_id": "3167",
-          "name": "大量",
-          "grade": ""
-        },
-        {
-          "stock_id": "6727",
-          "name": "亞泰金屬",
-          "grade": ""
-        },
-        {
-          "stock_id": "2454",
-          "name": "聯發科",
-          "grade": ""
-        },
-        {
-          "stock_id": "7769",
-          "name": "鴻勁",
-          "grade": ""
-        },
-        {
-          "stock_id": "6584",
-          "name": "南俊國際",
-          "grade": ""
-        },
-        {
-          "stock_id": "6257",
-          "name": "矽格",
-          "grade": ""
-        },
-        {
-          "stock_id": "3265",
-          "name": "台星科",
-          "grade": ""
-        }
-      ],
-      "left": [
-        {
-          "stock_id": "2484",
-          "name": "希華"
-        },
-        {
-          "stock_id": "7750",
-          "name": "新代"
-        },
-        {
-          "stock_id": "3152",
-          "name": "璟德"
-        },
-        {
-          "stock_id": "2357",
-          "name": "華碩"
-        },
-        {
-          "stock_id": "4916",
-          "name": "事欣科"
-        },
-        {
-          "stock_id": "6168",
-          "name": "宏齊"
-        },
-        {
-          "stock_id": "2637",
-          "name": "慧洋-KY"
-        },
-        {
-          "stock_id": "8112",
-          "name": "至上"
-        }
-      ]
+      "entered": [],
+      "left": []
     },
     "BREAKOUT": {
-      "entered": [
-        {
-          "stock_id": "3008",
-          "name": "大立光",
-          "grade": ""
-        },
-        {
-          "stock_id": "6727",
-          "name": "亞泰金屬",
-          "grade": ""
-        },
-        {
-          "stock_id": "3264",
-          "name": "欣銓",
-          "grade": ""
-        },
-        {
-          "stock_id": "2301",
-          "name": "光寶科",
-          "grade": ""
-        },
-        {
-          "stock_id": "6584",
-          "name": "南俊國際",
-          "grade": ""
-        },
-        {
-          "stock_id": "6257",
-          "name": "矽格",
-          "grade": ""
-        },
-        {
-          "stock_id": "3094",
-          "name": "聯傑",
-          "grade": ""
-        },
-        {
-          "stock_id": "3003",
-          "name": "健和興",
-          "grade": ""
-        }
-      ],
-      "left": [
-        {
-          "stock_id": "3081",
-          "name": "聯亞"
-        },
-        {
-          "stock_id": "6187",
-          "name": "萬潤"
-        },
-        {
-          "stock_id": "1727",
-          "name": "中華化"
-        },
-        {
-          "stock_id": "8155",
-          "name": "博智"
-        },
-        {
-          "stock_id": "6278",
-          "name": "台表科"
-        },
-        {
-          "stock_id": "6547",
-          "name": "高端疫苗"
-        },
-        {
-          "stock_id": "5471",
-          "name": "松翰"
-        },
-        {
-          "stock_id": "6168",
-          "name": "宏齊"
-        },
-        {
-          "stock_id": "1503",
-          "name": "士電"
-        }
-      ]
+      "entered": [],
+      "left": []
     }
   }
 }
