@@ -120,7 +120,17 @@ def gather(client: FinMindClient, stock_id: str, as_of: str | None = None) -> di
         cf = client.cashflow(stock_id, _recent(end, 500), end)
         if not cf.empty:
             op = cf[cf["type"] == "CashReceivedThroughOperations"].sort_values("date")
-            out["op_cashflow"] = [(d.strftime("%Y-%m-%d"), float(v)) for d, v in zip(op["date"], op["value"])][-4:]
+            ytd = [(d, float(v)) for d, v in zip(op["date"], op["value"])]
+            # FinMind 現金流為「年度累計(YTD)」，Q2 值含 Q1。還原單季：本期累計 - 同年上一期累計。
+            single = []
+            for i, (d, v) in enumerate(ytd):
+                prev = ytd[i - 1] if i > 0 else None
+                if prev is not None and prev[0].year == d.year:
+                    single.append((d.strftime("%Y-%m-%d"), round(v - prev[1], 2)))
+                else:
+                    single.append((d.strftime("%Y-%m-%d"), round(v, 2)))
+            out["op_cashflow"] = [(d.strftime("%Y-%m-%d"), float(v)) for d, v in ytd][-4:]
+            out["op_cashflow_q"] = single[-4:]
     except Exception:
         pass
 
@@ -155,7 +165,8 @@ def to_prompt(digest: dict) -> str:
         f"季毛利：{digest.get('gross_profit')}",
         f"季營業利益：{digest.get('op_income')}",
         f"季稅後淨利：{digest.get('net_income')}",
-        f"營運現金流：{digest.get('op_cashflow')}",
+        f"營運現金流(年度累計YTD，Q2含Q1)：{digest.get('op_cashflow')}",
+        f"營運現金流(還原單季)：{digest.get('op_cashflow_q')}",
         f"股利(年度,現金/股)：{digest.get('dividend')}",
         f"三大法人近10日淨買賣(日期,合計)：{digest.get('inst')}",
     ]
