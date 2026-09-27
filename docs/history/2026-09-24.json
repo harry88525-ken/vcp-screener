@@ -1,6 +1,6 @@
 {
   "as_of": "2026-09-24",
-  "generated_at": "2026-09-24T11:19:40",
+  "generated_at": "2026-09-27T10:40:28",
   "universe_scanned": 1462,
   "market": {
     "light": "green",
@@ -2432,7 +2432,7 @@
       "avg_vol": 1729955.0,
       "trend_price_ok": true,
       "inst_net_buy": true,
-      "trust_streak": 7,
+      "trust_streak": 0,
       "margin_overheat": false,
       "eps_yoy": 0.9176,
       "roe": 0.1982,
@@ -6399,171 +6399,18 @@
     }
   ],
   "changes": {
-    "vs": "2026-09-23",
+    "vs": "2026-09-24",
     "LEADERS": {
-      "entered": [
-        {
-          "stock_id": "6187",
-          "name": "萬潤",
-          "grade": "B"
-        },
-        {
-          "stock_id": "3231",
-          "name": "緯創",
-          "grade": "B"
-        },
-        {
-          "stock_id": "1563",
-          "name": "巧新",
-          "grade": "C"
-        },
-        {
-          "stock_id": "6547",
-          "name": "高端疫苗",
-          "grade": "C"
-        }
-      ],
-      "left": [
-        {
-          "stock_id": "6672",
-          "name": "騰輝電子-KY"
-        },
-        {
-          "stock_id": "6196",
-          "name": "帆宣"
-        }
-      ]
+      "entered": [],
+      "left": []
     },
     "READY": {
-      "entered": [
-        {
-          "stock_id": "3026",
-          "name": "禾伸堂",
-          "grade": ""
-        },
-        {
-          "stock_id": "3081",
-          "name": "聯亞",
-          "grade": ""
-        },
-        {
-          "stock_id": "6672",
-          "name": "騰輝電子-KY",
-          "grade": ""
-        },
-        {
-          "stock_id": "2481",
-          "name": "強茂",
-          "grade": ""
-        },
-        {
-          "stock_id": "6196",
-          "name": "帆宣",
-          "grade": ""
-        },
-        {
-          "stock_id": "6166",
-          "name": "凌華",
-          "grade": ""
-        },
-        {
-          "stock_id": "2342",
-          "name": "茂矽",
-          "grade": ""
-        },
-        {
-          "stock_id": "6209",
-          "name": "今國光",
-          "grade": ""
-        }
-      ],
-      "left": [
-        {
-          "stock_id": "6187",
-          "name": "萬潤"
-        },
-        {
-          "stock_id": "4979",
-          "name": "華星光"
-        },
-        {
-          "stock_id": "2527",
-          "name": "宏璟"
-        },
-        {
-          "stock_id": "1563",
-          "name": "巧新"
-        },
-        {
-          "stock_id": "6547",
-          "name": "高端疫苗"
-        },
-        {
-          "stock_id": "6491",
-          "name": "晶碩"
-        }
-      ]
+      "entered": [],
+      "left": []
     },
     "BREAKOUT": {
-      "entered": [
-        {
-          "stock_id": "3189",
-          "name": "景碩",
-          "grade": ""
-        },
-        {
-          "stock_id": "3624",
-          "name": "光頡",
-          "grade": ""
-        },
-        {
-          "stock_id": "3324",
-          "name": "雙鴻",
-          "grade": ""
-        },
-        {
-          "stock_id": "3219",
-          "name": "倚強科",
-          "grade": ""
-        },
-        {
-          "stock_id": "2342",
-          "name": "茂矽",
-          "grade": ""
-        },
-        {
-          "stock_id": "1708",
-          "name": "東鹼",
-          "grade": ""
-        },
-        {
-          "stock_id": "2404",
-          "name": "漢唐",
-          "grade": ""
-        }
-      ],
-      "left": [
-        {
-          "stock_id": "8046",
-          "name": "南電"
-        },
-        {
-          "stock_id": "1709",
-          "name": "和益"
-        },
-        {
-          "stock_id": "3605",
-          "name": "宏致"
-        },
-        {
-          "stock_id": "2302",
-          "name": "麗正"
-        },
-        {
-          "stock_id": "6805",
-          "name": "富世達"
-        }
-      ]
+      "entered": [],
+      "left": []
     }
   }
 }
