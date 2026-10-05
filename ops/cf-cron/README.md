@@ -4,7 +4,7 @@ GitHub 內建排程（`schedule:` cron）會被降級延遲（曾延遲 4 小時
 此 Worker 用 Cloudflare Cron Trigger 準時打 `workflow_dispatch`（不排隊）觸發 L1 每日掃描。
 
 - **引擎仍在 GitHub Actions**（`daily.yml`）；這個 Worker 只是「準時的鬧鐘」。
-- **排程**：07:00 UTC = 15:00 台北，週一~五（見 `wrangler.toml` 的 `[triggers]`）。
+- **排程**：10:00 UTC = 18:00 台北，週一~五（見 `wrangler.toml` 的 `[triggers]`）。星期一律用 `MON-FRI` 名稱寫法——Cloudflare 的數字 1 是週日。
 - **GitHub cron 保留當 fallback**（電腦/CF 萬一都失效時，晚一點還是會跑）。
 
 ## 部署
