@@ -25,6 +25,7 @@ import pandas as pd
 import config as C
 from src import cache, chips, fundamentals, group_scan, indicators, market_light, rs, trend_template, vcp
 from src.finmind_client import FinMindClient, FinMindError
+from src.price_clean import clean_prices
 
 # 示範用流動性權值股清單（正式版改掃全 universe）
 SAMPLE = ["2330", "2317", "2454", "2382", "2308", "2303", "3711", "2891",
@@ -51,7 +52,7 @@ def _recent(end: str, days: int) -> str:
 
 def analyze_stock(client, sid, name, industry, start, end, index_df, offline: bool = False) -> dict | None:
     """Stage 1：只用價格（趨勢/RS/VCP/流動性）。便宜，掃全市場用。"""
-    df = cache.get_price(client, sid, start, end, offline=offline)
+    df = clean_prices(cache.get_price(client, sid, start, end, offline=offline))   # 剔無成交列＋還原分割
     if df.empty or len(df) < C.MA_SLOW + C.MA200_RISING_LOOKBACK:
         return None
     m = indicators.trend_metrics(df)
