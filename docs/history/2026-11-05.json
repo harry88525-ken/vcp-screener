@@ -1,0 +1,2610 @@
+{
+  "as_of": "2026-11-05",
+  "generated_at": "2026-11-05T14:57:06",
+  "universe_scanned": 1443,
+  "market": {
+    "light": "red",
+    "score": 0.0,
+    "position_factor": 0.0,
+    "index_close": 96137.37,
+    "breadth_pct": 0.232,
+    "trend_signal": 0,
+    "signals": {
+      "trend": 0,
+      "breadth": 0
+    },
+    "veto_breadth": true,
+    "todo": [
+      "follow_through(②)",
+      "distribution_days(④需指數量能)"
+    ]
+  },
+  "counts": {
+    "LEADERS": 5,
+    "READY": 21,
+    "BREAKOUT": 1
+  },
+  "LEADERS": [
+    {
+      "stock_id": "2603",
+      "name": "長榮",
+      "industry": "航運業",
+      "close": 259.0,
+      "rs_rating": 88,
+      "dist_52w_high": -0.0565,
+      "rs_line_new_high": false,
+      "grade": "B",
+      "is_vcp": true,
+      "pivot_high": 274.5,
+      "stop": 254.0,
+      "risk_pct": 0.0747,
+      "reward_risk": 0.0,
+      "pivot_width": 0.0747,
+      "seq_clean": false,
+      "vol_contraction": true,
+      "breakout_status": "待突破",
+      "contractions": [],
+      "avg_turnover_50": 3194826423.0,
+      "avg_vol": 12862586.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 8,
+      "margin_overheat": false,
+      "eps_yoy": 0.4644,
+      "roe": 0.1,
+      "rev_3m_yoy": 0.3529,
+      "fundamental_ok": false,
+      "group_rank": 6,
+      "group_real": true,
+      "group_top": true
+    },
+    {
+      "stock_id": "5904",
+      "name": "寶雅*",
+      "industry": "居家生活類",
+      "close": 73.7,
+      "rs_rating": 84,
+      "dist_52w_high": -0.2015,
+      "rs_line_new_high": false,
+      "grade": "B",
+      "is_vcp": true,
+      "pivot_high": 75.3,
+      "stop": 70.5,
+      "risk_pct": 0.0637,
+      "reward_risk": 3.54,
+      "pivot_width": 0.0637,
+      "seq_clean": true,
+      "vol_contraction": true,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.2069,
+        0.1733,
+        0.0625
+      ],
+      "avg_turnover_50": 375251676.0,
+      "avg_vol": 5186338.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 5,
+      "margin_overheat": false,
+      "eps_yoy": 0.2433,
+      "roe": 0.5244,
+      "rev_3m_yoy": 0.1885,
+      "fundamental_ok": false,
+      "group_rank": 33,
+      "group_real": true,
+      "group_top": false
+    },
+    {
+      "stock_id": "6782",
+      "name": "視陽",
+      "industry": "生技醫療業",
+      "close": 265.5,
+      "rs_rating": 90,
+      "dist_52w_high": -0.0345,
+      "rs_line_new_high": false,
+      "grade": "C",
+      "is_vcp": true,
+      "pivot_high": 275.0,
+      "stop": 249.0,
+      "risk_pct": 0.0945,
+      "reward_risk": 0.0,
+      "pivot_width": 0.0945,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.0945
+      ],
+      "avg_turnover_50": 128390875.0,
+      "avg_vol": 522477.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 2,
+      "margin_overheat": false,
+      "eps_yoy": 0.5642,
+      "roe": 0.2342,
+      "rev_3m_yoy": 0.274,
+      "fundamental_ok": true,
+      "group_rank": 29,
+      "group_real": true,
+      "group_top": false
+    },
+    {
+      "stock_id": "3045",
+      "name": "台灣大",
+      "industry": "電子工業",
+      "close": 132.5,
+      "rs_rating": 83,
+      "dist_52w_high": -0.0293,
+      "rs_line_new_high": false,
+      "grade": "C",
+      "is_vcp": true,
+      "pivot_high": 136.5,
+      "stop": 129.0,
+      "risk_pct": 0.0549,
+      "reward_risk": 0.0,
+      "pivot_width": 0.0549,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.0598
+      ],
+      "avg_turnover_50": 1060026729.0,
+      "avg_vol": 8542709.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 8,
+      "margin_overheat": false,
+      "eps_yoy": 0.367,
+      "roe": 0.211,
+      "rev_3m_yoy": 0.0869,
+      "fundamental_ok": true,
+      "group_rank": 13,
+      "group_real": true,
+      "group_top": false
+    },
+    {
+      "stock_id": "4904",
+      "name": "遠傳",
+      "industry": "電子工業",
+      "close": 112.5,
+      "rs_rating": 80,
+      "dist_52w_high": -0.0385,
+      "rs_line_new_high": false,
+      "grade": "C",
+      "is_vcp": true,
+      "pivot_high": 117.0,
+      "stop": 110.0,
+      "risk_pct": 0.0598,
+      "reward_risk": 0.0,
+      "pivot_width": 0.0598,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.0517
+      ],
+      "avg_turnover_50": 621970756.0,
+      "avg_vol": 5789576.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 5,
+      "margin_overheat": false,
+      "eps_yoy": 0.1444,
+      "roe": 0.1499,
+      "rev_3m_yoy": 0.0948,
+      "fundamental_ok": false,
+      "group_rank": 13,
+      "group_real": true,
+      "group_top": false
+    }
+  ],
+  "READY": [
+    {
+      "stock_id": "2033",
+      "name": "佳大",
+      "industry": "鋼鐵工業",
+      "close": 74.7,
+      "rs_rating": 99,
+      "dist_52w_high": -0.0697,
+      "rs_line_new_high": true,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 80.3,
+      "stop": 63.7,
+      "risk_pct": 0.2067,
+      "reward_risk": 0.0,
+      "pivot_width": 0.2067,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.1332,
+        0.195
+      ],
+      "avg_turnover_50": 149767500.0,
+      "avg_vol": 2927436.0,
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 1,
+      "margin_overheat": false,
+      "eps_yoy": 0.2,
+      "roe": 0.0255,
+      "rev_3m_yoy": -0.1419,
+      "fundamental_ok": false,
+      "group_rank": 5,
+      "group_real": true,
+      "group_top": true,
+      "ready_tier": 2
+    },
+    {
+      "stock_id": "3287",
+      "name": "廣寰科",
+      "industry": "電腦及週邊設備業",
+      "close": 66.7,
+      "rs_rating": 98,
+      "dist_52w_high": -0.1514,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 78.6,
+      "stop": 54.2,
+      "risk_pct": 0.3104,
+      "reward_risk": 0.0,
+      "pivot_width": 0.3104,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.2462
+      ],
+      "avg_turnover_50": 78279397.0,
+      "avg_vol": 1390333.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": -19.7308,
+      "roe": 0.4586,
+      "rev_3m_yoy": 0.152,
+      "fundamental_ok": false,
+      "group_rank": 18,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 3
+    },
+    {
+      "stock_id": "5013",
+      "name": "強新",
+      "industry": "鋼鐵工業",
+      "close": 59.3,
+      "rs_rating": 97,
+      "dist_52w_high": -0.1899,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 73.2,
+      "stop": 45.2,
+      "risk_pct": 0.3825,
+      "reward_risk": 0.0,
+      "pivot_width": 0.3825,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [],
+      "avg_turnover_50": 91328541.0,
+      "avg_vol": 1580084.0,
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": 3.4545,
+      "roe": 0.1123,
+      "rev_3m_yoy": 0.2655,
+      "fundamental_ok": false,
+      "group_rank": 5,
+      "group_real": true,
+      "group_top": true,
+      "ready_tier": 3
+    },
+    {
+      "stock_id": "7711",
+      "name": "永擎",
+      "industry": "電子工業",
+      "close": 627.0,
+      "rs_rating": 97,
+      "dist_52w_high": -0.0711,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 652.0,
+      "stop": 521.0,
+      "risk_pct": 0.2009,
+      "reward_risk": 0.18,
+      "pivot_width": 0.2009,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.3511,
+        0.1759,
+        0.1834
+      ],
+      "avg_turnover_50": 813281728.0,
+      "avg_vol": 1424276.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": 0.4721,
+      "roe": 0.3,
+      "rev_3m_yoy": null,
+      "fundamental_ok": false,
+      "group_rank": 13,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 2
+    },
+    {
+      "stock_id": "6467",
+      "name": "泰合",
+      "industry": "生技醫療業",
+      "close": 238.0,
+      "rs_rating": 96,
+      "dist_52w_high": -0.2119,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 265.0,
+      "stop": 184.0,
+      "risk_pct": 0.3057,
+      "reward_risk": 0.46,
+      "pivot_width": 0.3057,
+      "seq_clean": false,
+      "vol_contraction": true,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.2202,
+        0.4
+      ],
+      "avg_turnover_50": 285233102.0,
+      "avg_vol": 1306021.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": -0.4975,
+      "roe": -0.8996,
+      "rev_3m_yoy": 77.9828,
+      "fundamental_ok": false,
+      "group_rank": 29,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 3
+    },
+    {
+      "stock_id": "6870",
+      "name": "騰雲",
+      "industry": "數位雲端類",
+      "close": 412.5,
+      "rs_rating": 96,
+      "dist_52w_high": -0.0782,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 447.5,
+      "stop": 324.0,
+      "risk_pct": 0.276,
+      "reward_risk": 0.0,
+      "pivot_width": 0.276,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.1529
+      ],
+      "avg_turnover_50": 66533134.0,
+      "avg_vol": 193318.0,
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": 0.9405,
+      "roe": 0.1681,
+      "rev_3m_yoy": 0.2604,
+      "fundamental_ok": true,
+      "group_rank": 37,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 3
+    },
+    {
+      "stock_id": "2254",
+      "name": "巨鎧精密-創",
+      "industry": "汽車工業",
+      "close": 109.0,
+      "rs_rating": 95,
+      "dist_52w_high": 0.0,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 109.0,
+      "stop": 91.1,
+      "risk_pct": 0.1642,
+      "reward_risk": 0.0,
+      "pivot_width": 0.1642,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.1585,
+        0.0982
+      ],
+      "avg_turnover_50": 202432813.0,
+      "avg_vol": 2229008.0,
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": -22.4,
+      "roe": -0.2064,
+      "rev_3m_yoy": -0.9142,
+      "fundamental_ok": false,
+      "group_rank": 22,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 1
+    },
+    {
+      "stock_id": "2465",
+      "name": "麗臺",
+      "industry": "電腦及週邊設備業",
+      "close": 119.5,
+      "rs_rating": 95,
+      "dist_52w_high": -0.0808,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 130.0,
+      "stop": 85.5,
+      "risk_pct": 0.3423,
+      "reward_risk": 0.0,
+      "pivot_width": 0.3423,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.2353,
+        0.0913
+      ],
+      "avg_turnover_50": 530349805.0,
+      "avg_vol": 5070513.0,
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": null,
+      "roe": 0.2117,
+      "rev_3m_yoy": 2.7365,
+      "fundamental_ok": false,
+      "group_rank": 18,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 3
+    },
+    {
+      "stock_id": "4526",
+      "name": "東台",
+      "industry": "電機機械",
+      "close": 54.5,
+      "rs_rating": 95,
+      "dist_52w_high": -0.1066,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 61.0,
+      "stop": 49.95,
+      "risk_pct": 0.1811,
+      "reward_risk": 0.0,
+      "pivot_width": 0.4139,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.1811
+      ],
+      "avg_turnover_50": 431010237.0,
+      "avg_vol": 9604779.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": -1.1523,
+      "roe": -0.0921,
+      "rev_3m_yoy": 0.5305,
+      "fundamental_ok": false,
+      "group_rank": 24,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 3
+    },
+    {
+      "stock_id": "6108",
+      "name": "競國",
+      "industry": "電子工業",
+      "close": 27.75,
+      "rs_rating": 95,
+      "dist_52w_high": -0.2281,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 35.95,
+      "stop": 27.35,
+      "risk_pct": 0.2392,
+      "reward_risk": 0.0,
+      "pivot_width": 0.2392,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [],
+      "avg_turnover_50": 115653494.0,
+      "avg_vol": 4145842.0,
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": -4.5,
+      "roe": 0.0097,
+      "rev_3m_yoy": 0.5218,
+      "fundamental_ok": false,
+      "group_rank": 13,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 2
+    },
+    {
+      "stock_id": "1569",
+      "name": "濱川",
+      "industry": "電腦及週邊設備業",
+      "close": 80.5,
+      "rs_rating": 94,
+      "dist_52w_high": -0.1918,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 99.6,
+      "stop": 80.2,
+      "risk_pct": 0.1948,
+      "reward_risk": 0.0,
+      "pivot_width": 0.1948,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [],
+      "avg_turnover_50": 613706651.0,
+      "avg_vol": 7578718.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": -0.5877,
+      "roe": -0.1607,
+      "rev_3m_yoy": 0.0095,
+      "fundamental_ok": false,
+      "group_rank": 18,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 2
+    },
+    {
+      "stock_id": "2468",
+      "name": "華經",
+      "industry": "電子工業",
+      "close": 59.0,
+      "rs_rating": 94,
+      "dist_52w_high": -0.1141,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 66.6,
+      "stop": 49.6,
+      "risk_pct": 0.2553,
+      "reward_risk": 0.0,
+      "pivot_width": 0.2718,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.1492
+      ],
+      "avg_turnover_50": 522318117.0,
+      "avg_vol": 10010736.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": 0.3478,
+      "roe": 0.0761,
+      "rev_3m_yoy": 0.1138,
+      "fundamental_ok": false,
+      "group_rank": 13,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 3
+    },
+    {
+      "stock_id": "3147",
+      "name": "大綜",
+      "industry": "資訊服務業",
+      "close": 295.0,
+      "rs_rating": 93,
+      "dist_52w_high": -0.1619,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 327.5,
+      "stop": 287.0,
+      "risk_pct": 0.1237,
+      "reward_risk": 0.6,
+      "pivot_width": 0.1237,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.1094,
+        0.443,
+        0.1688,
+        0.221,
+        0.1176,
+        0.1045
+      ],
+      "avg_turnover_50": 300274857.0,
+      "avg_vol": 1071491.0,
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": 0.0339,
+      "roe": 0.2436,
+      "rev_3m_yoy": 3.4807,
+      "fundamental_ok": false,
+      "group_rank": 17,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 1
+    },
+    {
+      "stock_id": "6456",
+      "name": "GIS-KY",
+      "industry": "電子工業",
+      "close": 87.2,
+      "rs_rating": 93,
+      "dist_52w_high": -0.2317,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 113.5,
+      "stop": 82.2,
+      "risk_pct": 0.2758,
+      "reward_risk": 0.0,
+      "pivot_width": 0.2758,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [],
+      "avg_turnover_50": 1757765728.0,
+      "avg_vol": 18978296.0,
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": -27.25,
+      "roe": -0.0505,
+      "rev_3m_yoy": -0.4227,
+      "fundamental_ok": false,
+      "group_rank": 13,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 3
+    },
+    {
+      "stock_id": "7704",
+      "name": "明遠精密",
+      "industry": "半導體業",
+      "close": 74.9,
+      "rs_rating": 90,
+      "dist_52w_high": -0.2198,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 96.0,
+      "stop": 59.0,
+      "risk_pct": 0.3854,
+      "reward_risk": 0.0,
+      "pivot_width": 0.3854,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [],
+      "avg_turnover_50": 50254612.0,
+      "avg_vol": 601883.0,
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": 1.0,
+      "roe": 0.1042,
+      "rev_3m_yoy": 0.191,
+      "fundamental_ok": false,
+      "group_rank": 19,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 3
+    },
+    {
+      "stock_id": "3031",
+      "name": "佰鴻",
+      "industry": "電子工業",
+      "close": 30.3,
+      "rs_rating": 88,
+      "dist_52w_high": -0.1777,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 34.3,
+      "stop": 30.0,
+      "risk_pct": 0.1254,
+      "reward_risk": 0.59,
+      "pivot_width": 0.1254,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.4708,
+        0.1146,
+        0.1052,
+        0.1614
+      ],
+      "avg_turnover_50": 103614377.0,
+      "avg_vol": 3335030.0,
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 1,
+      "margin_overheat": false,
+      "eps_yoy": 0.3,
+      "roe": 0.0669,
+      "rev_3m_yoy": 0.2386,
+      "fundamental_ok": false,
+      "group_rank": 13,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 1
+    },
+    {
+      "stock_id": "4903",
+      "name": "聯光通",
+      "industry": "通信網路業",
+      "close": 49.0,
+      "rs_rating": 87,
+      "dist_52w_high": -0.1737,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 55.8,
+      "stop": 47.05,
+      "risk_pct": 0.1568,
+      "reward_risk": 0.4,
+      "pivot_width": 0.1649,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [
+        0.2142,
+        0.143
+      ],
+      "avg_turnover_50": 367664221.0,
+      "avg_vol": 7342604.0,
+      "trend_price_ok": true,
+      "inst_net_buy": false,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": -1.6111,
+      "roe": 0.1154,
+      "rev_3m_yoy": 0.0012,
+      "fundamental_ok": false,
+      "group_rank": 12,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 1
+    },
+    {
+      "stock_id": "6491",
+      "name": "晶碩",
+      "industry": "化學生技醫療",
+      "close": 399.5,
+      "rs_rating": 86,
+      "dist_52w_high": -0.0858,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 437.0,
+      "stop": 391.0,
+      "risk_pct": 0.1053,
+      "reward_risk": 0.0,
+      "pivot_width": 0.1053,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [],
+      "avg_turnover_50": 158774695.0,
+      "avg_vol": 394501.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": 0.7612,
+      "roe": 0.1612,
+      "rev_3m_yoy": 0.2862,
+      "fundamental_ok": false,
+      "group_rank": 14,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 1
+    },
+    {
+      "stock_id": "4938",
+      "name": "和碩",
+      "industry": "電子工業",
+      "close": 97.2,
+      "rs_rating": 84,
+      "dist_52w_high": -0.1474,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 114.0,
+      "stop": 96.6,
+      "risk_pct": 0.1526,
+      "reward_risk": 0.0,
+      "pivot_width": 0.1526,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [],
+      "avg_turnover_50": 1203847038.0,
+      "avg_vol": 12392836.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 1,
+      "margin_overheat": false,
+      "eps_yoy": 14.2727,
+      "roe": 0.1017,
+      "rev_3m_yoy": 0.1313,
+      "fundamental_ok": false,
+      "group_rank": 13,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 1
+    },
+    {
+      "stock_id": "2006",
+      "name": "東和鋼鐵",
+      "industry": "鋼鐵工業",
+      "close": 85.9,
+      "rs_rating": 83,
+      "dist_52w_high": -0.1052,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 96.0,
+      "stop": 85.6,
+      "risk_pct": 0.1083,
+      "reward_risk": 0.0,
+      "pivot_width": 0.1083,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [],
+      "avg_turnover_50": 153450032.0,
+      "avg_vol": 1774588.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 0,
+      "margin_overheat": false,
+      "eps_yoy": 0.596,
+      "roe": 0.162,
+      "rev_3m_yoy": 0.0324,
+      "fundamental_ok": false,
+      "group_rank": 5,
+      "group_real": true,
+      "group_top": true,
+      "ready_tier": 1
+    },
+    {
+      "stock_id": "4566",
+      "name": "時碩工業",
+      "industry": "電機機械",
+      "close": 75.3,
+      "rs_rating": 80,
+      "dist_52w_high": -0.1689,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 90.6,
+      "stop": 75.0,
+      "risk_pct": 0.1722,
+      "reward_risk": 0.0,
+      "pivot_width": 0.1722,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "待突破",
+      "contractions": [],
+      "avg_turnover_50": 256187339.0,
+      "avg_vol": 3225364.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 1,
+      "margin_overheat": false,
+      "eps_yoy": -0.5375,
+      "roe": 0.0191,
+      "rev_3m_yoy": 0.0924,
+      "fundamental_ok": false,
+      "group_rank": 24,
+      "group_real": true,
+      "group_top": false,
+      "ready_tier": 1
+    }
+  ],
+  "BREAKOUT": [
+    {
+      "stock_id": "2618",
+      "name": "長榮航",
+      "industry": "航運業",
+      "close": 45.1,
+      "rs_rating": 79,
+      "dist_52w_high": -0.0353,
+      "rs_line_new_high": false,
+      "grade": "",
+      "is_vcp": false,
+      "pivot_high": 46.75,
+      "stop": 41.8,
+      "risk_pct": 0.1059,
+      "reward_risk": 0.0,
+      "pivot_width": 0.1059,
+      "seq_clean": false,
+      "vol_contraction": false,
+      "breakout_status": "突破中",
+      "contractions": [
+        0.1512,
+        0.0813,
+        0.1211,
+        0.0631,
+        0.0417,
+        0.0511
+      ],
+      "avg_turnover_50": 782527626.0,
+      "avg_vol": 18335556.0,
+      "trend_price_ok": true,
+      "inst_net_buy": true,
+      "trust_streak": 1,
+      "margin_overheat": false,
+      "eps_yoy": -0.4274,
+      "roe": 0.197,
+      "rev_3m_yoy": 0.2605,
+      "fundamental_ok": false,
+      "group_rank": 6,
+      "group_real": true,
+      "group_top": true
+    }
+  ],
+  "groups": {
+    "industries": [
+      {
+        "name": "玻璃陶瓷",
+        "members": 4,
+        "median_rs": 78.0,
+        "breadth": 0.75,
+        "vcp_count": 1,
+        "real_group": false,
+        "mom": {
+          "21": -0.0632,
+          "63": 0.1233,
+          "126": 0.0998
+        },
+        "rs_vs_mkt": {
+          "21": 0.0792,
+          "63": 0.1622,
+          "126": 0.0645
+        },
+        "score": 89.46,
+        "top_members": [
+          {
+            "stock_id": "1809",
+            "name": "中釉",
+            "rs": 93
+          },
+          {
+            "stock_id": "1802",
+            "name": "台玻",
+            "rs": 89
+          },
+          {
+            "stock_id": "1817",
+            "name": "凱撒衛",
+            "rs": 67
+          },
+          {
+            "stock_id": "1810",
+            "name": "和成",
+            "rs": 62
+          }
+        ],
+        "rank": 1,
+        "top": true
+      },
+      {
+        "name": "水泥工業",
+        "members": 3,
+        "median_rs": 72.0,
+        "breadth": 0.667,
+        "vcp_count": 3,
+        "real_group": true,
+        "mom": {
+          "21": 0.0463,
+          "63": 0.1391,
+          "126": 0.0673
+        },
+        "rs_vs_mkt": {
+          "21": 0.1887,
+          "63": 0.178,
+          "126": 0.0321
+        },
+        "score": 88.1,
+        "top_members": [
+          {
+            "stock_id": "1101",
+            "name": "台泥",
+            "rs": 77
+          },
+          {
+            "stock_id": "1102",
+            "name": "亞泥",
+            "rs": 72
+          },
+          {
+            "stock_id": "1104",
+            "name": "環泥",
+            "rs": 45
+          }
+        ],
+        "rank": 2,
+        "top": true
+      },
+      {
+        "name": "塑膠工業",
+        "members": 11,
+        "median_rs": 69.0,
+        "breadth": 0.545,
+        "vcp_count": 7,
+        "real_group": true,
+        "mom": {
+          "21": -0.0256,
+          "63": 0.0736,
+          "126": 0.0934
+        },
+        "rs_vs_mkt": {
+          "21": 0.1168,
+          "63": 0.1124,
+          "126": 0.0582
+        },
+        "score": 80.29,
+        "top_members": [
+          {
+            "stock_id": "1303",
+            "name": "南亞",
+            "rs": 99
+          },
+          {
+            "stock_id": "1326",
+            "name": "台化",
+            "rs": 93
+          },
+          {
+            "stock_id": "1301",
+            "name": "台塑",
+            "rs": 90
+          },
+          {
+            "stock_id": "1323",
+            "name": "永裕",
+            "rs": 75
+          },
+          {
+            "stock_id": "1315",
+            "name": "達新",
+            "rs": 74
+          }
+        ],
+        "rank": 3,
+        "top": true
+      },
+      {
+        "name": "造紙工業",
+        "members": 4,
+        "median_rs": 65.0,
+        "breadth": 0.5,
+        "vcp_count": 3,
+        "real_group": true,
+        "mom": {
+          "21": 0.001,
+          "63": -0.0104,
+          "126": 0.0769
+        },
+        "rs_vs_mkt": {
+          "21": 0.1433,
+          "63": 0.0285,
+          "126": 0.0416
+        },
+        "score": 77.17,
+        "top_members": [
+          {
+            "stock_id": "1904",
+            "name": "正隆",
+            "rs": 86
+          },
+          {
+            "stock_id": "1907",
+            "name": "永豐餘",
+            "rs": 72
+          },
+          {
+            "stock_id": "6790",
+            "name": "永豐實",
+            "rs": 58
+          },
+          {
+            "stock_id": "1903",
+            "name": "士紙",
+            "rs": 46
+          }
+        ],
+        "rank": 4,
+        "top": true
+      },
+      {
+        "name": "鋼鐵工業",
+        "members": 30,
+        "median_rs": 65.0,
+        "breadth": 0.467,
+        "vcp_count": 22,
+        "real_group": true,
+        "mom": {
+          "21": -0.0306,
+          "63": 0.0057,
+          "126": 0.0345
+        },
+        "rs_vs_mkt": {
+          "21": 0.1117,
+          "63": 0.0446,
+          "126": -0.0007
+        },
+        "score": 75.25,
+        "top_members": [
+          {
+            "stock_id": "2033",
+            "name": "佳大",
+            "rs": 99
+          },
+          {
+            "stock_id": "5013",
+            "name": "強新",
+            "rs": 97
+          },
+          {
+            "stock_id": "2030",
+            "name": "彰源",
+            "rs": 94
+          },
+          {
+            "stock_id": "2069",
+            "name": "運錩",
+            "rs": 90
+          },
+          {
+            "stock_id": "2006",
+            "name": "東和鋼鐵",
+            "rs": 83
+          }
+        ],
+        "rank": 5,
+        "top": true
+      },
+      {
+        "name": "航運業",
+        "members": 26,
+        "median_rs": 63.5,
+        "breadth": 0.346,
+        "vcp_count": 18,
+        "real_group": true,
+        "mom": {
+          "21": -0.0042,
+          "63": 0.0312,
+          "126": 0.0228
+        },
+        "rs_vs_mkt": {
+          "21": 0.1381,
+          "63": 0.0701,
+          "126": -0.0125
+        },
+        "score": 73.87,
+        "top_members": [
+          {
+            "stock_id": "2615",
+            "name": "萬海",
+            "rs": 90
+          },
+          {
+            "stock_id": "2603",
+            "name": "長榮",
+            "rs": 88
+          },
+          {
+            "stock_id": "2637",
+            "name": "慧洋-KY",
+            "rs": 88
+          },
+          {
+            "stock_id": "2609",
+            "name": "陽明",
+            "rs": 80
+          },
+          {
+            "stock_id": "2618",
+            "name": "長榮航",
+            "rs": 79
+          }
+        ],
+        "rank": 6,
+        "top": true
+      },
+      {
+        "name": "貿易百貨",
+        "members": 10,
+        "median_rs": 60.5,
+        "breadth": 0.6,
+        "vcp_count": 8,
+        "real_group": true,
+        "mom": {
+          "21": -0.0076,
+          "63": -0.0095,
+          "126": -0.02
+        },
+        "rs_vs_mkt": {
+          "21": 0.1348,
+          "63": 0.0294,
+          "126": -0.0553
+        },
+        "score": 73.24,
+        "top_members": [
+          {
+            "stock_id": "4807",
+            "name": "日成-KY",
+            "rs": 82
+          },
+          {
+            "stock_id": "2915",
+            "name": "潤泰全",
+            "rs": 75
+          },
+          {
+            "stock_id": "2939",
+            "name": "永邑-KY",
+            "rs": 73
+          },
+          {
+            "stock_id": "2908",
+            "name": "特力",
+            "rs": 69
+          },
+          {
+            "stock_id": "2910",
+            "name": "統領",
+            "rs": 61
+          }
+        ],
+        "rank": 7,
+        "top": true
+      },
+      {
+        "name": "橡膠工業",
+        "members": 7,
+        "median_rs": 61.0,
+        "breadth": 0.286,
+        "vcp_count": 6,
+        "real_group": true,
+        "mom": {
+          "21": -0.0178,
+          "63": 0.0034,
+          "126": 0.0146
+        },
+        "rs_vs_mkt": {
+          "21": 0.1246,
+          "63": 0.0423,
+          "126": -0.0207
+        },
+        "score": 70.09,
+        "top_members": [
+          {
+            "stock_id": "2103",
+            "name": "台橡",
+            "rs": 91
+          },
+          {
+            "stock_id": "2107",
+            "name": "厚生",
+            "rs": 73
+          },
+          {
+            "stock_id": "2108",
+            "name": "南帝",
+            "rs": 71
+          },
+          {
+            "stock_id": "2114",
+            "name": "鑫永銓",
+            "rs": 61
+          },
+          {
+            "stock_id": "2105",
+            "name": "正新",
+            "rs": 58
+          }
+        ],
+        "rank": 8,
+        "top": true
+      },
+      {
+        "name": "農業科技業",
+        "members": 2,
+        "median_rs": 55.5,
+        "breadth": 0.5,
+        "vcp_count": 2,
+        "real_group": false,
+        "mom": {
+          "21": 0.0019,
+          "63": 0.0133,
+          "126": -0.0205
+        },
+        "rs_vs_mkt": {
+          "21": 0.1442,
+          "63": 0.0522,
+          "126": -0.0558
+        },
+        "score": 67.71,
+        "top_members": [
+          {
+            "stock_id": "6508",
+            "name": "惠光",
+            "rs": 70
+          },
+          {
+            "stock_id": "1240",
+            "name": "茂生農經",
+            "rs": 41
+          }
+        ],
+        "rank": 9,
+        "top": true
+      },
+      {
+        "name": "化學工業",
+        "members": 14,
+        "median_rs": 62.0,
+        "breadth": 0.357,
+        "vcp_count": 5,
+        "real_group": true,
+        "mom": {
+          "21": -0.1126,
+          "63": -0.0048,
+          "126": -0.1139
+        },
+        "rs_vs_mkt": {
+          "21": 0.0297,
+          "63": 0.0341,
+          "126": -0.1492
+        },
+        "score": 67.06,
+        "top_members": [
+          {
+            "stock_id": "4707",
+            "name": "磐亞",
+            "rs": 95
+          },
+          {
+            "stock_id": "4741",
+            "name": "泓瀚",
+            "rs": 94
+          },
+          {
+            "stock_id": "4706",
+            "name": "大恭",
+            "rs": 91
+          },
+          {
+            "stock_id": "6509",
+            "name": "聚和",
+            "rs": 85
+          },
+          {
+            "stock_id": "1711",
+            "name": "永光",
+            "rs": 82
+          }
+        ],
+        "rank": 10,
+        "top": true
+      },
+      {
+        "name": "油電燃氣業",
+        "members": 10,
+        "median_rs": 59.5,
+        "breadth": 0.1,
+        "vcp_count": 5,
+        "real_group": true,
+        "mom": {
+          "21": -0.0237,
+          "63": -0.0122,
+          "126": -0.0076
+        },
+        "rs_vs_mkt": {
+          "21": 0.1186,
+          "63": 0.0266,
+          "126": -0.0429
+        },
+        "score": 66.43,
+        "top_members": [
+          {
+            "stock_id": "6505",
+            "name": "台塑化",
+            "rs": 94
+          },
+          {
+            "stock_id": "8926",
+            "name": "台汽電",
+            "rs": 67
+          },
+          {
+            "stock_id": "9931",
+            "name": "欣高",
+            "rs": 64
+          },
+          {
+            "stock_id": "9918",
+            "name": "欣天然",
+            "rs": 62
+          },
+          {
+            "stock_id": "9926",
+            "name": "新海",
+            "rs": 61
+          }
+        ],
+        "rank": 11,
+        "top": false
+      },
+      {
+        "name": "通信網路業",
+        "members": 39,
+        "median_rs": 63.0,
+        "breadth": 0.205,
+        "vcp_count": 9,
+        "real_group": true,
+        "mom": {
+          "21": -0.1211,
+          "63": -0.0355,
+          "126": -0.1619
+        },
+        "rs_vs_mkt": {
+          "21": 0.0213,
+          "63": 0.0034,
+          "126": -0.1972
+        },
+        "score": 66.12,
+        "top_members": [
+          {
+            "stock_id": "3081",
+            "name": "聯亞",
+            "rs": 97
+          },
+          {
+            "stock_id": "3234",
+            "name": "光環",
+            "rs": 97
+          },
+          {
+            "stock_id": "6218",
+            "name": "豪勉",
+            "rs": 95
+          },
+          {
+            "stock_id": "4908",
+            "name": "前鼎",
+            "rs": 90
+          },
+          {
+            "stock_id": "3491",
+            "name": "昇達科",
+            "rs": 89
+          }
+        ],
+        "rank": 12,
+        "top": false
+      },
+      {
+        "name": "電子工業",
+        "members": 216,
+        "median_rs": 63.5,
+        "breadth": 0.273,
+        "vcp_count": 36,
+        "real_group": true,
+        "mom": {
+          "21": -0.1762,
+          "63": -0.0581,
+          "126": -0.0665
+        },
+        "rs_vs_mkt": {
+          "21": -0.0338,
+          "63": -0.0192,
+          "126": -0.1018
+        },
+        "score": 64.54,
+        "top_members": [
+          {
+            "stock_id": "2466",
+            "name": "冠西電",
+            "rs": 99
+          },
+          {
+            "stock_id": "6213",
+            "name": "聯茂",
+            "rs": 99
+          },
+          {
+            "stock_id": "6225",
+            "name": "天瀚",
+            "rs": 99
+          },
+          {
+            "stock_id": "2426",
+            "name": "鼎元",
+            "rs": 98
+          },
+          {
+            "stock_id": "3189",
+            "name": "景碩",
+            "rs": 98
+          }
+        ],
+        "rank": 13,
+        "top": false
+      },
+      {
+        "name": "化學生技醫療",
+        "members": 29,
+        "median_rs": 58.0,
+        "breadth": 0.31,
+        "vcp_count": 11,
+        "real_group": true,
+        "mom": {
+          "21": -0.0904,
+          "63": -0.0189,
+          "126": -0.0419
+        },
+        "rs_vs_mkt": {
+          "21": 0.052,
+          "63": 0.02,
+          "126": -0.0772
+        },
+        "score": 63.7,
+        "top_members": [
+          {
+            "stock_id": "1709",
+            "name": "和益",
+            "rs": 98
+          },
+          {
+            "stock_id": "4720",
+            "name": "德淵",
+            "rs": 94
+          },
+          {
+            "stock_id": "6446",
+            "name": "藥華藥",
+            "rs": 94
+          },
+          {
+            "stock_id": "1727",
+            "name": "中華化",
+            "rs": 90
+          },
+          {
+            "stock_id": "6491",
+            "name": "晶碩",
+            "rs": 86
+          }
+        ],
+        "rank": 14,
+        "top": false
+      },
+      {
+        "name": "電子零組件業",
+        "members": 160,
+        "median_rs": 62.5,
+        "breadth": 0.237,
+        "vcp_count": 14,
+        "real_group": true,
+        "mom": {
+          "21": -0.1945,
+          "63": -0.0702,
+          "126": -0.1077
+        },
+        "rs_vs_mkt": {
+          "21": -0.0522,
+          "63": -0.0313,
+          "126": -0.143
+        },
+        "score": 62.27,
+        "top_members": [
+          {
+            "stock_id": "6672",
+            "name": "騰輝電子-KY",
+            "rs": 99
+          },
+          {
+            "stock_id": "3026",
+            "name": "禾伸堂",
+            "rs": 98
+          },
+          {
+            "stock_id": "6173",
+            "name": "信昌電",
+            "rs": 98
+          },
+          {
+            "stock_id": "6538",
+            "name": "倉和",
+            "rs": 98
+          },
+          {
+            "stock_id": "3037",
+            "name": "欣興",
+            "rs": 97
+          }
+        ],
+        "rank": 15,
+        "top": false
+      }
+    ],
+    "themes": [
+      {
+        "name": "石化原料(例如純對苯二甲酸、乙二醇、己內醯胺、丙烯腈等)",
+        "members": 4,
+        "median_rs": 91.5,
+        "breadth": 1.0,
+        "vcp_count": 2,
+        "real_group": false,
+        "mom": {
+          "21": -0.0446,
+          "63": 0.1823,
+          "126": 0.2805
+        },
+        "rs_vs_mkt": {
+          "21": 0.0978,
+          "63": 0.2212,
+          "126": 0.2452
+        },
+        "score": 106.39,
+        "top_members": [
+          {
+            "stock_id": "1303",
+            "name": "南亞",
+            "rs": 99
+          },
+          {
+            "stock_id": "1326",
+            "name": "台化",
+            "rs": 93
+          },
+          {
+            "stock_id": "1301",
+            "name": "台塑",
+            "rs": 90
+          },
+          {
+            "stock_id": "1402",
+            "name": "遠東新",
+            "rs": 68
+          }
+        ],
+        "rank": 1,
+        "top": true
+      },
+      {
+        "name": "文化用紙",
+        "members": 3,
+        "median_rs": 85.0,
+        "breadth": 1.0,
+        "vcp_count": 3,
+        "real_group": true,
+        "mom": {
+          "21": -0.0021,
+          "63": 0.0789,
+          "126": 0.2064
+        },
+        "rs_vs_mkt": {
+          "21": 0.1403,
+          "63": 0.1178,
+          "126": 0.1711
+        },
+        "score": 102.01,
+        "top_members": [
+          {
+            "stock_id": "1904",
+            "name": "正隆",
+            "rs": 86
+          },
+          {
+            "stock_id": "6509",
+            "name": "聚和",
+            "rs": 85
+          },
+          {
+            "stock_id": "1907",
+            "name": "永豐餘",
+            "rs": 72
+          }
+        ],
+        "rank": 2,
+        "top": true
+      },
+      {
+        "name": "石化上游原料及相關鑽探設備",
+        "members": 3,
+        "median_rs": 94.0,
+        "breadth": 0.667,
+        "vcp_count": 1,
+        "real_group": false,
+        "mom": {
+          "21": -0.1182,
+          "63": 0.2984,
+          "126": 0.6278
+        },
+        "rs_vs_mkt": {
+          "21": 0.0242,
+          "63": 0.3373,
+          "126": 0.5925
+        },
+        "score": 101.88,
+        "top_members": [
+          {
+            "stock_id": "1303",
+            "name": "南亞",
+            "rs": 99
+          },
+          {
+            "stock_id": "6505",
+            "name": "台塑化",
+            "rs": 94
+          },
+          {
+            "stock_id": "1723",
+            "name": "中碳",
+            "rs": 38
+          }
+        ],
+        "rank": 3,
+        "top": true
+      },
+      {
+        "name": "人造纖維",
+        "members": 5,
+        "median_rs": 90.0,
+        "breadth": 0.8,
+        "vcp_count": 1,
+        "real_group": false,
+        "mom": {
+          "21": -0.0934,
+          "63": 0.1545,
+          "126": 0.2815
+        },
+        "rs_vs_mkt": {
+          "21": 0.0489,
+          "63": 0.1934,
+          "126": 0.2462
+        },
+        "score": 100.45,
+        "top_members": [
+          {
+            "stock_id": "1303",
+            "name": "南亞",
+            "rs": 99
+          },
+          {
+            "stock_id": "1326",
+            "name": "台化",
+            "rs": 93
+          },
+          {
+            "stock_id": "1301",
+            "name": "台塑",
+            "rs": 90
+          },
+          {
+            "stock_id": "1409",
+            "name": "新纖",
+            "rs": 87
+          },
+          {
+            "stock_id": "4303",
+            "name": "信立",
+            "rs": 1
+          }
+        ],
+        "rank": 4,
+        "top": true
+      },
+      {
+        "name": "界面活性劑",
+        "members": 4,
+        "median_rs": 92.5,
+        "breadth": 1.0,
+        "vcp_count": 0,
+        "real_group": false,
+        "mom": {
+          "21": -0.1915,
+          "63": 0.1248,
+          "126": 0.3969
+        },
+        "rs_vs_mkt": {
+          "21": -0.0491,
+          "63": 0.1637,
+          "126": 0.3616
+        },
+        "score": 100.04,
+        "top_members": [
+          {
+            "stock_id": "1709",
+            "name": "和益",
+            "rs": 98
+          },
+          {
+            "stock_id": "4707",
+            "name": "磐亞",
+            "rs": 95
+          },
+          {
+            "stock_id": "1727",
+            "name": "中華化",
+            "rs": 90
+          },
+          {
+            "stock_id": "1725",
+            "name": "元禎",
+            "rs": 80
+          }
+        ],
+        "rank": 5,
+        "top": true
+      },
+      {
+        "name": "人造纖維產品(例如尼龍纖維、聚酯纖維、嫘縈纖維等)",
+        "members": 5,
+        "median_rs": 87.0,
+        "breadth": 0.8,
+        "vcp_count": 2,
+        "real_group": false,
+        "mom": {
+          "21": -0.0423,
+          "63": 0.0465,
+          "126": 0.2795
+        },
+        "rs_vs_mkt": {
+          "21": 0.1,
+          "63": 0.0854,
+          "126": 0.2442
+        },
+        "score": 100.0,
+        "top_members": [
+          {
+            "stock_id": "1303",
+            "name": "南亞",
+            "rs": 99
+          },
+          {
+            "stock_id": "1326",
+            "name": "台化",
+            "rs": 93
+          },
+          {
+            "stock_id": "1409",
+            "name": "新纖",
+            "rs": 87
+          },
+          {
+            "stock_id": "1402",
+            "name": "遠東新",
+            "rs": 68
+          },
+          {
+            "stock_id": "4420",
+            "name": "光明",
+            "rs": 26
+          }
+        ],
+        "rank": 6,
+        "top": true
+      },
+      {
+        "name": "玻璃纖維/玻纖布",
+        "members": 7,
+        "median_rs": 89.0,
+        "breadth": 0.429,
+        "vcp_count": 1,
+        "real_group": false,
+        "mom": {
+          "21": -0.0423,
+          "63": 0.2944,
+          "126": -0.2903
+        },
+        "rs_vs_mkt": {
+          "21": 0.1,
+          "63": 0.3333,
+          "126": -0.3256
+        },
+        "score": 98.29,
+        "top_members": [
+          {
+            "stock_id": "1303",
+            "name": "南亞",
+            "rs": 99
+          },
+          {
+            "stock_id": "1815",
+            "name": "富喬",
+            "rs": 92
+          },
+          {
+            "stock_id": "5475",
+            "name": "德宏",
+            "rs": 92
+          },
+          {
+            "stock_id": "1802",
+            "name": "台玻",
+            "rs": 89
+          },
+          {
+            "stock_id": "5340",
+            "name": "建榮",
+            "rs": 80
+          }
+        ],
+        "rank": 7,
+        "top": true
+      },
+      {
+        "name": "貨櫃航運",
+        "members": 5,
+        "median_rs": 80.0,
+        "breadth": 0.8,
+        "vcp_count": 5,
+        "real_group": true,
+        "mom": {
+          "21": 0.005,
+          "63": 0.2259,
+          "126": 0.2298
+        },
+        "rs_vs_mkt": {
+          "21": 0.1474,
+          "63": 0.2648,
+          "126": 0.1945
+        },
+        "score": 95.37,
+        "top_members": [
+          {
+            "stock_id": "2615",
+            "name": "萬海",
+            "rs": 90
+          },
+          {
+            "stock_id": "2603",
+            "name": "長榮",
+            "rs": 88
+          },
+          {
+            "stock_id": "2609",
+            "name": "陽明",
+            "rs": 80
+          },
+          {
+            "stock_id": "2607",
+            "name": "榮運",
+            "rs": 78
+          },
+          {
+            "stock_id": "8367",
+            "name": "建新國際",
+            "rs": 57
+          }
+        ],
+        "rank": 8,
+        "top": true
+      },
+      {
+        "name": "顏染料",
+        "members": 5,
+        "median_rs": 85.0,
+        "breadth": 0.6,
+        "vcp_count": 2,
+        "real_group": false,
+        "mom": {
+          "21": -0.0551,
+          "63": 0.0789,
+          "126": -0.0038
+        },
+        "rs_vs_mkt": {
+          "21": 0.0872,
+          "63": 0.1178,
+          "126": -0.0391
+        },
+        "score": 95.36,
+        "top_members": [
+          {
+            "stock_id": "4741",
+            "name": "泓瀚",
+            "rs": 94
+          },
+          {
+            "stock_id": "4706",
+            "name": "大恭",
+            "rs": 91
+          },
+          {
+            "stock_id": "6509",
+            "name": "聚和",
+            "rs": 85
+          },
+          {
+            "stock_id": "1711",
+            "name": "永光",
+            "rs": 82
+          },
+          {
+            "stock_id": "3430",
+            "name": "奇鈦科",
+            "rs": 20
+          }
+        ],
+        "rank": 9,
+        "top": true
+      },
+      {
+        "name": "銅箔基板",
+        "members": 16,
+        "median_rs": 91.5,
+        "breadth": 0.5,
+        "vcp_count": 2,
+        "real_group": false,
+        "mom": {
+          "21": -0.1858,
+          "63": 0.0683,
+          "126": -0.0376
+        },
+        "rs_vs_mkt": {
+          "21": -0.0434,
+          "63": 0.1072,
+          "126": -0.0728
+        },
+        "score": 94.33,
+        "top_members": [
+          {
+            "stock_id": "1303",
+            "name": "南亞",
+            "rs": 99
+          },
+          {
+            "stock_id": "6213",
+            "name": "聯茂",
+            "rs": 99
+          },
+          {
+            "stock_id": "6672",
+            "name": "騰輝電子-KY",
+            "rs": 99
+          },
+          {
+            "stock_id": "3354",
+            "name": "律勝",
+            "rs": 96
+          },
+          {
+            "stock_id": "8039",
+            "name": "台虹",
+            "rs": 96
+          }
+        ],
+        "rank": 10,
+        "top": true
+      },
+      {
+        "name": "工業用紙",
+        "members": 4,
+        "median_rs": 78.5,
+        "breadth": 0.75,
+        "vcp_count": 3,
+        "real_group": true,
+        "mom": {
+          "21": -0.0063,
+          "63": 0.0363,
+          "126": 0.194
+        },
+        "rs_vs_mkt": {
+          "21": 0.136,
+          "63": 0.0752,
+          "126": 0.1588
+        },
+        "score": 92.8,
+        "top_members": [
+          {
+            "stock_id": "1904",
+            "name": "正隆",
+            "rs": 86
+          },
+          {
+            "stock_id": "6509",
+            "name": "聚和",
+            "rs": 85
+          },
+          {
+            "stock_id": "1907",
+            "name": "永豐餘",
+            "rs": 72
+          },
+          {
+            "stock_id": "1903",
+            "name": "士紙",
+            "rs": 46
+          }
+        ],
+        "rank": 11,
+        "top": true
+      },
+      {
+        "name": "藍寶石晶圓/晶片",
+        "members": 4,
+        "median_rs": 86.0,
+        "breadth": 0.5,
+        "vcp_count": 0,
+        "real_group": false,
+        "mom": {
+          "21": -0.1361,
+          "63": 0.2252,
+          "126": 0.0678
+        },
+        "rs_vs_mkt": {
+          "21": 0.0063,
+          "63": 0.2641,
+          "126": 0.0326
+        },
+        "score": 91.31,
+        "top_members": [
+          {
+            "stock_id": "2491",
+            "name": "吉祥全",
+            "rs": 97
+          },
+          {
+            "stock_id": "6278",
+            "name": "台表科",
+            "rs": 93
+          },
+          {
+            "stock_id": "3615",
+            "name": "安可",
+            "rs": 79
+          },
+          {
+            "stock_id": "2371",
+            "name": "大同",
+            "rs": 36
+          }
+        ],
+        "rank": 12,
+        "top": true
+      },
+      {
+        "name": "電信服務業",
+        "members": 6,
+        "median_rs": 75.0,
+        "breadth": 0.667,
+        "vcp_count": 6,
+        "real_group": true,
+        "mom": {
+          "21": 0.0405,
+          "63": 0.0781,
+          "126": 0.1058
+        },
+        "rs_vs_mkt": {
+          "21": 0.1829,
+          "63": 0.117,
+          "126": 0.0705
+        },
+        "score": 90.81,
+        "top_members": [
+          {
+            "stock_id": "3045",
+            "name": "台灣大",
+            "rs": 83
+          },
+          {
+            "stock_id": "2412",
+            "name": "中華電",
+            "rs": 82
+          },
+          {
+            "stock_id": "4904",
+            "name": "遠傳",
+            "rs": 80
+          },
+          {
+            "stock_id": "6136",
+            "name": "富爾特",
+            "rs": 70
+          },
+          {
+            "stock_id": "6170",
+            "name": "統振",
+            "rs": 64
+          }
+        ],
+        "rank": 13,
+        "top": true
+      },
+      {
+        "name": "雲端應用服務",
+        "members": 17,
+        "median_rs": 75.0,
+        "breadth": 0.647,
+        "vcp_count": 12,
+        "real_group": true,
+        "mom": {
+          "21": 0.0279,
+          "63": 0.0885,
+          "126": 0.1133
+        },
+        "rs_vs_mkt": {
+          "21": 0.1702,
+          "63": 0.1274,
+          "126": 0.078
+        },
+        "score": 89.98,
+        "top_members": [
+          {
+            "stock_id": "8099",
+            "name": "大世科",
+            "rs": 98
+          },
+          {
+            "stock_id": "6870",
+            "name": "騰雲",
+            "rs": 96
+          },
+          {
+            "stock_id": "2395",
+            "name": "研華",
+            "rs": 92
+          },
+          {
+            "stock_id": "6221",
+            "name": "晉泰",
+            "rs": 91
+          },
+          {
+            "stock_id": "6697",
+            "name": "東捷資訊",
+            "rs": 88
+          }
+        ],
+        "rank": 14,
+        "top": true
+      },
+      {
+        "name": "裁剪加工",
+        "members": 4,
+        "median_rs": 76.5,
+        "breadth": 0.75,
+        "vcp_count": 4,
+        "real_group": true,
+        "mom": {
+          "21": -0.0394,
+          "63": 0.1739,
+          "126": 0.0743
+        },
+        "rs_vs_mkt": {
+          "21": 0.1029,
+          "63": 0.2128,
+          "126": 0.039
+        },
+        "score": 89.15,
+        "top_members": [
+          {
+            "stock_id": "2069",
+            "name": "運錩",
+            "rs": 90
+          },
+          {
+            "stock_id": "2031",
+            "name": "新光鋼",
+            "rs": 77
+          },
+          {
+            "stock_id": "2034",
+            "name": "允強",
+            "rs": 76
+          },
+          {
+            "stock_id": "2010",
+            "name": "春源",
+            "rs": 70
+          }
+        ],
+        "rank": 15,
+        "top": true
+      }
+    ]
+  },
+  "top_volume": [
+    {
+      "stock_id": "2330",
+      "name": "台積電",
+      "industry": "電子工業",
+      "close": 2240.0,
+      "turnover_last": 101826543759.0,
+      "dist_52w_high": -0.1351
+    },
+    {
+      "stock_id": "2454",
+      "name": "聯發科",
+      "industry": "電子工業",
+      "close": 3460.0,
+      "turnover_last": 48588212385.0,
+      "dist_52w_high": -0.3686
+    },
+    {
+      "stock_id": "1303",
+      "name": "南亞",
+      "industry": "塑膠工業",
+      "close": 249.0,
+      "turnover_last": 24227546437.0,
+      "dist_52w_high": -0.2896
+    },
+    {
+      "stock_id": "3037",
+      "name": "欣興",
+      "industry": "電子零組件業",
+      "close": 800.0,
+      "turnover_last": 23631764756.0,
+      "dist_52w_high": -0.4366
+    },
+    {
+      "stock_id": "2327",
+      "name": "國巨*",
+      "industry": "電子零組件業",
+      "close": 404.5,
+      "turnover_last": 22950715941.0,
+      "dist_52w_high": -0.6684
+    },
+    {
+      "stock_id": "2308",
+      "name": "台達電",
+      "industry": "電子零組件業",
+      "close": 1130.0,
+      "turnover_last": 22881613385.0,
+      "dist_52w_high": -0.5629
+    },
+    {
+      "stock_id": "3443",
+      "name": "創意",
+      "industry": "電子工業",
+      "close": 6405.0,
+      "turnover_last": 21121327525.0,
+      "dist_52w_high": -0.268
+    },
+    {
+      "stock_id": "2408",
+      "name": "南亞科",
+      "industry": "電子工業",
+      "close": 360.0,
+      "turnover_last": 20741107002.0,
+      "dist_52w_high": -0.3673
+    },
+    {
+      "stock_id": "2383",
+      "name": "台光電",
+      "industry": "電子零組件業",
+      "close": 4100.0,
+      "turnover_last": 19546826085.0,
+      "dist_52w_high": -0.3663
+    },
+    {
+      "stock_id": "3711",
+      "name": "日月光投控",
+      "industry": "電子工業",
+      "close": 572.0,
+      "turnover_last": 18661741240.0,
+      "dist_52w_high": -0.2523
+    }
+  ],
+  "changes": {
+    "vs": "2026-11-04",
+    "LEADERS": {
+      "entered": [
+        {
+          "stock_id": "5904",
+          "name": "寶雅*",
+          "grade": "B"
+        },
+        {
+          "stock_id": "3045",
+          "name": "台灣大",
+          "grade": "C"
+        },
+        {
+          "stock_id": "4904",
+          "name": "遠傳",
+          "grade": "C"
+        }
+      ],
+      "left": [
+        {
+          "stock_id": "2006",
+          "name": "東和鋼鐵"
+        }
+      ]
+    },
+    "READY": {
+      "entered": [
+        {
+          "stock_id": "4526",
+          "name": "東台",
+          "grade": ""
+        },
+        {
+          "stock_id": "2468",
+          "name": "華經",
+          "grade": ""
+        },
+        {
+          "stock_id": "7704",
+          "name": "明遠精密",
+          "grade": ""
+        },
+        {
+          "stock_id": "6491",
+          "name": "晶碩",
+          "grade": ""
+        },
+        {
+          "stock_id": "2006",
+          "name": "東和鋼鐵",
+          "grade": ""
+        }
+      ],
+      "left": [
+        {
+          "stock_id": "2466",
+          "name": "冠西電"
+        },
+        {
+          "stock_id": "3498",
+          "name": "陽程"
+        },
+        {
+          "stock_id": "6672",
+          "name": "騰輝電子-KY"
+        },
+        {
+          "stock_id": "1303",
+          "name": "南亞"
+        },
+        {
+          "stock_id": "3105",
+          "name": "穩懋"
+        },
+        {
+          "stock_id": "3443",
+          "name": "創意"
+        },
+        {
+          "stock_id": "3374",
+          "name": "精材"
+        },
+        {
+          "stock_id": "6933",
+          "name": "AMAX-KY"
+        },
+        {
+          "stock_id": "3605",
+          "name": "宏致"
+        },
+        {
+          "stock_id": "3653",
+          "name": "健策"
+        },
+        {
+          "stock_id": "8996",
+          "name": "高力"
+        },
+        {
+          "stock_id": "6505",
+          "name": "台塑化"
+        },
+        {
+          "stock_id": "1815",
+          "name": "富喬"
+        },
+        {
+          "stock_id": "6532",
+          "name": "瑞耘"
+        },
+        {
+          "stock_id": "4927",
+          "name": "泰鼎-KY"
+        },
+        {
+          "stock_id": "1301",
+          "name": "台塑"
+        },
+        {
+          "stock_id": "5426",
+          "name": "振發"
+        },
+        {
+          "stock_id": "6902",
+          "name": "GOGOLOOK"
+        },
+        {
+          "stock_id": "6756",
+          "name": "威鋒電子"
+        },
+        {
+          "stock_id": "5292",
+          "name": "華懋"
+        },
+        {
+          "stock_id": "2379",
+          "name": "瑞昱"
+        },
+        {
+          "stock_id": "3564",
+          "name": "其陽"
+        },
+        {
+          "stock_id": "6269",
+          "name": "台郡"
+        }
+      ]
+    },
+    "BREAKOUT": {
+      "entered": [
+        {
+          "stock_id": "2618",
+          "name": "長榮航",
+          "grade": ""
+        }
+      ],
+      "left": []
+    }
+  }
+}
